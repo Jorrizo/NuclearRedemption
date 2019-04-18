@@ -159,10 +159,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Starting: {fileID: 84026463}
   Ending: {fileID: 630757531}
-  FusibleList:
-  - {fileID: 423225047463185327}
-  - {fileID: 866931224}
-  - {fileID: 2140858821}
   CurrentFusible: {fileID: 0}
   IsLiaisonValid: 0
 --- !u!1 &59424724
@@ -2186,10 +2182,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Starting: {fileID: 630757531}
   Ending: {fileID: 1729865368}
-  FusibleList:
-  - {fileID: 423225047463185327}
-  - {fileID: 866931224}
-  - {fileID: 2140858821}
   CurrentFusible: {fileID: 0}
   IsLiaisonValid: 0
 --- !u!1 &395339700
@@ -2993,10 +2985,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Starting: {fileID: 1729865368}
   Ending: {fileID: 84026463}
-  FusibleList:
-  - {fileID: 423225047463185327}
-  - {fileID: 866931224}
-  - {fileID: 2140858821}
   CurrentFusible: {fileID: 0}
   IsLiaisonValid: 0
 --- !u!1 &691362390
@@ -4495,6 +4483,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 43094262}
+        m_MethodName: SnappedObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: VRTK.UnityEventHelper.VRTK_SnapDropZone_UnityEvents+SnapDropZoneEvent,
       Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnObjectUnsnappedFromDropZone:
@@ -4502,6 +4501,18 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: VRTK.UnityEventHelper.VRTK_SnapDropZone_UnityEvents+SnapDropZoneEvent,
       Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+--- !u!114 &887831674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 887831672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa67d486fdd4efc4592c8663c1f18669, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &956005300 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 192714620377549513, guid: 8989cb1eefb88734bb864814a09c9e30,
@@ -4535,6 +4546,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 683674595}
         m_MethodName: CheckLiaison
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 683674595}
+        m_MethodName: SnappedObject
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9321,8 +9343,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 383995568}
-        m_MethodName: 
+      - m_Target: {fileID: 383995570}
+        m_MethodName: SnappedObject
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9339,6 +9361,18 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: VRTK.UnityEventHelper.VRTK_SnapDropZone_UnityEvents+SnapDropZoneEvent,
       Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+--- !u!114 &1910024495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910024493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa67d486fdd4efc4592c8663c1f18669, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1952320626
 PrefabInstance:
   m_ObjectHideFlags: 0

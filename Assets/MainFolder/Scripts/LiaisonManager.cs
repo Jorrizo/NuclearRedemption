@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VRTK;
 
 public class LiaisonManager : MonoBehaviour
 {
@@ -8,8 +9,9 @@ public class LiaisonManager : MonoBehaviour
     public ModuleState Ending;
     private ModuleState ValueTemp;
 
-    public GameObject [] FusibleList;
+   
     public GameObject CurrentFusible;
+
 
     public bool IsLiaisonValid = false;
     
@@ -38,18 +40,10 @@ public class LiaisonManager : MonoBehaviour
        
     }
 
-    public void SurchauffeIsSnapping ()
+    public void SnappedObject ()
     {
-        this.CurrentFusible = FusibleList[0];
+        CurrentFusible = GetComponentInChildren<VRTK_SnapDropZone>().GetCurrentSnappedObject();
     }
 
-    public void SurchargeIsSnapping()
-    {
-        this.CurrentFusible = FusibleList[1];
-    }
 
-    public void RadiationIsSnapping()
-    {
-        this.CurrentFusible = FusibleList[2];
-    }
 }
