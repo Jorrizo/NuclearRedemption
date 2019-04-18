@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using VRTK;
+using VRTK; //Accès à la catégorie VTRK
 
 public class LiaisonManager : MonoBehaviour
 {
@@ -9,7 +9,6 @@ public class LiaisonManager : MonoBehaviour
     public ModuleState Ending;
     private ModuleState ValueTemp;
 
-   
     public GameObject CurrentFusible;
 
 
@@ -35,15 +34,29 @@ public class LiaisonManager : MonoBehaviour
         Ending = ValueTemp;
     }
 
-    public void CheckLiaison ()
-    {
-       
-    }
 
-    public void SnappedObject ()
+    public void SnappedObject () //Stoque le GameObject sur la snapzone
     {
         CurrentFusible = GetComponentInChildren<VRTK_SnapDropZone>().GetCurrentSnappedObject();
     }
 
+    public void CheckLiaison () 
+    {
+      // if (!Starting.Stable)// Si il n'est pas stable
+      //{
+        if (CurrentFusible.CompareTag("Surchauffe")) //Surchauffe
+        {
+            Debug.Log("Surchauffe");
+        }
+        else if (CurrentFusible.CompareTag("Surcharge")) //Surcharge
+        {
+            Debug.Log("Surcharge");
+        }
+        else if (CurrentFusible.CompareTag("Radioactif")) //Radiation
+        {
+            Debug.Log("Radiation");
+        }
+      //}
+    }
 
 }

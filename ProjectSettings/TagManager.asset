@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - SnapCylinder
+  - Surchauffe
+  - Surcharge
+  - Radioactif
+  - "Lumi\xE8re"
   layers:
   - Default
   - TransparentFX
