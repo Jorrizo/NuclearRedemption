@@ -40,6 +40,7 @@
             if (outputOnMin != "")
             {
                 Debug.Log(outputOnMin);
+                
             }
         }
     }
