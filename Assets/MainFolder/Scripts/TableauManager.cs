@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VRTK;
 
 public class TableauManager : MonoBehaviour
 {
@@ -30,6 +31,7 @@ public class TableauManager : MonoBehaviour
                         Liaisons[i].Starting.Surchauffe = false;
                         Liaisons[i].CurrentFusible.GetComponent<FusibleManager>().isUsed = true;
                         Liaisons[i].IsLiaisonValid = false;
+                        Liaisons[i].GetComponentInChildren<VRTK_SnapDropZone>().ForceUnsnap();
 
                     }
                     if (Liaisons[i].CurrentFusible.CompareTag("Surcharge"))
@@ -37,12 +39,14 @@ public class TableauManager : MonoBehaviour
                         Liaisons[i].Starting.Surcharge = false;
                         Liaisons[i].CurrentFusible.GetComponent<FusibleManager>().isUsed = true;
                         Liaisons[i].IsLiaisonValid = false;
+                        Liaisons[i].GetComponentInChildren<VRTK_SnapDropZone>().ForceUnsnap();
                     }
                     if (Liaisons[i].CurrentFusible.CompareTag("Radioactif"))
                     {
                         Liaisons[i].Starting.Radiation = false;
                         Liaisons[i].CurrentFusible.GetComponent<FusibleManager>().isUsed = true;
                         Liaisons[i].IsLiaisonValid = false;
+                        Liaisons[i].GetComponentInChildren<VRTK_SnapDropZone>().ForceUnsnap();
                     }
                 }
             }

@@ -5,8 +5,8 @@ using VRTK; //Accès à la catégorie VTRK
 
 public class LiaisonManager : MonoBehaviour
 {
-    public ModuleState Starting;
-    public ModuleState Ending;
+    public ModuleState Starting; //Module éméteur
+    public ModuleState Ending; //Module de récépteur
     private ModuleState ValueTemp;
 
     public GameObject CurrentFusible;
@@ -42,29 +42,36 @@ public class LiaisonManager : MonoBehaviour
 
     public void CheckLiaison () 
     {
-      // if (!Starting.Stable)// Si il n'est pas stable
-      //{
-        if (CurrentFusible.CompareTag("Surchauffe") && !CurrentFusible.GetComponent<FusibleManager>().isUsed && (Starting.Surchauffe && !Ending.Surchauffe)) //Surchauffe
+        if (CurrentFusible != null)
         {
-            IsLiaisonValid = true;
+
+            if (!CurrentFusible.GetComponent<FusibleManager>().isUsed)// Si le fusible n'est pas usé
+            {
+                Debug.Log("!Stable && !Used");
+
+                if (CurrentFusible.CompareTag("Surchauffe") && (Starting.Surchauffe && !Ending.Surchauffe)) //Si c'est le fusible Surchauffe et que la liaison Surchauffe est respectée
+                {
+                    IsLiaisonValid = true;
+                }
+                else if (CurrentFusible.CompareTag("Surcharge") && (Starting.Surcharge && !Ending.Surcharge)) //Si c'est le fusible Surcharge et que la liaison Surchauffe est respectée
+                {
+                    IsLiaisonValid = true;
+                }
+                else if (CurrentFusible.CompareTag("Radioactif") && (Starting.Radiation && !Ending.Radiation)) //Si c'est le fusible Radiation et que la liaison Surchauffe est respectée
+                {
+                    IsLiaisonValid = true;
+                }
+                else // sécuritée
+                {
+                    IsLiaisonValid = false;
+                }          
+            }
+
+            else  // Si le fusible est usée /!\ attention possible mauvais placement de ce code /!\
+            {
+                GetComponentInChildren<VRTK_SnapDropZone>().ForceUnsnap();
+            }
         }
-        else if (CurrentFusible.CompareTag("Surcharge") && !CurrentFusible.GetComponent<FusibleManager>().isUsed && (Starting.Surcharge && !Ending.Surcharge)) //Surcharge
-        {
-            IsLiaisonValid = true;
-        }
-        else if (CurrentFusible.CompareTag("Radioactif") && !CurrentFusible.GetComponent<FusibleManager>().isUsed && (Starting.Radiation && !Ending.Radiation)) //Radiation
-        {
-            IsLiaisonValid = true;
-        }
-        if (CurrentFusible.GetComponentInChildren<FusibleManager>().isUsed)
-        {
-            GetComponentInChildren<VRTK_SnapDropZone>().ForceUnsnap();
-        }
-        else
-        {
-            IsLiaisonValid = false;
-        }
-      //}
     }
 
 }
