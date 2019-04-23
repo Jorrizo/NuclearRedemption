@@ -44,17 +44,25 @@ public class LiaisonManager : MonoBehaviour
     {
       // if (!Starting.Stable)// Si il n'est pas stable
       //{
-        if (CurrentFusible.CompareTag("Surchauffe")) //Surchauffe
+        if (CurrentFusible.CompareTag("Surchauffe") && !CurrentFusible.GetComponent<FusibleManager>().isUsed && (Starting.Surchauffe && !Ending.Surchauffe)) //Surchauffe
         {
-            Debug.Log("Surchauffe");
+            IsLiaisonValid = true;
         }
-        else if (CurrentFusible.CompareTag("Surcharge")) //Surcharge
+        else if (CurrentFusible.CompareTag("Surcharge") && !CurrentFusible.GetComponent<FusibleManager>().isUsed && (Starting.Surcharge && !Ending.Surcharge)) //Surcharge
         {
-            Debug.Log("Surcharge");
+            IsLiaisonValid = true;
         }
-        else if (CurrentFusible.CompareTag("Radioactif")) //Radiation
+        else if (CurrentFusible.CompareTag("Radioactif") && !CurrentFusible.GetComponent<FusibleManager>().isUsed && (Starting.Radiation && !Ending.Radiation)) //Radiation
         {
-            Debug.Log("Radiation");
+            IsLiaisonValid = true;
+        }
+        if (CurrentFusible.GetComponentInChildren<FusibleManager>().isUsed)
+        {
+            GetComponentInChildren<VRTK_SnapDropZone>().ForceUnsnap();
+        }
+        else
+        {
+            IsLiaisonValid = false;
         }
       //}
     }
