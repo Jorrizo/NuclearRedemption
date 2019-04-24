@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
+
     public enum GameStates {
         Préparation,
         Paisible,
@@ -14,10 +15,10 @@ public class GameManager : MonoBehaviour
 
     public GameStates type = GameStates.Préparation;
 
+    public bool[] currentModuleStable;
+
     public float coolDown = 30f;
     float timeStamp;
-    public bool[] currentModuleStable;
-    public float currentModuleStableInt = 0f;
 
     private void Awake()
     {
@@ -37,35 +38,33 @@ public class GameManager : MonoBehaviour
     {
         type = GameStates.Préparation;
         timeStamp = Time.time + coolDown;
-        Tweek();
+        FixEventProbabilities();
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        EtatsDesModules();
-        Debug.Log(NbModulesStable());
+        WhichModulesIsStable();
 
-        if (Time.time >= timeStamp)
+        if (Time.time >= timeStamp) // Si 30 secondes se sont écoulés
         {
-            if (type == GameStates.Préparation)
+            if (type == GameStates.Préparation) // Après l'état préparation suit forcement l'état Paisible
             {
                 type = GameStates.Paisible;
             }
 
             else
             {
-
+                SwitchStates();
             }
 
-
-            Tweek();
+            FixEventProbabilities();
             timeStamp = Time.time + coolDown;
         }
     }
 
-    void Tweek()
+    void FixEventProbabilities() // Ajuste les probabilitées d'évenements selon l'état de la partie
     {
         switch (type)
         {
@@ -84,7 +83,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void EtatsDesModules()
+    void WhichModulesIsStable() // Stoque dans CurrentBoolStable[] les modules actuelement stable
     {
             for (int i = 0; i<ModuleManager.instance.Modules.Length; i++)
             {
@@ -100,7 +99,7 @@ public class GameManager : MonoBehaviour
             }
     }
 
-    int NbModulesStable()
+    int NbModulesStable() // Compte le nombre de module stable depuis CurrentBoolStable[] 
     {
         int resultat = 0;
         for (int i = 0; i <currentModuleStable.Length; i++)
@@ -113,6 +112,24 @@ public class GameManager : MonoBehaviour
 
         }
         return resultat;
+    }
+
+    void SwitchStates() // Change l'état de la partie
+    {
+        switch (NbModulesStable())
+        {
+            case 0:
+                type = GameStates.Intenable;
+                break;
+
+            case 1:
+                type = GameStates.Trépidant;
+                break;
+
+            case 2:
+                type = GameStates.Paisible;
+                break;
+        }
     }
 
 }
