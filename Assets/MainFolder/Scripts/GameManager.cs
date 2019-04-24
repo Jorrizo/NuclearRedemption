@@ -90,6 +90,7 @@ public class GameManager : MonoBehaviour
         if(Time.time >= timeStampNextEvent && type != GameStates.Préparation)
         {
             NextEvent();
+            timeStampNextEvent = Time.time + coolDownNextEvent;
         }
     }
 
@@ -173,7 +174,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    float EventPicker(float[] probs) //Prendre un evenement selon ses probabilitée d'apparition
+    float EventPicker(float[] probs) //retourne un evenement selon ses probabilitée d'apparition depuis un tableau de proba donné en argument
     {
 
         float total = 0; 
@@ -210,31 +211,32 @@ public class GameManager : MonoBehaviour
                 switch (EventPicker(modulesEventsProbabilities)) // Quel type de problème ?
                 {
                     case 0: // surcharge
-
+                        Debug.Log("surcharge");
                         break;
 
                     case 1: // surchauffe
-
+                        Debug.Log("surchauffe");
                         break;
+                        
 
                     case 2: // radiation
-
+                        Debug.Log("radiation");
                         break;
 
                     case 3: // surcharge et surchauffe
-
+                        Debug.Log("surcharge et surchauffe");
                         break;
 
                     case 4: //surcharge et radiation
-
+                        Debug.Log("surcharge et radiation");
                         break;
 
                     case 5: // radiation et surchauffe
-
+                        Debug.Log("radiation et surchauffe");
                         break;
 
                     case 6: // surcharge, surchauffe et radiation
-
+                        Debug.Log("surcharge, surchauffe et radiation");
                         break;
 
                     default:
