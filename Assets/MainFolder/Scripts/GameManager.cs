@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
     public float coolDownNextEvent = 10f;
     float timeStampNextEvent;
 
+    bool[] Default = new bool[] { false, false, false, false };
+
     public float[] ModulesProbabilities = new float[] { 0.33f, 0.33f, 0.33f };
 
     /* Mémo
@@ -98,9 +100,9 @@ public class GameManager : MonoBehaviour
         }
 
         if(Time.time >= timeStampNextEvent && type != GameStates.Préparation)
-        {
+        {          
+          //  NextEvent();
             NextModule();
-            NextEvent();
             timeStampNextEvent = Time.time + coolDownNextEvent;
         }
     }
@@ -110,25 +112,21 @@ public class GameManager : MonoBehaviour
         switch (type)
         {
             case GameStates.Préparation:
-                Debug.Log("Preparation");
                 EventsProbabilities = new float[] { 0.0f, 0.0f, 0.0f };
                 modulesEventsProbabilities = new float[] { 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f };
                 coolDownNextEvent = 10f;
                 break;
             case GameStates.Paisible:
-                Debug.Log("Paisible");
                 EventsProbabilities = new float[] { 0.2f, 0.65f, 0.15f };
                 modulesEventsProbabilities = new float[] { 0.27f, 0.27f, 0.27f, 0.053f, 0.053f, 0.053f, 0.02f };
                 coolDownNextEvent = 10f;
                 break;
             case GameStates.Trépidant:
-                Debug.Log("Trépidant");
                 EventsProbabilities = new float[] { 0.1f, 0.75f, 0.15f };
                 modulesEventsProbabilities = new float[] { 0.15f, 0.15f, 0.15f, 0.15f, 0.15f, 0.15f, 0.09f };
                 coolDownNextEvent = 5f;
                 break;
             case GameStates.Intenable:
-                Debug.Log("Intenable");
                 EventsProbabilities = new float[] { 0.01f, 0.84f, 0.15f };
                 modulesEventsProbabilities = new float[] { 0.12f, 0.12f, 0.12f, 0.163f, 0.163f, 0.163f, 0.14f };
                 coolDownNextEvent = 3f;
@@ -208,20 +206,21 @@ public class GameManager : MonoBehaviour
                 randomPoint -= probs[i];
             }
         }
+        Debug.Log("Out Of Range");
         return probs.Length - 1;
     }
 
     bool[] NextEvent() // Quel est le prochain evenement ?
     {
-        switch (EventPicker(EventsProbabilities)) // es-ce : Rien ou un problème de module ou de lummière ?
+        switch ((int)EventPicker(EventsProbabilities)) // es-ce : Rien ou un problème de module ou de lummière ?
         {
             case 0:
                 Debug.Log("Il ne se passe rien");
-                return null;
+                return Default;
             case 1:
-                bool[] i = new bool[] { true, false, false, false };
+                bool[] i = new bool[] { false, false, false, false };
 
-                switch (EventPicker(modulesEventsProbabilities)) // Quel type de problème ?
+                switch ((int)EventPicker(modulesEventsProbabilities)) // Quel type de problème ?
                 {
                     case 0: // surcharge
                         Debug.Log("surcharge");
@@ -267,61 +266,67 @@ public class GameManager : MonoBehaviour
                 
             case 2:
                 Debug.Log("Et la lumière fut");
-                return null;
+                return Default;
             default:
                 Debug.Log("Evenement non listé dans l'eventPicker");
-                return null;
+                return Default;
         }
     }
 
     void NextModule()
     {
-        bool[] Echantillon = NextEvent();
+            bool[] Echantillon = NextEvent();
 
-
-        switch (EventPicker(modulesEventsProbabilities))
+        if (Echantillon != Default)
         {
-            case 0:
-                Debug.Log("Module A");                
-                ControlModulesStates(Echantillon, modules[1].Etats, modules[2].Etats);
-                for (int i = 0; i < Echantillon.Length; i++)
-                {
-                    if (Echantillon[i] && !modules[0].Etats[i])
+            int temp = (int)EventPicker(modulesEventsProbabilities);
+            Debug.Log(temp);
+            switch (temp)
+            {
+
+                case 0:
+                    Debug.Log("Module A" + Echantillon);
+                    ControlModulesStates(Echantillon, modules[1].Etats, modules[2].Etats);
+                    for (int i = 0; i < Echantillon.Length; i++)
                     {
-                        modules[0].Etats[i] = true;
-                    }
+                        if (Echantillon[i] && !modules[0].Etats[i])
+                        {
+                            modules[0].Etats[i] = true;
+                        }
 
-                }
-                break;
-            case 1:
-                Debug.Log("Module B");
-                ControlModulesStates(Echantillon, modules[0].Etats, modules[2].Etats);
-                for (int i = 0; i < Echantillon.Length; i++)
-                {
-                    if (Echantillon[i] && !modules[1].Etats[i])
+                    }
+                    break;
+                case 1:
+                    Debug.Log("Module B" + Echantillon);
+                    ControlModulesStates(Echantillon, modules[0].Etats, modules[2].Etats);
+                    for (int i = 0; i < Echantillon.Length; i++)
                     {
-                        modules[1].Etats[i] = true;
-                    }
+                        if (Echantillon[i] && !modules[1].Etats[i])
+                        {
+                            modules[1].Etats[i] = true;
+                        }
 
-                }
-                break;
-            case 2:
-                Debug.Log("Module C");
-                ControlModulesStates(Echantillon, modules[0].Etats, modules[1].Etats);
-                for (int i = 0; i < Echantillon.Length; i++)
-                {
-                    if (Echantillon[i] && !modules[2].Etats[i])
+                    }
+                    break;
+                case 2:
+                    Debug.Log("Module C" + Echantillon);
+                    ControlModulesStates(Echantillon, modules[0].Etats, modules[1].Etats);
+                    for (int i = 0; i < Echantillon.Length; i++)
                     {
-                        modules[2].Etats[i] = true;
+                        if (Echantillon[i] && !modules[2].Etats[i])
+                        {
+                            modules[2].Etats[i] = true;
+                        }
+
                     }
+                    break;
 
-                }
-                break;
-
-            default:
-                Debug.Log("Module non listé dans l'eventPicker");
-                break;
+                default:
+                    Debug.Log("Module non listé dans l'eventPicker" + Echantillon);
+                    break;
+            }
         }
+        
     }
 
 

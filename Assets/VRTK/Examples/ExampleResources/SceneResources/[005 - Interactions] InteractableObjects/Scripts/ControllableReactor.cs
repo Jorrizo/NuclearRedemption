@@ -31,7 +31,7 @@
         {
             if (outputOnMax != "")
             {
-                Debug.Log(outputOnMax);
+             //   Debug.Log(outputOnMax);
             }
         }
 
@@ -39,7 +39,7 @@
         {
             if (outputOnMin != "")
             {
-                Debug.Log(outputOnMin);
+             //   Debug.Log(outputOnMin);
                 
             }
         }
