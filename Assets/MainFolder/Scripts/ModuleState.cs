@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class ModuleState : MonoBehaviour
 {
-    public bool Stable = true;
-    public bool Surchauffe = false;
-    public bool Surcharge = false;
-    public bool Radiation = false;
+
+    public bool[] Etats = new bool[] { true, false, false, false } ;
+    
+    /* mémo
+     0 : Stable
+     1 : Surchauffe
+     2 : Surcharge
+     3 : Radiation
+     */
+
     // Start is called before the first frame update
     void Start()
     {

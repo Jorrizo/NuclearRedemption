@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
         Intenable
     }
 
+    public ModuleState[] modules;
+
     public GameStates type = GameStates.Préparation;
 
     public bool[] currentModuleStable;
@@ -22,6 +24,15 @@ public class GameManager : MonoBehaviour
 
     public float coolDownNextEvent = 10f;
     float timeStampNextEvent;
+
+    public float[] ModulesProbabilities = new float[] { 0.33f, 0.33f, 0.33f };
+
+    /* Mémo
+   1: Module A
+   2: Module B
+   3: Module C
+    */
+
 
     public float[] EventsProbabilities = new float[] { 0.0f, 0.0f, 0.0f };
 
@@ -42,7 +53,7 @@ public class GameManager : MonoBehaviour
      6: radiation/surchauffe
      7: radiation/surcharge/surchauffe  
     */
-    
+
     private void Awake()
     {
         if(instance == null)
@@ -77,7 +88,6 @@ public class GameManager : MonoBehaviour
                 type = GameStates.Paisible;
                 timeStampNextEvent = Time.time + coolDownNextEvent;
             }
-
             else
             {
                 SwitchStates();
@@ -89,6 +99,7 @@ public class GameManager : MonoBehaviour
 
         if(Time.time >= timeStampNextEvent && type != GameStates.Préparation)
         {
+            NextModule();
             NextEvent();
             timeStampNextEvent = Time.time + coolDownNextEvent;
         }
@@ -130,7 +141,7 @@ public class GameManager : MonoBehaviour
             for (int i = 0; i<ModuleManager.instance.Modules.Length; i++)
             {
 
-                if (ModuleManager.instance.Modules[i].Stable)
+                if (ModuleManager.instance.Modules[i].Etats[0])
                 {
                     currentModuleStable[i] = true;
                 }
@@ -200,58 +211,119 @@ public class GameManager : MonoBehaviour
         return probs.Length - 1;
     }
 
-    void NextEvent() // Quel est le prochain evenement ?
+    bool[] NextEvent() // Quel est le prochain evenement ?
     {
         switch (EventPicker(EventsProbabilities)) // es-ce : Rien ou un problème de module ou de lummière ?
         {
             case 0:
                 Debug.Log("Il ne se passe rien");
-                break;
+                return null;
             case 1:
+                bool[] i = new bool[] { true, false, false, false };
+
                 switch (EventPicker(modulesEventsProbabilities)) // Quel type de problème ?
                 {
                     case 0: // surcharge
                         Debug.Log("surcharge");
-                        break;
+                        i = new bool[] { false, true, false, false };
+                        return i;
 
                     case 1: // surchauffe
                         Debug.Log("surchauffe");
-                        break;
-                        
+                        i = new bool[] { false, false, true, false };
+                        return i;
+
 
                     case 2: // radiation
                         Debug.Log("radiation");
-                        break;
+                        i = new bool[] { false, false, false, true };
+                        return i;
 
                     case 3: // surcharge et surchauffe
                         Debug.Log("surcharge et surchauffe");
-                        break;
+                        i = new bool[] { false, true, true, false };
+                        return i;
 
                     case 4: //surcharge et radiation
                         Debug.Log("surcharge et radiation");
-                        break;
+                        i = new bool[] { false, true, false, true };
+                        return i;
 
                     case 5: // radiation et surchauffe
                         Debug.Log("radiation et surchauffe");
-                        break;
+                        i = new bool[] { false, false, true, true };
+                        return i;
 
                     case 6: // surcharge, surchauffe et radiation
                         Debug.Log("surcharge, surchauffe et radiation");
-                        break;
+                        i = new bool[] { false, true, true, true };
+                        return i;
 
                     default:
                         Debug.Log("Etat de module non listé dans les evenements de modules");
-                        break;
+                        return null;
+                        
                 }
-                break;
+                
             case 2:
                 Debug.Log("Et la lumière fut");
-                break;
+                return null;
             default:
                 Debug.Log("Evenement non listé dans l'eventPicker");
+                return null;
+        }
+    }
+
+    void NextModule()
+    {
+        bool[] Echantillon = NextEvent();
+
+
+        switch (EventPicker(modulesEventsProbabilities))
+        {
+            case 0:
+                Debug.Log("Module A");                
+                ControlModulesStates(Echantillon, modules[1].Etats, modules[2].Etats);
+                modules[0].Etats = Echantillon;
+                break;
+            case 1:
+                Debug.Log("Module B");
+                ControlModulesStates(Echantillon, modules[0].Etats, modules[2].Etats);
+                modules[1].Etats = Echantillon;
+                break;
+            case 2:
+                Debug.Log("Module C");
+                ControlModulesStates(Echantillon, modules[0].Etats, modules[1].Etats);
+                modules[2].Etats = Echantillon;
+                break;
+
+            default:
+                Debug.Log("Module non listé dans l'eventPicker");
                 break;
         }
     }
 
+
+
+
+
+    bool[] ControlModulesStates(bool[] Echantillon, bool[] ModuleX, bool[] ModuleY)
+    {
+        
+
+        for (int i = 0; i < Echantillon.Length; i++)
+        {
+            if (Echantillon[i] == true)
+            {
+                if(ModuleX[i] && ModuleY[i])
+                {
+                    Echantillon[i] = false;
+
+                }
+            }
+            
+        }
+        return Echantillon;
+    }
 
 }

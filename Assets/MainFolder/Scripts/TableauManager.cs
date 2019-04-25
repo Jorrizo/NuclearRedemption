@@ -28,7 +28,7 @@ public class TableauManager : MonoBehaviour
                 {
                     if (Liaisons[i].CurrentFusible.CompareTag("Surchauffe"))
                     {
-                        Liaisons[i].Starting.Surchauffe = false;
+                        Liaisons[i].Starting.Etats[1] = false;
                         Liaisons[i].CurrentFusible.GetComponent<FusibleManager>().isUsed = true;
                         Liaisons[i].IsLiaisonValid = false;
                         Liaisons[i].GetComponentInChildren<VRTK_SnapDropZone>().ForceUnsnap();
@@ -36,14 +36,14 @@ public class TableauManager : MonoBehaviour
                     }
                     if (Liaisons[i].CurrentFusible.CompareTag("Surcharge"))
                     {
-                        Liaisons[i].Starting.Surcharge = false;
+                        Liaisons[i].Starting.Etats[2] = false;
                         Liaisons[i].CurrentFusible.GetComponent<FusibleManager>().isUsed = true;
                         Liaisons[i].IsLiaisonValid = false;
                         Liaisons[i].GetComponentInChildren<VRTK_SnapDropZone>().ForceUnsnap();
                     }
                     if (Liaisons[i].CurrentFusible.CompareTag("Radioactif"))
                     {
-                        Liaisons[i].Starting.Radiation = false;
+                        Liaisons[i].Starting.Etats[3] = false;
                         Liaisons[i].CurrentFusible.GetComponent<FusibleManager>().isUsed = true;
                         Liaisons[i].IsLiaisonValid = false;
                         Liaisons[i].GetComponentInChildren<VRTK_SnapDropZone>().ForceUnsnap();

@@ -49,15 +49,15 @@ public class LiaisonManager : MonoBehaviour
             {
                 Debug.Log("!Stable && !Used");
 
-                if (CurrentFusible.CompareTag("Surchauffe") && (Starting.Surchauffe && !Ending.Surchauffe)) //Si c'est le fusible Surchauffe et que la liaison Surchauffe est respectée
+                if (CurrentFusible.CompareTag("Surchauffe") && (Starting.Etats[1] && !Ending.Etats[1])) //Si c'est le fusible Surchauffe et que la liaison Surchauffe est respectée
                 {
                     IsLiaisonValid = true;
                 }
-                else if (CurrentFusible.CompareTag("Surcharge") && (Starting.Surcharge && !Ending.Surcharge)) //Si c'est le fusible Surcharge et que la liaison Surchauffe est respectée
+                else if (CurrentFusible.CompareTag("Surcharge") && (Starting.Etats[2] && !Ending.Etats[2])) //Si c'est le fusible Surcharge et que la liaison Surchauffe est respectée
                 {
                     IsLiaisonValid = true;
                 }
-                else if (CurrentFusible.CompareTag("Radioactif") && (Starting.Radiation && !Ending.Radiation)) //Si c'est le fusible Radiation et que la liaison Surchauffe est respectée
+                else if (CurrentFusible.CompareTag("Radioactif") && (Starting.Etats[3] && !Ending.Etats[3])) //Si c'est le fusible Radiation et que la liaison Surchauffe est respectée
                 {
                     IsLiaisonValid = true;
                 }
