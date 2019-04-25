@@ -23,6 +23,15 @@ public class ModuleState : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Etats[0] = true;
+
+        for (int i = 1; i < Etats.Length; i++)
+        {
+            if(Etats[i] == true)
+            {
+                Etats[0] = false;
+
+            }
+        }
     }
 }

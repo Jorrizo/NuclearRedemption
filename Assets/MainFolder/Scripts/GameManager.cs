@@ -118,19 +118,19 @@ public class GameManager : MonoBehaviour
             case GameStates.Paisible:
                 Debug.Log("Paisible");
                 EventsProbabilities = new float[] { 0.2f, 0.65f, 0.15f };
-                modulesEventsProbabilities = new float[] { 0.27f, 0.27f, 0.27f, 0.053f, 0.053f, 0.053f, 0.03f };
+                modulesEventsProbabilities = new float[] { 0.27f, 0.27f, 0.27f, 0.053f, 0.053f, 0.053f, 0.02f };
                 coolDownNextEvent = 10f;
                 break;
             case GameStates.Trépidant:
                 Debug.Log("Trépidant");
                 EventsProbabilities = new float[] { 0.1f, 0.75f, 0.15f };
-                modulesEventsProbabilities = new float[] { 0.15f, 0.15f, 0.15f, 0.15f, 0.15f, 0.15f, 0.1f };
+                modulesEventsProbabilities = new float[] { 0.15f, 0.15f, 0.15f, 0.15f, 0.15f, 0.15f, 0.09f };
                 coolDownNextEvent = 5f;
                 break;
             case GameStates.Intenable:
                 Debug.Log("Intenable");
                 EventsProbabilities = new float[] { 0.01f, 0.84f, 0.15f };
-                modulesEventsProbabilities = new float[] { 0.12f, 0.12f, 0.12f, 0.163f, 0.163f, 0.163f, 0.15f };
+                modulesEventsProbabilities = new float[] { 0.12f, 0.12f, 0.12f, 0.163f, 0.163f, 0.163f, 0.14f };
                 coolDownNextEvent = 3f;
                 break;
         }
@@ -261,7 +261,7 @@ public class GameManager : MonoBehaviour
 
                     default:
                         Debug.Log("Etat de module non listé dans les evenements de modules");
-                        return null;
+                        return i;
                         
                 }
                 
@@ -284,17 +284,38 @@ public class GameManager : MonoBehaviour
             case 0:
                 Debug.Log("Module A");                
                 ControlModulesStates(Echantillon, modules[1].Etats, modules[2].Etats);
-                modules[0].Etats = Echantillon;
+                for (int i = 0; i < Echantillon.Length; i++)
+                {
+                    if (Echantillon[i] && !modules[0].Etats[i])
+                    {
+                        modules[0].Etats[i] = true;
+                    }
+
+                }
                 break;
             case 1:
                 Debug.Log("Module B");
                 ControlModulesStates(Echantillon, modules[0].Etats, modules[2].Etats);
-                modules[1].Etats = Echantillon;
+                for (int i = 0; i < Echantillon.Length; i++)
+                {
+                    if (Echantillon[i] && !modules[1].Etats[i])
+                    {
+                        modules[1].Etats[i] = true;
+                    }
+
+                }
                 break;
             case 2:
                 Debug.Log("Module C");
                 ControlModulesStates(Echantillon, modules[0].Etats, modules[1].Etats);
-                modules[2].Etats = Echantillon;
+                for (int i = 0; i < Echantillon.Length; i++)
+                {
+                    if (Echantillon[i] && !modules[2].Etats[i])
+                    {
+                        modules[2].Etats[i] = true;
+                    }
+
+                }
                 break;
 
             default:
@@ -309,21 +330,24 @@ public class GameManager : MonoBehaviour
 
     bool[] ControlModulesStates(bool[] Echantillon, bool[] ModuleX, bool[] ModuleY)
     {
-        
 
-        for (int i = 0; i < Echantillon.Length; i++)
+        if (Echantillon != null)
         {
-            if (Echantillon[i] == true)
+            for (int i = 0; i < Echantillon.Length; i++)
             {
-                if(ModuleX[i] && ModuleY[i])
+                if (Echantillon[i] == true)
                 {
-                    Echantillon[i] = false;
+                    if (ModuleX[i] && ModuleY[i])
+                    {
+                        Echantillon[i] = false;
 
+                    }
                 }
+
             }
-            
+            return Echantillon;
         }
-        return Echantillon;
+        return null;
     }
 
 }
