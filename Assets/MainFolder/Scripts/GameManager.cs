@@ -279,7 +279,7 @@ public class GameManager : MonoBehaviour
 
         if (Echantillon != Default)
         {
-            int temp = (int)EventPicker(modulesEventsProbabilities);
+            int temp = (int)EventPicker(ModulesProbabilities);
             Debug.Log(temp);
             switch (temp)
             {
