@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     float timeStampNextEvent;
 
     bool[] Default = new bool[] { false, false, false, false };
+    private string informationsEvent = "nothing";
 
     public float[] ModulesProbabilities = new float[] { 0.33f, 0.33f, 0.33f };
 
@@ -102,7 +103,7 @@ public class GameManager : MonoBehaviour
         if(Time.time >= timeStampNextEvent && type != GameStates.Préparation)
         {          
           //  NextEvent();
-            NextModule();
+            NextModuleEvent();
             timeStampNextEvent = Time.time + coolDownNextEvent;
         }
     }
@@ -218,48 +219,48 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Il ne se passe rien");
                 return Default;
             case 1:
-                bool[] i = new bool[] { false, false, false, false };
+                bool[] i = new bool[] { false, false, false, false }; // Bool à retourner quand ce n'est pas un Evenement concernant les modules
 
                 switch ((int)EventPicker(modulesEventsProbabilities)) // Quel type de problème ?
                 {
                     case 0: // surcharge
-                        Debug.Log("surcharge");
+                        informationsEvent = "Surcharge"; // aide pour le Debug.Log
                         i = new bool[] { false, true, false, false };
                         return i;
 
                     case 1: // surchauffe
-                        Debug.Log("surchauffe");
+                        informationsEvent = "Surchauffe";
                         i = new bool[] { false, false, true, false };
                         return i;
 
 
                     case 2: // radiation
-                        Debug.Log("radiation");
+                        informationsEvent = "Radiation";
                         i = new bool[] { false, false, false, true };
                         return i;
 
                     case 3: // surcharge et surchauffe
-                        Debug.Log("surcharge et surchauffe");
+                        informationsEvent = "Surcharge et surchauffe";
                         i = new bool[] { false, true, true, false };
                         return i;
 
                     case 4: //surcharge et radiation
-                        Debug.Log("surcharge et radiation");
+                        informationsEvent = "Surcharge et radiation";
                         i = new bool[] { false, true, false, true };
                         return i;
 
                     case 5: // radiation et surchauffe
-                        Debug.Log("radiation et surchauffe");
+                        informationsEvent = "Radiation et surchauffe";
                         i = new bool[] { false, false, true, true };
                         return i;
 
                     case 6: // surcharge, surchauffe et radiation
-                        Debug.Log("surcharge, surchauffe et radiation");
+                        informationsEvent = "Surcharge, surchauffe et radiation";
                         i = new bool[] { false, true, true, true };
                         return i;
 
                     default:
-                        Debug.Log("Etat de module non listé dans les evenements de modules");
+                        Debug.Log("Etat de module non listé (inconnu)");
                         return i;
                         
                 }
@@ -273,21 +274,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void NextModule()
+    void NextModuleEvent() //Choisi le prochain module à appliquer un ou des etats
     {
-            bool[] Echantillon = NextEvent();
+            bool[] Echantillon = NextEvent(); // Va chercher le prochain Evenement
 
-        if (Echantillon != Default)
+        if (Echantillon != Default) // eviter les evenements qui ne concerne pas les modules.
         {
-            int temp = (int)EventPicker(ModulesProbabilities);
-            Debug.Log(temp);
-            switch (temp)
+            switch ((int)EventPicker(ModulesProbabilities))
             {
 
-                case 0:
-                    Debug.Log("Module A" + Echantillon);
+                case 0: // Module A
+                    Debug.Log(informationsEvent + " pour le Module A");
                     ControlModulesStates(Echantillon, modules[1].Etats, modules[2].Etats);
-                    for (int i = 0; i < Echantillon.Length; i++)
+                    for (int i = 0; i < Echantillon.Length; i++)  // Parcourt le tableau et ecrase avec le tableau Echantillon
                     {
                         if (Echantillon[i] && !modules[0].Etats[i])
                         {
@@ -296,8 +295,8 @@ public class GameManager : MonoBehaviour
 
                     }
                     break;
-                case 1:
-                    Debug.Log("Module B" + Echantillon);
+                case 1: // Module B
+                    Debug.Log(informationsEvent + " pour le Module B");
                     ControlModulesStates(Echantillon, modules[0].Etats, modules[2].Etats);
                     for (int i = 0; i < Echantillon.Length; i++)
                     {
@@ -308,8 +307,8 @@ public class GameManager : MonoBehaviour
 
                     }
                     break;
-                case 2:
-                    Debug.Log("Module C" + Echantillon);
+                case 2: // Module C
+                    Debug.Log(informationsEvent + " pour le Module C");
                     ControlModulesStates(Echantillon, modules[0].Etats, modules[1].Etats);
                     for (int i = 0; i < Echantillon.Length; i++)
                     {
@@ -322,7 +321,7 @@ public class GameManager : MonoBehaviour
                     break;
 
                 default:
-                    Debug.Log("Module non listé dans l'eventPicker" + Echantillon);
+                    Debug.Log("Module non listé dans l'eventPicker(inconnu)");
                     break;
             }
         }
@@ -333,7 +332,7 @@ public class GameManager : MonoBehaviour
 
 
 
-    bool[] ControlModulesStates(bool[] Echantillon, bool[] ModuleX, bool[] ModuleY)
+    bool[] ControlModulesStates(bool[] Echantillon, bool[] ModuleX, bool[] ModuleY) // Ajuste l'Echantillon pour eviter que + de 2 modules aient le même état
     {
 
         if (Echantillon != null)
