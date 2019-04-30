@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
 
     public bool[] currentModuleStable;
 
-    public float coolDownState = 30f;
+    public float coolDownState = 10f;
     float timeStampState;
 
     public float coolDownNextEvent = 10f;
@@ -57,6 +57,14 @@ public class GameManager : MonoBehaviour
      7: radiation/surcharge/surchauffe  
     */
 
+    //Gestion de l'intégritée globale de la centrale
+
+    public float integriteGlobale = 1000f;
+
+    public float facteurPrimaire = 0f;
+    public float facteurSecondaire = 1f;
+    public float facteurIntegrite = 0f;
+
     private void Awake()
     {
         if(instance == null)
@@ -83,6 +91,11 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         WhichModulesIsStable();
+
+        FacteurPrimaire();
+        facteurIntegrite = facteurPrimaire * facteurSecondaire;
+
+        integriteGlobale -= facteurIntegrite * Time.deltaTime;
 
         if (Time.time >= timeStampState) // Si 30 secondes se sont écoulés
         {
@@ -172,14 +185,17 @@ public class GameManager : MonoBehaviour
         {
             case 0:
                 type = GameStates.Intenable;
+                facteurSecondaire = 2f;
                 break;
 
             case 1:
                 type = GameStates.Trépidant;
+                facteurSecondaire = 1.5f;
                 break;
 
             case 2:
                 type = GameStates.Paisible;
+                facteurSecondaire = 1f;
                 break;
         }
     }
@@ -331,7 +347,6 @@ public class GameManager : MonoBehaviour
 
 
 
-
     bool[] ControlModulesStates(bool[] Echantillon, bool[] ModuleX, bool[] ModuleY) // Ajuste l'Echantillon pour eviter que + de 2 modules aient le même état
     {
 
@@ -352,6 +367,18 @@ public class GameManager : MonoBehaviour
             return Echantillon;
         }
         return null;
+    }
+
+    void FacteurPrimaire()
+    {
+        facteurPrimaire = 0f;
+        for (int i = 0; i < modules.Length; i++)
+        {
+
+            facteurPrimaire += modules[i].StateTreatment(modules[i].StatesCount());
+            Debug.Log("i="+ i);
+            Debug.Log(facteurPrimaire);
+        }
     }
 
 }
