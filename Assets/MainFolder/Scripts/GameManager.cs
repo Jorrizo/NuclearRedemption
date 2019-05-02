@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VRTK;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class GameManager : MonoBehaviour
         Intenable
     }
 
+    public Light integrityLight;
     public ModuleState[] modules;
 
     public GameStates type = GameStates.Préparation;
@@ -91,11 +93,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         WhichModulesIsStable();
-
-        FacteurPrimaire();
-        facteurIntegrite = facteurPrimaire * facteurSecondaire;
-
-        integriteGlobale -= facteurIntegrite * Time.deltaTime;
+        Integrity();
 
         if (Time.time >= timeStampState) // Si 30 secondes se sont écoulés
         {
@@ -200,7 +198,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    float EventPicker(float[] probs) //retourne un evenement selon ses probabilitée d'apparition depuis un tableau de proba donné en argument
+    public float EventPicker(float[] probs) //retourne un evenement selon ses probabilitée d'apparition depuis un tableau de proba donné en argument
     {
 
         float total = 0; 
@@ -283,6 +281,7 @@ public class GameManager : MonoBehaviour
                 
             case 2:
                 Debug.Log("Et la lumière fut");
+                LumiereManager.instance.GetComponentInChildren<VRTK_SnapDropZone>().ForceUnsnap();
                 return Default;
             default:
                 Debug.Log("Evenement non listé dans l'eventPicker");
@@ -369,6 +368,34 @@ public class GameManager : MonoBehaviour
         return null;
     }
 
+
+   void Integrity()
+    {
+        FacteurPrimaire();
+        facteurIntegrite = facteurPrimaire * facteurSecondaire;
+        integriteGlobale -= facteurIntegrite * Time.deltaTime;
+
+        if (integrityLight != null)
+        {
+            switch (integriteGlobale)
+            {
+                case float n when (n < 1000 && n > 950):
+                    integrityLight.color = new Color(0,0,255);
+                    break;
+
+                case float n when (n < 950 && n > 930):
+                    integrityLight.color = new Color(255, 165, 0);
+                    break;
+
+                case float n when (n < 930):
+                    integrityLight.color = new Color(255, 0, 0);
+                    break;
+            }
+
+        }
+    }
+
+
     void FacteurPrimaire()
     {
         facteurPrimaire = 0f;
@@ -376,8 +403,6 @@ public class GameManager : MonoBehaviour
         {
 
             facteurPrimaire += modules[i].StateTreatment(modules[i].StatesCount());
-            Debug.Log("i="+ i);
-            Debug.Log(facteurPrimaire);
         }
     }
 

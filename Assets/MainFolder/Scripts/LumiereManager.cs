@@ -5,10 +5,24 @@ using VRTK;
 
 public class LumiereManager : MonoBehaviour
 {
+    public static LumiereManager instance = null;
+
     public GameObject CurrentFusible;
 
     public Light[] LumiereGlobale;
     public Light[] LumiereLampe;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +41,7 @@ public class LumiereManager : MonoBehaviour
         CurrentFusible = GetComponentInChildren<VRTK_SnapDropZone>().GetCurrentSnappedObject();
     }
 
-    void LumiereSetActive(Light[] Sample, Light[] Sample2)
+    public void LumiereSetActive(Light[] Sample, Light[] Sample2)
     {
         for (int i = 0; i < Sample.Length; i++)
         {

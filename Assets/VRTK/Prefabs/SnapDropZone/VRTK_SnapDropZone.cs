@@ -236,7 +236,12 @@ namespace VRTK
         {
             if (isSnapped && ValidSnapObject(currentSnappedObject, false))
             {
+
+                Rigidbody temp = currentSnappedObject.GetComponent<Rigidbody>();
+                Vector3 tempVector = new Vector3 (0,1,0);
+                tempVector.y = (int)Random.Range(1,3);
                 currentSnappedObject.ToggleSnapDropZone(this, false);
+                temp.AddRelativeForce(tempVector, ForceMode.Impulse);
             }
         }
 
