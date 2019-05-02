@@ -39,12 +39,13 @@ public class GameManager : MonoBehaviour
     */
 
 
-    public float[] EventsProbabilities = new float[] { 0.0f, 0.0f, 0.0f };
+    public float[] EventsProbabilities = new float[] { 0.0f, 0.0f, 0.0f, 0.0f };
 
     /* Mémo
      1: Rien
      2: EvenementModule
      3: Lumière
+     4: FusibleRate
     */
 
     public float[] modulesEventsProbabilities = new float[] { 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f };
@@ -92,6 +93,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        TransitionFuzeJam();
         WhichModulesIsStable();
         Integrity();
 
@@ -124,22 +126,22 @@ public class GameManager : MonoBehaviour
         switch (type)
         {
             case GameStates.Préparation:
-                EventsProbabilities = new float[] { 0.0f, 0.0f, 0.0f };
+                EventsProbabilities = new float[] { 0.0f, 0.0f, 0.0f, 1f };
                 modulesEventsProbabilities = new float[] { 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f };
                 coolDownNextEvent = 10f;
                 break;
             case GameStates.Paisible:
-                EventsProbabilities = new float[] { 0.2f, 0.65f, 0.15f };
+                EventsProbabilities = new float[] { 0.2f, 0.65f, 0.07f, 0.08f };
                 modulesEventsProbabilities = new float[] { 0.27f, 0.27f, 0.27f, 0.053f, 0.053f, 0.053f, 0.02f };
                 coolDownNextEvent = 10f;
                 break;
             case GameStates.Trépidant:
-                EventsProbabilities = new float[] { 0.1f, 0.75f, 0.15f };
+                EventsProbabilities = new float[] { 0.1f, 0.75f, 0.07f, 0.08f };
                 modulesEventsProbabilities = new float[] { 0.15f, 0.15f, 0.15f, 0.15f, 0.15f, 0.15f, 0.09f };
                 coolDownNextEvent = 5f;
                 break;
             case GameStates.Intenable:
-                EventsProbabilities = new float[] { 0.01f, 0.84f, 0.15f };
+                EventsProbabilities = new float[] { 0.01f, 0.84f, 0.07f, 0.08f };
                 modulesEventsProbabilities = new float[] { 0.12f, 0.12f, 0.12f, 0.163f, 0.163f, 0.163f, 0.14f };
                 coolDownNextEvent = 3f;
                 break;
@@ -283,6 +285,13 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Et la lumière fut");
                 LumiereManager.instance.GetComponentInChildren<VRTK_SnapDropZone>().ForceUnsnap();
                 return Default;
+
+            case 3:
+                Debug.Log("Les fusibles !");
+                SpawnManager.instance.type = SpawnManager.SpawnStates.Frenzy;
+                SpawnManager.instance.Temp = Time.time + SpawnManager.instance.FrenzyCoolDown;
+                return Default;
+
             default:
                 Debug.Log("Evenement non listé dans l'eventPicker");
                 return Default;
@@ -403,6 +412,14 @@ public class GameManager : MonoBehaviour
         {
 
             facteurPrimaire += modules[i].StateTreatment(modules[i].StatesCount());
+        }
+    }
+
+    public void TransitionFuzeJam()
+    {
+        if(SpawnManager.instance.IsFuseJam == true)
+        {
+            SpawnManager.instance.Temp2 = Time.time + SpawnManager.instance.FrenzyCoolDown;
         }
     }
 

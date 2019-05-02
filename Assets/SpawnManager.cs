@@ -28,6 +28,10 @@ public class SpawnManager : MonoBehaviour
     public float coolDown = 3;
     float temp;
 
+    public float FrenzyCoolDown = 4;
+    public float Temp;
+    public float Temp2;
+
 
     public enum SpawnStates
     {
@@ -96,24 +100,29 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnRate()
     {
-        float FrenzyCoolDown = 4;
-        float Temp;
+        
         switch (type)
         {
             case SpawnStates.FuseJam:
                 IsFuseJam = true;
+                //GameManager.instance.TransitionFuzeJam();  //appeller la fct qui bool vrai si vrai passe en frenzy ini temp2 check temp2 temp2 en frist
                 break;
 
             case SpawnStates.Fonctional:
                 coolDown = 3;
                 IsFuseJam = false;
-
                 break;
 
             case SpawnStates.Frenzy:
                 coolDown = 0.2f;
                 IsFuseJam = false;
-             //   Temp = Time.time + FrenzyCoolDown; a appeler lors de l'appel de l'evenement dans le gamemanager
+                //Temp = Time.time + FrenzyCoolDown; //a appeler lors de l'appel de l'evenement dans le gamemanager
+
+                if (Time.time > Temp2)
+                {
+                    type = SpawnStates.Fonctional;
+                }
+
                 if (Time.time > Temp)
                 {
                     type = SpawnStates.FuseJam;
