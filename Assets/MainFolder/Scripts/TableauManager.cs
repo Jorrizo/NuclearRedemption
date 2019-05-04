@@ -32,6 +32,7 @@ public class TableauManager : MonoBehaviour
                         Liaisons[i].CurrentFusible.GetComponent<FusibleManager>().isUsed = true;
                         Liaisons[i].IsLiaisonValid = false;
                         Liaisons[i].GetComponentInChildren<VRTK_SnapDropZone>().ForceUnsnap();
+                        gameObject.GetComponentInChildren<LiaisonManager>().Led.material.CopyPropertiesFromMaterial(gameObject.GetComponentInChildren<LiaisonManager>().Red);
 
                     }
                     if (Liaisons[i].CurrentFusible.CompareTag("Surcharge"))
@@ -40,6 +41,7 @@ public class TableauManager : MonoBehaviour
                         Liaisons[i].CurrentFusible.GetComponent<FusibleManager>().isUsed = true;
                         Liaisons[i].IsLiaisonValid = false;
                         Liaisons[i].GetComponentInChildren<VRTK_SnapDropZone>().ForceUnsnap();
+                        gameObject.GetComponentInChildren<LiaisonManager>().Led.material.CopyPropertiesFromMaterial(gameObject.GetComponentInChildren<LiaisonManager>().Red);
                     }
                     if (Liaisons[i].CurrentFusible.CompareTag("Radioactif"))
                     {
@@ -47,6 +49,7 @@ public class TableauManager : MonoBehaviour
                         Liaisons[i].CurrentFusible.GetComponent<FusibleManager>().isUsed = true;
                         Liaisons[i].IsLiaisonValid = false;
                         Liaisons[i].GetComponentInChildren<VRTK_SnapDropZone>().ForceUnsnap();
+                        gameObject.GetComponentInChildren<LiaisonManager>().Led.material.CopyPropertiesFromMaterial(gameObject.GetComponentInChildren<LiaisonManager>().Red);
                     }
                 }
             }

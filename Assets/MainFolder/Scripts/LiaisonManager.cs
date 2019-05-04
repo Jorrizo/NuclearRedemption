@@ -8,6 +8,9 @@ public class LiaisonManager : MonoBehaviour
     public ModuleState Starting; //Module éméteur
     public ModuleState Ending; //Module de récépteur
     private ModuleState ValueTemp;
+    public Renderer Led;
+    public Material Red;
+    public Material Green;
 
     public GameObject CurrentFusible;
 
@@ -52,24 +55,29 @@ public class LiaisonManager : MonoBehaviour
                 if (CurrentFusible.CompareTag("Surchauffe") && (Starting.Etats[1] && !Ending.Etats[1])) //Si c'est le fusible Surchauffe et que la liaison Surchauffe est respectée
                 {
                     IsLiaisonValid = true;
+                    Led.material.CopyPropertiesFromMaterial(Green);
                 }
                 else if (CurrentFusible.CompareTag("Surcharge") && (Starting.Etats[2] && !Ending.Etats[2])) //Si c'est le fusible Surcharge et que la liaison Surchauffe est respectée
                 {
                     IsLiaisonValid = true;
+                    Led.material.CopyPropertiesFromMaterial(Green);
                 }
                 else if (CurrentFusible.CompareTag("Radioactif") && (Starting.Etats[3] && !Ending.Etats[3])) //Si c'est le fusible Radiation et que la liaison Surchauffe est respectée
                 {
                     IsLiaisonValid = true;
+                    Led.material.CopyPropertiesFromMaterial(Green);
                 }
                 else // sécuritée
                 {
                     IsLiaisonValid = false;
+                    Led.material.CopyPropertiesFromMaterial(Red);
                 }          
             }
 
             else  // Si le fusible est usée /!\ attention possible mauvais placement de ce code /!\
             {
                 GetComponentInChildren<VRTK_SnapDropZone>().ForceUnsnap();
+                Led.material.CopyPropertiesFromMaterial(Red);
             }
         }
     }
