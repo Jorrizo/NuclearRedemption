@@ -30,6 +30,15 @@ public class GameManager : MonoBehaviour
     bool[] Default = new bool[] { false, false, false, false };
     private string informationsEvent = "nothing";
 
+
+    public int PopulationMax = 200;
+    public int PopulationToSave = 200;
+    public int PopulationSaved = 200;
+    public int EnchantillonToGamble = 20;
+    float[] Percentage;
+    public int TempSavedPeople;
+
+
     public float[] ModulesProbabilities = new float[] { 0.33f, 0.33f, 0.33f };
 
     /* Mémo
@@ -93,7 +102,6 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        TransitionFuzeJam();
         WhichModulesIsStable();
         Integrity();
 
@@ -138,12 +146,12 @@ public class GameManager : MonoBehaviour
             case GameStates.Trépidant:
                 EventsProbabilities = new float[] { 0.1f, 0.75f, 0.07f, 0.08f };
                 modulesEventsProbabilities = new float[] { 0.15f, 0.15f, 0.15f, 0.15f, 0.15f, 0.15f, 0.09f };
-                coolDownNextEvent = 5f;
+                coolDownNextEvent = 6f;
                 break;
             case GameStates.Intenable:
                 EventsProbabilities = new float[] { 0.01f, 0.84f, 0.07f, 0.08f };
                 modulesEventsProbabilities = new float[] { 0.12f, 0.12f, 0.12f, 0.163f, 0.163f, 0.163f, 0.14f };
-                coolDownNextEvent = 3f;
+                coolDownNextEvent = 4f;
                 break;
         }
     }
@@ -185,17 +193,21 @@ public class GameManager : MonoBehaviour
         {
             case 0:
                 type = GameStates.Intenable;
-                facteurSecondaire = 2f;
+                facteurSecondaire = 4f;
+                AmountGamble(4f,4/6f, Percentage = new float[] { 0.2f, 0.8f });
                 break;
 
             case 1:
                 type = GameStates.Trépidant;
-                facteurSecondaire = 1.5f;
+                facteurSecondaire = 2f;
+                AmountGamble(6f,2/4f,Percentage = new float[] { 0.5f, 0.5f });
+                Debug.Log("Evenementtada");
                 break;
 
             case 2:
                 type = GameStates.Paisible;
                 facteurSecondaire = 1f;
+                AmountGamble(10f,6f, Percentage = new float[] { 1f, 0f });
                 break;
         }
     }
@@ -288,8 +300,11 @@ public class GameManager : MonoBehaviour
 
             case 3:
                 Debug.Log("Les fusibles !");
-                SpawnManager.instance.type = SpawnManager.SpawnStates.Frenzy;
-                SpawnManager.instance.Temp = Time.time + SpawnManager.instance.FrenzyCoolDown;
+                if (SpawnManager.instance.IsFuseJam == false)
+                {
+                    SpawnManager.instance.type = SpawnManager.SpawnStates.Frenzy;
+                    SpawnManager.instance.Temp = Time.time + SpawnManager.instance.FrenzyCoolDown;
+                }
                 return Default;
 
             default:
@@ -415,12 +430,43 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void TransitionFuzeJam()
+    public void RouletteRusse(int echantillonToGamble, float [] SavePourcentage)
     {
-        if(SpawnManager.instance.IsFuseJam == true)
+        for (int i = 0; i < echantillonToGamble; i++)
         {
-            SpawnManager.instance.Temp2 = Time.time + SpawnManager.instance.FrenzyCoolDown;
+            switch (EventPicker(SavePourcentage))
+            {
+                case 0:
+                    Debug.Log("survivre");
+                    break;
+
+                case 1:
+                    Debug.Log("1mort");
+                    PopulationSaved--;
+                    TempSavedPeople++;
+
+                    break;
+            }
         }
     }
 
+    public void AmountGamble(float timeOfRelance,float AmountRelance, float [] Percentage)
+    {
+        float temp = Time.time + timeOfRelance;
+        float temp2 = Time.time + AmountRelance;
+        TempSavedPeople = EnchantillonToGamble;
+        if (Time.time < temp)
+        {
+            Debug.Log("temp");
+
+            if (Time.time < temp2)
+            {
+                Debug.Log("temp2");
+
+                EnchantillonToGamble -= TempSavedPeople;
+                RouletteRusse(EnchantillonToGamble, Percentage);
+                temp2 = Time.time + AmountRelance;
+            }
+        }
+    }
 }

@@ -59,13 +59,13 @@ public class ModuleState : MonoBehaviour
                     v = 0f;
                     return v;
                 case 1:
-                    v = 0.1f;
+                    v = 1/6f;
                     return v;
                 case 2:
-                    v = 0.12f;
+                    v = 2/6f;
                     return v;
                 case 3:
-                    v = 0.15f;
+                    v = 3/6f;
                     return v;
             }
         return v;

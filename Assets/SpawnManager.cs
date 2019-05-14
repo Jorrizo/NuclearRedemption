@@ -25,10 +25,10 @@ public class SpawnManager : MonoBehaviour
      4: Lumière
     */
 
-    public float coolDown = 3;
+    public float coolDown = 3f;
     float temp;
 
-    public float FrenzyCoolDown = 4;
+    public float FrenzyCoolDown = 0.5f;
     public float Temp;
     public float Temp2;
 
@@ -74,7 +74,7 @@ public class SpawnManager : MonoBehaviour
 
     void InstantiateFuse()
     {
-        if (temp < Time.time && IsFuseJam == false)
+        if (temp < Time.time && type != SpawnStates.FuseJam)
         {
             switch (GameManager.instance.EventPicker(FusibleSpawnProbabilities))
             {
@@ -105,7 +105,6 @@ public class SpawnManager : MonoBehaviour
         {
             case SpawnStates.FuseJam:
                 IsFuseJam = true;
-                //GameManager.instance.TransitionFuzeJam();  //appeller la fct qui bool vrai si vrai passe en frenzy ini temp2 check temp2 temp2 en frist
                 break;
 
             case SpawnStates.Fonctional:
@@ -115,21 +114,30 @@ public class SpawnManager : MonoBehaviour
 
             case SpawnStates.Frenzy:
                 coolDown = 0.2f;
-                IsFuseJam = false;
                 //Temp = Time.time + FrenzyCoolDown; //a appeler lors de l'appel de l'evenement dans le gamemanager
 
-                if (Time.time > Temp2)
-                {
-                    type = SpawnStates.Fonctional;
-                }
-
-                if (Time.time > Temp)
+                if (Time.time > Temp && IsFuseJam == false)
                 {
                     type = SpawnStates.FuseJam;
                 }
 
+                if (Time.time > Temp2 && IsFuseJam == true)
+                {
+                    coolDown = 0.01f;
+                    type = SpawnStates.Fonctional;
+                }
+
                 break;
 
+        }
+    }
+
+    public void RepairFlow()
+    {
+        if (type == SpawnStates.FuseJam)
+        {
+            type = SpawnStates.Frenzy;
+            Temp2 = Time.time + FrenzyCoolDown;
         }
     }
 }

@@ -31,8 +31,9 @@ public class TableauManager : MonoBehaviour
                         Liaisons[i].Starting.Etats[1] = false;
                         Liaisons[i].CurrentFusible.GetComponent<FusibleManager>().isUsed = true;
                         Liaisons[i].IsLiaisonValid = false;
-                        Liaisons[i].GetComponentInChildren<VRTK_SnapDropZone>().ForceUnsnap();
                         gameObject.GetComponentInChildren<LiaisonManager>().Led.material.CopyPropertiesFromMaterial(gameObject.GetComponentInChildren<LiaisonManager>().Red);
+                        Liaisons[i].GetComponentInChildren<VRTK_SnapDropZone>().ForceUnsnap();
+                        
 
                     }
                     if (Liaisons[i].CurrentFusible.CompareTag("Surcharge"))
@@ -40,16 +41,18 @@ public class TableauManager : MonoBehaviour
                         Liaisons[i].Starting.Etats[2] = false;
                         Liaisons[i].CurrentFusible.GetComponent<FusibleManager>().isUsed = true;
                         Liaisons[i].IsLiaisonValid = false;
-                        Liaisons[i].GetComponentInChildren<VRTK_SnapDropZone>().ForceUnsnap();
                         gameObject.GetComponentInChildren<LiaisonManager>().Led.material.CopyPropertiesFromMaterial(gameObject.GetComponentInChildren<LiaisonManager>().Red);
+                        Liaisons[i].GetComponentInChildren<VRTK_SnapDropZone>().ForceUnsnap();
+                        
                     }
                     if (Liaisons[i].CurrentFusible.CompareTag("Radioactif"))
                     {
                         Liaisons[i].Starting.Etats[3] = false;
                         Liaisons[i].CurrentFusible.GetComponent<FusibleManager>().isUsed = true;
                         Liaisons[i].IsLiaisonValid = false;
-                        Liaisons[i].GetComponentInChildren<VRTK_SnapDropZone>().ForceUnsnap();
                         gameObject.GetComponentInChildren<LiaisonManager>().Led.material.CopyPropertiesFromMaterial(gameObject.GetComponentInChildren<LiaisonManager>().Red);
+                        Liaisons[i].GetComponentInChildren<VRTK_SnapDropZone>().ForceUnsnap();
+                        
                     }
                 }
             }
