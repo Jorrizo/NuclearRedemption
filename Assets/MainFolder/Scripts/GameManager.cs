@@ -97,6 +97,8 @@ public class GameManager : MonoBehaviour
         timeStampState = Time.time + coolDownState;
         FixEventProbabilities();
 
+        TempSavedPeople = 0;
+
     }
 
     // Update is called once per frame
@@ -194,20 +196,20 @@ public class GameManager : MonoBehaviour
             case 0:
                 type = GameStates.Intenable;
                 facteurSecondaire = 4f;
-                AmountGamble(4f,4/6f, Percentage = new float[] { 0.2f, 0.8f });
+                AmountGamble(4f,5, Percentage = new float[] { 0.2f, 0.8f });
                 break;
 
             case 1:
                 type = GameStates.Trépidant;
                 facteurSecondaire = 2f;
-                AmountGamble(6f,2/4f,Percentage = new float[] { 0.5f, 0.5f });
+                AmountGamble(6f,3,Percentage = new float[] { 0.5f, 0.5f });
                 Debug.Log("Evenementtada");
                 break;
 
             case 2:
                 type = GameStates.Paisible;
                 facteurSecondaire = 1f;
-                AmountGamble(10f,6f, Percentage = new float[] { 1f, 0f });
+                AmountGamble(10f,1, Percentage = new float[] { 1f, 0f });
                 break;
         }
     }
@@ -432,8 +434,10 @@ public class GameManager : MonoBehaviour
 
     public void RouletteRusse(int echantillonToGamble, float [] SavePourcentage)
     {
+        Debug.Log("Entrefonction");
         for (int i = 0; i < echantillonToGamble; i++)
         {
+            Debug.Log("Entredanslefor");
             switch (EventPicker(SavePourcentage))
             {
                 case 0:
@@ -450,22 +454,21 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void AmountGamble(float timeOfRelance,float AmountRelance, float [] Percentage)
+    public void AmountGamble(float timeOfRelance,int AmountRelance, float [] Percentage)
     {
         float temp = Time.time + timeOfRelance;
-        float temp2 = Time.time + AmountRelance;
-        TempSavedPeople = EnchantillonToGamble;
+        //TempSavedPeople = EnchantillonToGamble;
+
         if (Time.time < temp)
         {
-            Debug.Log("temp");
+           
 
-            if (Time.time < temp2)
+            for (int i = 0; i < AmountRelance; i++)
             {
-                Debug.Log("temp2");
+                
 
                 EnchantillonToGamble -= TempSavedPeople;
                 RouletteRusse(EnchantillonToGamble, Percentage);
-                temp2 = Time.time + AmountRelance;
             }
         }
     }
