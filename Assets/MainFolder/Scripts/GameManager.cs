@@ -196,12 +196,16 @@ public class GameManager : MonoBehaviour
             case 0:
                 type = GameStates.Intenable;
                 facteurSecondaire = 4f;
+                EnchantillonToGamble = 20;
+                TempSavedPeople = 0;
                 AmountGamble(4f,5, Percentage = new float[] { 0.2f, 0.8f });
                 break;
 
             case 1:
                 type = GameStates.Trépidant;
                 facteurSecondaire = 2f;
+                EnchantillonToGamble = 20;
+                TempSavedPeople = 0;
                 AmountGamble(6f,3,Percentage = new float[] { 0.5f, 0.5f });
                 Debug.Log("Evenementtada");
                 break;
@@ -209,6 +213,8 @@ public class GameManager : MonoBehaviour
             case 2:
                 type = GameStates.Paisible;
                 facteurSecondaire = 1f;
+                EnchantillonToGamble = 20;
+                TempSavedPeople = 0;
                 AmountGamble(10f,1, Percentage = new float[] { 1f, 0f });
                 break;
         }
@@ -461,15 +467,19 @@ public class GameManager : MonoBehaviour
 
         if (Time.time < temp)
         {
-           
 
-            for (int i = 0; i < AmountRelance; i++)
-            {
-                
-
+             for (int i = 0; i < 1; i++)
+            {              
                 EnchantillonToGamble -= TempSavedPeople;
                 RouletteRusse(EnchantillonToGamble, Percentage);
             }
+
+            /*for (int i = 0; i < AmountRelance; i++)
+            {              
+                EnchantillonToGamble -= TempSavedPeople;
+                RouletteRusse(EnchantillonToGamble, Percentage);
+            }*/
         }
     }
 }
+ 
