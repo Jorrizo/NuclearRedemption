@@ -33,7 +33,9 @@ public class GameManager : MonoBehaviour
 
     public int PopulationMax = 200;
     public int PopulationToSave = 200;
-    public int PopulationSaved = 200;
+    public int PopulationIndoor = 200;
+    public int PopulationOutdoor = 0;
+    public float [] PopulationFlow;
     public int EnchantillonToGamble = 20;
     float[] Percentage;
     public int TempSavedPeople;
@@ -198,7 +200,7 @@ public class GameManager : MonoBehaviour
                 facteurSecondaire = 4f;
                 EnchantillonToGamble = 20;
                 TempSavedPeople = 0;
-                AmountGamble(4f,5, Percentage = new float[] { 0.2f, 0.8f });
+                AmountGamble(4f,5, Percentage = new float[] { 0.5f, 0.5f });
                 break;
 
             case 1:
@@ -206,7 +208,7 @@ public class GameManager : MonoBehaviour
                 facteurSecondaire = 2f;
                 EnchantillonToGamble = 20;
                 TempSavedPeople = 0;
-                AmountGamble(6f,3,Percentage = new float[] { 0.5f, 0.5f });
+                AmountGamble(6f,3,Percentage = new float[] { 0.8f, 0.2f });
                 Debug.Log("Evenementtada");
                 break;
 
@@ -440,10 +442,8 @@ public class GameManager : MonoBehaviour
 
     public void RouletteRusse(int echantillonToGamble, float [] SavePourcentage)
     {
-        Debug.Log("Entrefonction");
         for (int i = 0; i < echantillonToGamble; i++)
         {
-            Debug.Log("Entredanslefor");
             switch (EventPicker(SavePourcentage))
             {
                 case 0:
@@ -452,9 +452,7 @@ public class GameManager : MonoBehaviour
 
                 case 1:
                     Debug.Log("1mort");
-                    PopulationSaved--;
-                    TempSavedPeople++;
-
+                    PopulationIndoor--;
                     break;
             }
         }
@@ -462,24 +460,13 @@ public class GameManager : MonoBehaviour
 
     public void AmountGamble(float timeOfRelance,int AmountRelance, float [] Percentage)
     {
-        float temp = Time.time + timeOfRelance;
-        //TempSavedPeople = EnchantillonToGamble;
+                RouletteRusse(((int)((PopulationIndoor*25)/100)), Percentage);
 
-        if (Time.time < temp)
-        {
+    }
 
-             for (int i = 0; i < 1; i++)
-            {              
-                EnchantillonToGamble -= TempSavedPeople;
-                RouletteRusse(EnchantillonToGamble, Percentage);
-            }
-
-            /*for (int i = 0; i < AmountRelance; i++)
-            {              
-                EnchantillonToGamble -= TempSavedPeople;
-                RouletteRusse(EnchantillonToGamble, Percentage);
-            }*/
-        }
+    public void PeopleFlow(float []Flow)
+    {
+        
     }
 }
  
