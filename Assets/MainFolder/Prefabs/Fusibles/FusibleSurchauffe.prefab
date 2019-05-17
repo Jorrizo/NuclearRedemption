@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 9044415998210097347}
   - component: {fileID: 7343206716416127985}
   - component: {fileID: 7952174558169899813}
-  - component: {fileID: 6103551595650174491}
   m_Layer: 0
   m_Name: FusibleSurchauffe
   m_TagString: Surchauffe
@@ -245,19 +244,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isUsed: 0
---- !u!65 &6103551595650174491
-BoxCollider:
+--- !u!64 &1519633295626961559
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1039236171126020954}
+  m_GameObject: {fileID: 3538984778016762790}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.04, y: 0.05, z: 0.03}
-  m_Center: {x: 0.0000014901161, y: 0, z: 0.0000037252903}
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 95c5356b30296954eb2f97c83d019dfc, type: 3}
 --- !u!1001 &3538984778016861446
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -319,6 +319,12 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: a69094429a9abd84ab0af3903f5761a6, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95c5356b30296954eb2f97c83d019dfc, type: 3}
+--- !u!1 &3538984778016762790 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 95c5356b30296954eb2f97c83d019dfc,
+    type: 3}
+  m_PrefabInstance: {fileID: 3538984778016861446}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3538984778016733062 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 95c5356b30296954eb2f97c83d019dfc,

@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!64 &2526875186951918975
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4947410047764258812}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 95c5356b30296954eb2f97c83d019dfc, type: 3}
 --- !u!1 &6214203768292919616
 GameObject:
   m_ObjectHideFlags: 0
@@ -9,7 +23,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1375433568705305637}
-  - component: {fileID: 3735741982821366751}
   - component: {fileID: 7371794727617291660}
   - component: {fileID: 2962974242271053937}
   - component: {fileID: 8527378889184118457}
@@ -38,19 +51,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &3735741982821366751
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6214203768292919616}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.04, y: 0.05, z: 0.03}
-  m_Center: {x: 0.0000014901161, y: 0, z: 0.0000037252903}
 --- !u!54 &7371794727617291660
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -319,6 +319,12 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 360ad51992e4dc543afe98c5b56de931, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95c5356b30296954eb2f97c83d019dfc, type: 3}
+--- !u!1 &4947410047764258812 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 95c5356b30296954eb2f97c83d019dfc,
+    type: 3}
+  m_PrefabInstance: {fileID: 4947410047764158812}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4947410047763760092 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 95c5356b30296954eb2f97c83d019dfc,
