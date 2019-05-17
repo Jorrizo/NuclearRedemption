@@ -1,0 +1,321 @@
+fileFormatVersion: 2
+guid: 127a5efd7b51566469a3532a72b73057
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: AcceuilFuibleLumiere
+    100002: Acceuille
+    100004: "A\xE9ration"
+    100006: Chair
+    100008: Chair1
+    100010: Chaises
+    100012: Clapet
+    100014: Desk
+    100016: Desk 1
+    100018: Desk 2
+    100020: door
+    100022: Ecrans
+    100024: EcransEtats
+    100026: Elements
+    100028: ExitDoor
+    100030: Floor
+    100032: Fournisseur
+    100034: Fournisseur 1
+    100036: GlobalLight1
+    100038: GlobalLight2
+    100040: GlobalLight3
+    100042: GlobalLight4
+    100044: GlobalLight5
+    100046: GlobalLight6
+    100048: GlobalLights
+    100050: Lights
+    100052: Lock
+    100054: looker
+    100056: "Poign\xE9e1"
+    100058: polySurface11
+    100060: polySurface12
+    100062: polySurface15
+    100064: polySurface16
+    100066: polySurface17
+    100068: polySurface2
+    100070: polySurface3
+    100072: polySurface4
+    100074: polySurface5
+    100076: polySurface6
+    100078: polySurface7
+    100080: polySurface8
+    100082: PoteauExit
+    100084: rad
+    100086: Roof
+    100088: Room
+    100090: Room 1
+    100092: //RootNode
+    100094: Tableau
+    100096: TableauFusible
+    100098: Tiroirs
+    100100: Valve2
+    100102: Valve3
+    100104: Valves
+    100106: Vitres
+    400000: AcceuilFuibleLumiere
+    400002: Acceuille
+    400004: "A\xE9ration"
+    400006: Chair
+    400008: Chair1
+    400010: Chaises
+    400012: Clapet
+    400014: Desk
+    400016: Desk 1
+    400018: Desk 2
+    400020: door
+    400022: Ecrans
+    400024: EcransEtats
+    400026: Elements
+    400028: ExitDoor
+    400030: Floor
+    400032: Fournisseur
+    400034: Fournisseur 1
+    400036: GlobalLight1
+    400038: GlobalLight2
+    400040: GlobalLight3
+    400042: GlobalLight4
+    400044: GlobalLight5
+    400046: GlobalLight6
+    400048: GlobalLights
+    400050: Lights
+    400052: Lock
+    400054: looker
+    400056: "Poign\xE9e1"
+    400058: polySurface11
+    400060: polySurface12
+    400062: polySurface15
+    400064: polySurface16
+    400066: polySurface17
+    400068: polySurface2
+    400070: polySurface3
+    400072: polySurface4
+    400074: polySurface5
+    400076: polySurface6
+    400078: polySurface7
+    400080: polySurface8
+    400082: PoteauExit
+    400084: rad
+    400086: Roof
+    400088: Room
+    400090: Room 1
+    400092: //RootNode
+    400094: Tableau
+    400096: TableauFusible
+    400098: Tiroirs
+    400100: Valve2
+    400102: Valve3
+    400104: Valves
+    400106: Vitres
+    2100000: lambert1
+    2300000: AcceuilFuibleLumiere
+    2300002: Acceuille
+    2300004: "A\xE9ration"
+    2300006: Chair
+    2300008: Chair1
+    2300010: Clapet
+    2300012: Desk 2
+    2300014: door
+    2300016: Ecrans
+    2300018: EcransEtats
+    2300020: Floor
+    2300022: Fournisseur 1
+    2300024: GlobalLight1
+    2300026: GlobalLight2
+    2300028: GlobalLight3
+    2300030: GlobalLight4
+    2300032: GlobalLight5
+    2300034: GlobalLight6
+    2300036: Lock
+    2300038: looker
+    2300040: "Poign\xE9e1"
+    2300042: polySurface11
+    2300044: polySurface12
+    2300046: polySurface15
+    2300048: polySurface16
+    2300050: polySurface17
+    2300052: polySurface2
+    2300054: polySurface3
+    2300056: polySurface4
+    2300058: polySurface5
+    2300060: polySurface6
+    2300062: polySurface7
+    2300064: polySurface8
+    2300066: PoteauExit
+    2300068: rad
+    2300070: Roof
+    2300072: Room 1
+    2300074: TableauFusible
+    2300076: Valve2
+    2300078: Valve3
+    3300000: AcceuilFuibleLumiere
+    3300002: Acceuille
+    3300004: "A\xE9ration"
+    3300006: Chair
+    3300008: Chair1
+    3300010: Clapet
+    3300012: Desk 2
+    3300014: door
+    3300016: Ecrans
+    3300018: EcransEtats
+    3300020: Floor
+    3300022: Fournisseur 1
+    3300024: GlobalLight1
+    3300026: GlobalLight2
+    3300028: GlobalLight3
+    3300030: GlobalLight4
+    3300032: GlobalLight5
+    3300034: GlobalLight6
+    3300036: Lock
+    3300038: looker
+    3300040: "Poign\xE9e1"
+    3300042: polySurface11
+    3300044: polySurface12
+    3300046: polySurface15
+    3300048: polySurface16
+    3300050: polySurface17
+    3300052: polySurface2
+    3300054: polySurface3
+    3300056: polySurface4
+    3300058: polySurface5
+    3300060: polySurface6
+    3300062: polySurface7
+    3300064: polySurface8
+    3300066: PoteauExit
+    3300068: rad
+    3300070: Roof
+    3300072: Room 1
+    3300074: TableauFusible
+    3300076: Valve2
+    3300078: Valve3
+    4300000: PoteauExit
+    4300002: AcceuilFuibleLumiere
+    4300004: Fournisseur
+    4300006: Clapet
+    4300008: Chair1
+    4300010: Chair
+    4300012: "Poign\xE9e1"
+    4300014: Valve2
+    4300016: Valve3
+    4300018: GlobalLight1
+    4300020: GlobalLight2
+    4300022: GlobalLight3
+    4300024: GlobalLight4
+    4300026: GlobalLight5
+    4300028: GlobalLight6
+    4300030: "A\xE9ration"
+    4300032: door
+    4300034: looker
+    4300036: rad
+    4300038: Acceuille
+    4300040: Lock
+    4300042: Room
+    4300044: EcransEtats
+    4300046: Ecrans
+    4300048: polySurface11
+    4300050: polySurface12
+    4300052: polySurface15
+    4300054: polySurface16
+    4300056: polySurface8
+    4300058: polySurface17
+    4300060: Roof
+    4300062: Floor
+    4300064: TableauFusible
+    4300066: polySurface7
+    4300068: polySurface6
+    4300070: polySurface5
+    4300072: polySurface4
+    4300074: polySurface3
+    4300076: polySurface2
+    4300078: Desk
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
