@@ -14,13 +14,17 @@ public class GameManager : MonoBehaviour
         Intenable
     }
 
+    [Header("Lights")]
     public Light integrityLight;
+
+    [Header("Modules")]
     public ModuleState[] modules;
-
-    public GameStates type = GameStates.Préparation;
-
     public bool[] currentModuleStable;
 
+    [Header("GameState")]
+    public GameStates type = GameStates.Préparation;
+    
+    [Header("Coodowns")]
     public float coolDownState = 10f;
     float timeStampState;
 
@@ -30,7 +34,7 @@ public class GameManager : MonoBehaviour
     bool[] Default = new bool[] { false, false, false, false };
     private string informationsEvent = "nothing";
 
-
+    [Header("People")]
     public int PopulationMax = 200;
     public int PopulationToSave = 200;
     public float PopulationIndoor = 200;
@@ -40,9 +44,10 @@ public class GameManager : MonoBehaviour
     float[] Percentage;
     public int TempSavedPeople;
 
+    [Header("Combo")]
     public float PaisibleCombo;
 
-
+    [Header("Probabilities Arays")]
     public float[] ModulesProbabilities = new float[] { 0.33f, 0.33f, 0.33f };
 
     /* Mémo
@@ -75,6 +80,7 @@ public class GameManager : MonoBehaviour
 
     //Gestion de l'intégritée globale de la centrale
 
+    [Header("Central integrity")]
     public float integriteGlobale = 1000f;
 
     public float facteurPrimaire = 0f;
@@ -100,6 +106,7 @@ public class GameManager : MonoBehaviour
         type = GameStates.Préparation;
         timeStampState = Time.time + coolDownState;
         FixEventProbabilities();
+        FaxSpawnManager.instance.SpawnFax();
 
         TempSavedPeople = 0;
 
@@ -125,6 +132,8 @@ public class GameManager : MonoBehaviour
 
             FixEventProbabilities();
             timeStampState = Time.time + coolDownState;
+            FaxSpawnManager.instance.SpawnFax();
+
         }
 
         if(Time.time >= timeStampNextEvent && type != GameStates.Préparation)
