@@ -33,8 +33,7 @@ public class TableauManager : MonoBehaviour
                         Liaisons[i].IsLiaisonValid = false;
                         gameObject.GetComponentInChildren<LiaisonManager>().Led.material.CopyPropertiesFromMaterial(gameObject.GetComponentInChildren<LiaisonManager>().Red);
                         Liaisons[i].GetComponentInChildren<VRTK_SnapDropZone>().ForceUnsnap();
-                        
-
+                       
                     }
                     if (Liaisons[i].CurrentFusible.CompareTag("Surcharge"))
                     {

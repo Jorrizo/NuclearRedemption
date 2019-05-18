@@ -33,12 +33,14 @@ public class GameManager : MonoBehaviour
 
     public int PopulationMax = 200;
     public int PopulationToSave = 200;
-    public int PopulationIndoor = 200;
-    public int PopulationOutdoor = 0;
-    public float [] PopulationFlow;
+    public float PopulationIndoor = 200;
+    public float PopulationOutdoor = 0;
+    public float PopulationFlow = 0;
     public int EnchantillonToGamble = 20;
     float[] Percentage;
     public int TempSavedPeople;
+
+    public float PaisibleCombo;
 
 
     public float[] ModulesProbabilities = new float[] { 0.33f, 0.33f, 0.33f };
@@ -129,8 +131,37 @@ public class GameManager : MonoBehaviour
         {          
           //  NextEvent();
             NextModuleEvent();
-            timeStampNextEvent = Time.time + coolDownNextEvent;
+            PeopleFlow();
+
+            if (type == GameStates.Paisible)
+            {
+                if (PaisibleCombo < 5f)
+                {
+                    PaisibleCombo += 0.25f;
+                    Debug.Log("Cooombo =" + PaisibleCombo);
+                    if (PaisibleCombo > 0.26f && PaisibleCombo < 6f)
+                    {
+                        if (PopulationFlow < 3)
+                        {
+                            PopulationFlow += PaisibleCombo;
+                        }
+                    }
+
+                }
+            }
+            else
+            {
+                PaisibleCombo = 0f;
+            }
+
+            
+
+                timeStampNextEvent = Time.time + coolDownNextEvent;
         }
+
+        
+        PopulationIndoor -= (Time.deltaTime * PopulationFlow);
+        PopulationOutdoor += (Time.deltaTime * PopulationFlow);
     }
 
     void FixEventProbabilities() // Ajuste les probabilitées d'évenements selon l'état de la partie
@@ -464,9 +495,117 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void PeopleFlow(float []Flow)
+    public void PeopleFlow()
     {
-        
+        int etatsAmount = 0;
+        int modulesStables = 0;
+        for (int i = 0; i < modules.Length; i++)
+        {
+            for (int j = 1; j < modules[0].Etats.Length; j++)
+            {
+                if (modules[i].Etats[j] == true)
+                {
+                    etatsAmount++;
+
+                }
+            }
+            if (modules[i].Etats[0])
+            {
+                modulesStables++;
+            }
+        }
+        switch (modulesStables)
+        {
+            case 0:
+                switch (etatsAmount)
+                {
+                    case 1:
+                        //Impossible
+                        break;
+                    case 2:
+                        //Impossible
+                        break;
+                    case 3:
+                        PopulationFlow = 0.8f;
+                        break;
+                    case 4:
+                        PopulationFlow = 0.7f;
+                        break;
+                    case 5:
+                        PopulationFlow = 0.5f;
+                        break;
+                    case 6:
+                        PopulationFlow = 0.2f;
+                        break;
+
+                    default:
+                        break;
+                }
+                break;
+            case 1:
+                switch (etatsAmount)
+                {
+                    case 1:
+                        //Impossible
+                        break;
+                    case 2:
+                        PopulationFlow = 0.9f;
+                        break;
+                    case 3:
+                        PopulationFlow = 0.7f;
+                        break;
+                    case 4:
+                        PopulationFlow = 0.6f;
+                        break;
+                    case 5:
+                        PopulationFlow = 0.3f;
+                        break;
+                    case 6:
+                        PopulationFlow = 0f;
+                        break;
+
+                    default:
+                        break;
+                }
+                break;
+            case 2:
+                switch (etatsAmount)
+                {
+                    case 1:
+                        PopulationFlow = 1f ;
+                        break;
+                    case 2:
+                        PopulationFlow = 0.7f;
+                        break;
+                    case 3:
+                        PopulationFlow = 0.5f;
+                        break;
+                    case 4:
+                        //Impossible
+                        break;
+                    case 5:
+                        //Impossible
+                        break;
+                    case 6:
+                        //Impossible
+                        break;
+
+                    default:
+                        break;
+                }
+                        break;
+            case 3:
+                if(PaisibleCombo == 0f)
+                {
+                    PopulationFlow = 1.3f;
+                }
+                break;
+
+            default:
+                break;
+        }
     }
+
+
 }
  
