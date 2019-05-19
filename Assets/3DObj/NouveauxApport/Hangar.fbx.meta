@@ -1,0 +1,337 @@
+fileFormatVersion: 2
+guid: 24dc461c4b51e7b45a6cefac94279d26
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: "Barri\xE8res"
+    100002: Carcasse
+    100004: enrouleur
+    100006: Etage
+    100008: Etage 1
+    100010: group10
+    100012: group11
+    100014: group12
+    100016: group8
+    100018: group9
+    100020: Hangar
+    100022: //RootNode
+    100024: Hangar_Structure
+    100026: HangarAssets
+    100028: HangarFloor
+    100030: Marche
+    100032: pCylinder1
+    100034: pCylinder1 1
+    100036: pCylinder1 2
+    100038: pCylinder1 3
+    100040: pCylinder1 4
+    100042: pCylinder2
+    100044: pCylinder2 1
+    100046: pCylinder2 2
+    100048: pCylinder2 3
+    100050: pCylinder2 4
+    100052: pCylinder3
+    100054: pCylinder3 1
+    100056: pCylinder3 2
+    100058: pCylinder3 3
+    100060: pCylinder3 4
+    100062: Plane.009
+    100064: Plane.010
+    100066: Plane.012
+    100068: Plane.013
+    100070: Plane.014
+    100072: Plane.015
+    100074: Plane.016
+    100076: Plane.017
+    100078: Plane.018
+    100080: Plane.022
+    100082: Plane.024
+    100084: Plane.025
+    100086: polySurface18
+    100088: polySurface19
+    100090: polySurface20
+    100092: polySurface21
+    100094: polySurface22
+    100096: polySurface23
+    100098: Porte
+    100100: Porte1
+    100102: Porte2
+    100104: Porte3
+    100106: Porte4
+    100108: Porte5
+    100110: Portes
+    100112: Rail_Porte
+    100114: Rambarde
+    100116: Tole
+    100118: Tole 1
+    100120: VoletMetal
+    400000: "Barri\xE8res"
+    400002: Carcasse
+    400004: enrouleur
+    400006: Etage
+    400008: Etage 1
+    400010: group10
+    400012: group11
+    400014: group12
+    400016: group8
+    400018: group9
+    400020: //RootNode
+    400022: Hangar
+    400024: Hangar_Structure
+    400026: HangarAssets
+    400028: HangarFloor
+    400030: Marche
+    400032: pCylinder1
+    400034: pCylinder1 1
+    400036: pCylinder1 2
+    400038: pCylinder1 3
+    400040: pCylinder1 4
+    400042: pCylinder2
+    400044: pCylinder2 1
+    400046: pCylinder2 2
+    400048: pCylinder2 3
+    400050: pCylinder2 4
+    400052: pCylinder3
+    400054: pCylinder3 1
+    400056: pCylinder3 2
+    400058: pCylinder3 3
+    400060: pCylinder3 4
+    400062: Plane.009
+    400064: Plane.010
+    400066: Plane.012
+    400068: Plane.013
+    400070: Plane.014
+    400072: Plane.015
+    400074: Plane.016
+    400076: Plane.017
+    400078: Plane.018
+    400080: Plane.022
+    400082: Plane.024
+    400084: Plane.025
+    400086: polySurface18
+    400088: polySurface19
+    400090: polySurface20
+    400092: polySurface21
+    400094: polySurface22
+    400096: polySurface23
+    400098: Porte
+    400100: Porte1
+    400102: Porte2
+    400104: Porte3
+    400106: Porte4
+    400108: Porte5
+    400110: Portes
+    400112: Rail_Porte
+    400114: Rambarde
+    400116: Tole
+    400118: Tole 1
+    400120: VoletMetal
+    2100000: lambert1
+    2300000: Carcasse
+    2300002: Etage 1
+    2300004: Hangar_Structure
+    2300006: HangarFloor
+    2300008: Marche
+    2300010: pCylinder1
+    2300012: pCylinder1 1
+    2300014: pCylinder1 2
+    2300016: pCylinder1 3
+    2300018: pCylinder1 4
+    2300020: pCylinder2
+    2300022: pCylinder2 1
+    2300024: pCylinder2 2
+    2300026: pCylinder2 3
+    2300028: pCylinder2 4
+    2300030: pCylinder3
+    2300032: pCylinder3 1
+    2300034: pCylinder3 2
+    2300036: pCylinder3 3
+    2300038: pCylinder3 4
+    2300040: Plane.009
+    2300042: Plane.010
+    2300044: Plane.012
+    2300046: Plane.013
+    2300048: Plane.014
+    2300050: Plane.015
+    2300052: Plane.016
+    2300054: Plane.017
+    2300056: Plane.018
+    2300058: Plane.022
+    2300060: Plane.024
+    2300062: Plane.025
+    2300064: polySurface18
+    2300066: polySurface19
+    2300068: polySurface20
+    2300070: polySurface21
+    2300072: polySurface22
+    2300074: polySurface23
+    2300076: Rail_Porte
+    2300078: Rambarde
+    2300080: VoletMetal
+    3300000: Carcasse
+    3300002: Etage 1
+    3300004: Hangar_Structure
+    3300006: HangarFloor
+    3300008: Marche
+    3300010: pCylinder1
+    3300012: pCylinder1 1
+    3300014: pCylinder1 2
+    3300016: pCylinder1 3
+    3300018: pCylinder1 4
+    3300020: pCylinder2
+    3300022: pCylinder2 1
+    3300024: pCylinder2 2
+    3300026: pCylinder2 3
+    3300028: pCylinder2 4
+    3300030: pCylinder3
+    3300032: pCylinder3 1
+    3300034: pCylinder3 2
+    3300036: pCylinder3 3
+    3300038: pCylinder3 4
+    3300040: Plane.009
+    3300042: Plane.010
+    3300044: Plane.012
+    3300046: Plane.013
+    3300048: Plane.014
+    3300050: Plane.015
+    3300052: Plane.016
+    3300054: Plane.017
+    3300056: Plane.018
+    3300058: Plane.022
+    3300060: Plane.024
+    3300062: Plane.025
+    3300064: polySurface18
+    3300066: polySurface19
+    3300068: polySurface20
+    3300070: polySurface21
+    3300072: polySurface22
+    3300074: polySurface23
+    3300076: Rail_Porte
+    3300078: Rambarde
+    3300080: VoletMetal
+    4300000: Hangar_Structure
+    4300002: polySurface18
+    4300004: polySurface19
+    4300006: polySurface20
+    4300008: polySurface21
+    4300010: polySurface22
+    4300012: polySurface23
+    4300014: Etage
+    4300016: Marche
+    4300018: Rambarde
+    4300020: Rail_Porte
+    4300022: Plane.013
+    4300024: Plane.014
+    4300026: Plane.010
+    4300028: Plane.015
+    4300030: Plane.009
+    4300032: Plane.012
+    4300034: Plane.018
+    4300036: Plane.025
+    4300038: Plane.017
+    4300040: Plane.024
+    4300042: Plane.016
+    4300044: Plane.022
+    4300046: Carcasse
+    4300048: VoletMetal
+    4300050: HangarFloor
+    4300052: pCylinder1
+    4300054: pCylinder2
+    4300056: pCylinder3
+    4300058: pCylinder1
+    4300060: pCylinder2
+    4300062: pCylinder3
+    4300064: pCylinder1
+    4300066: pCylinder2
+    4300068: pCylinder3
+    4300070: pCylinder1
+    4300072: pCylinder2
+    4300074: pCylinder3
+    4300076: pCylinder1
+    4300078: pCylinder2
+    4300080: pCylinder3
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

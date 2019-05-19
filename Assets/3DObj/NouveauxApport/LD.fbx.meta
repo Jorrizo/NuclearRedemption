@@ -1,0 +1,655 @@
+fileFormatVersion: 2
+guid: f36f2c645c6be7a4ab6beccf73135257
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: AcceuilFuibleLumiere
+    100002: Acceuille
+    100004: "A\xE9ration"
+    100006: "Barri\xE8res"
+    100008: Bureau
+    100010: Carcasse
+    100012: Chair
+    100014: Chair1
+    100016: Chaises
+    100018: Clapet
+    100020: Comp_Screen.000
+    100022: Comp_Screen.003
+    100024: Computer
+    100026: Desk
+    100028: door
+    100030: Ecrans
+    100032: EcransEtats
+    100034: Elements
+    100036: enrouleur
+    100038: Etage
+    100040: Etage 1
+    100042: ExitDoor
+    100044: Fournisseur
+    100046: Fournisseur 1
+    100048: GlobalLight1
+    100050: GlobalLight2
+    100052: GlobalLight3
+    100054: GlobalLight4
+    100056: GlobalLight5
+    100058: GlobalLight6
+    100060: GlobalLights
+    100062: group10
+    100064: group11
+    100066: group12
+    100068: group8
+    100070: group9
+    100072: Hangar
+    100074: Hangar_Structure
+    100076: HangarAssets
+    100078: HangarFloor
+    100080: Interupteur
+    100082: //RootNode
+    100084: Lock
+    100086: looker
+    100088: "Lumi\xE8res"
+    100090: Manometre
+    100092: Marche
+    100094: ModuleA
+    100096: ModuleA1
+    100098: ModuleAID
+    100100: ModuleB
+    100102: ModuleB 1
+    100104: ModuleC
+    100106: ModuleC 1
+    100108: Modules
+    100110: Murs
+    100112: Murs 1
+    100114: Panel
+    100116: PanelAssets
+    100118: pCylinder1
+    100120: pCylinder1 1
+    100122: pCylinder1 2
+    100124: pCylinder1 3
+    100126: pCylinder1 4
+    100128: pCylinder2
+    100130: pCylinder2 1
+    100132: pCylinder2 2
+    100134: pCylinder2 3
+    100136: pCylinder2 4
+    100138: pCylinder3
+    100140: pCylinder3 1
+    100142: pCylinder3 2
+    100144: pCylinder3 3
+    100146: pCylinder3 4
+    100148: PetitEcran
+    100150: Plafond
+    100152: Plane.009
+    100154: Plane.010
+    100156: Plane.012
+    100158: Plane.013
+    100160: Plane.014
+    100162: Plane.015
+    100164: Plane.016
+    100166: Plane.017
+    100168: Plane.018
+    100170: Plane.022
+    100172: Plane.024
+    100174: Plane.025
+    100176: polySurface11
+    100178: polySurface12
+    100180: polySurface15
+    100182: polySurface16
+    100184: polySurface17
+    100186: polySurface18
+    100188: polySurface19
+    100190: polySurface20
+    100192: polySurface21
+    100194: polySurface22
+    100196: polySurface23
+    100198: polySurface8
+    100200: Porte
+    100202: Porte1
+    100204: Porte2
+    100206: Porte3
+    100208: Porte4
+    100210: Porte5
+    100212: Portes
+    100214: Potar
+    100216: Potar1
+    100218: Potar2
+    100220: Potar3
+    100222: Potar4
+    100224: PoteauExit
+    100226: rad
+    100228: Rail_Porte
+    100230: Rambarde
+    100232: Salle
+    100234: Sol_Salle
+    100236: Tableau
+    100238: TableauFusible
+    100240: Tole
+    100242: Tole 1
+    100244: Valve10
+    100246: Valve11
+    100248: Valve2
+    100250: Valve3
+    100252: Valve4
+    100254: Valve5
+    100256: Valve6
+    100258: Valve7
+    100260: Valve8
+    100262: Valve9
+    100264: Valves
+    100266: Vitres
+    100268: VoletMetal
+    400000: AcceuilFuibleLumiere
+    400002: Acceuille
+    400004: "A\xE9ration"
+    400006: "Barri\xE8res"
+    400008: Bureau
+    400010: Carcasse
+    400012: Chair
+    400014: Chair1
+    400016: Chaises
+    400018: Clapet
+    400020: Comp_Screen.000
+    400022: Comp_Screen.003
+    400024: Computer
+    400026: Desk
+    400028: door
+    400030: Ecrans
+    400032: EcransEtats
+    400034: Elements
+    400036: enrouleur
+    400038: Etage
+    400040: Etage 1
+    400042: ExitDoor
+    400044: Fournisseur
+    400046: Fournisseur 1
+    400048: GlobalLight1
+    400050: GlobalLight2
+    400052: GlobalLight3
+    400054: GlobalLight4
+    400056: GlobalLight5
+    400058: GlobalLight6
+    400060: GlobalLights
+    400062: group10
+    400064: group11
+    400066: group12
+    400068: group8
+    400070: group9
+    400072: Hangar
+    400074: Hangar_Structure
+    400076: HangarAssets
+    400078: HangarFloor
+    400080: Interupteur
+    400082: //RootNode
+    400084: Lock
+    400086: looker
+    400088: "Lumi\xE8res"
+    400090: Manometre
+    400092: Marche
+    400094: ModuleA
+    400096: ModuleA1
+    400098: ModuleAID
+    400100: ModuleB
+    400102: ModuleB 1
+    400104: ModuleC
+    400106: ModuleC 1
+    400108: Modules
+    400110: Murs
+    400112: Murs 1
+    400114: Panel
+    400116: PanelAssets
+    400118: pCylinder1
+    400120: pCylinder1 1
+    400122: pCylinder1 2
+    400124: pCylinder1 3
+    400126: pCylinder1 4
+    400128: pCylinder2
+    400130: pCylinder2 1
+    400132: pCylinder2 2
+    400134: pCylinder2 3
+    400136: pCylinder2 4
+    400138: pCylinder3
+    400140: pCylinder3 1
+    400142: pCylinder3 2
+    400144: pCylinder3 3
+    400146: pCylinder3 4
+    400148: PetitEcran
+    400150: Plafond
+    400152: Plane.009
+    400154: Plane.010
+    400156: Plane.012
+    400158: Plane.013
+    400160: Plane.014
+    400162: Plane.015
+    400164: Plane.016
+    400166: Plane.017
+    400168: Plane.018
+    400170: Plane.022
+    400172: Plane.024
+    400174: Plane.025
+    400176: polySurface11
+    400178: polySurface12
+    400180: polySurface15
+    400182: polySurface16
+    400184: polySurface17
+    400186: polySurface18
+    400188: polySurface19
+    400190: polySurface20
+    400192: polySurface21
+    400194: polySurface22
+    400196: polySurface23
+    400198: polySurface8
+    400200: Porte
+    400202: Porte1
+    400204: Porte2
+    400206: Porte3
+    400208: Porte4
+    400210: Porte5
+    400212: Portes
+    400214: Potar
+    400216: Potar1
+    400218: Potar2
+    400220: Potar3
+    400222: Potar4
+    400224: PoteauExit
+    400226: rad
+    400228: Rail_Porte
+    400230: Rambarde
+    400232: Salle
+    400234: Sol_Salle
+    400236: Tableau
+    400238: TableauFusible
+    400240: Tole
+    400242: Tole 1
+    400244: Valve10
+    400246: Valve11
+    400248: Valve2
+    400250: Valve3
+    400252: Valve4
+    400254: Valve5
+    400256: Valve6
+    400258: Valve7
+    400260: Valve8
+    400262: Valve9
+    400264: Valves
+    400266: Vitres
+    400268: VoletMetal
+    2100000: lambert1
+    2300000: AcceuilFuibleLumiere
+    2300002: Acceuille
+    2300004: "A\xE9ration"
+    2300006: Bureau
+    2300008: Carcasse
+    2300010: Chair
+    2300012: Chair1
+    2300014: Clapet
+    2300016: Comp_Screen.000
+    2300018: Comp_Screen.003
+    2300020: door
+    2300022: Ecrans
+    2300024: EcransEtats
+    2300026: Etage 1
+    2300028: Fournisseur 1
+    2300030: GlobalLight1
+    2300032: GlobalLight2
+    2300034: GlobalLight3
+    2300036: GlobalLight4
+    2300038: GlobalLight5
+    2300040: GlobalLight6
+    2300042: Hangar_Structure
+    2300044: HangarFloor
+    2300046: Interupteur
+    2300048: Lock
+    2300050: looker
+    2300052: Manometre
+    2300054: Marche
+    2300056: ModuleA1
+    2300058: ModuleAID
+    2300060: ModuleB 1
+    2300062: ModuleC 1
+    2300064: Murs 1
+    2300066: Panel
+    2300068: pCylinder1
+    2300070: pCylinder1 1
+    2300072: pCylinder1 2
+    2300074: pCylinder1 3
+    2300076: pCylinder1 4
+    2300078: pCylinder2
+    2300080: pCylinder2 1
+    2300082: pCylinder2 2
+    2300084: pCylinder2 3
+    2300086: pCylinder2 4
+    2300088: pCylinder3
+    2300090: pCylinder3 1
+    2300092: pCylinder3 2
+    2300094: pCylinder3 3
+    2300096: pCylinder3 4
+    2300098: PetitEcran
+    2300100: Plafond
+    2300102: Plane.009
+    2300104: Plane.010
+    2300106: Plane.012
+    2300108: Plane.013
+    2300110: Plane.014
+    2300112: Plane.015
+    2300114: Plane.016
+    2300116: Plane.017
+    2300118: Plane.018
+    2300120: Plane.022
+    2300122: Plane.024
+    2300124: Plane.025
+    2300126: polySurface11
+    2300128: polySurface12
+    2300130: polySurface15
+    2300132: polySurface16
+    2300134: polySurface17
+    2300136: polySurface18
+    2300138: polySurface19
+    2300140: polySurface20
+    2300142: polySurface21
+    2300144: polySurface22
+    2300146: polySurface23
+    2300148: polySurface8
+    2300150: Potar
+    2300152: Potar1
+    2300154: Potar2
+    2300156: Potar3
+    2300158: Potar4
+    2300160: PoteauExit
+    2300162: rad
+    2300164: Rail_Porte
+    2300166: Rambarde
+    2300168: Sol_Salle
+    2300170: TableauFusible
+    2300172: Valve10
+    2300174: Valve11
+    2300176: Valve2
+    2300178: Valve3
+    2300180: Valve4
+    2300182: Valve5
+    2300184: Valve6
+    2300186: Valve7
+    2300188: Valve8
+    2300190: Valve9
+    2300192: VoletMetal
+    3300000: AcceuilFuibleLumiere
+    3300002: Acceuille
+    3300004: "A\xE9ration"
+    3300006: Bureau
+    3300008: Carcasse
+    3300010: Chair
+    3300012: Chair1
+    3300014: Clapet
+    3300016: Comp_Screen.000
+    3300018: Comp_Screen.003
+    3300020: door
+    3300022: Ecrans
+    3300024: EcransEtats
+    3300026: Etage 1
+    3300028: Fournisseur 1
+    3300030: GlobalLight1
+    3300032: GlobalLight2
+    3300034: GlobalLight3
+    3300036: GlobalLight4
+    3300038: GlobalLight5
+    3300040: GlobalLight6
+    3300042: Hangar_Structure
+    3300044: HangarFloor
+    3300046: Interupteur
+    3300048: Lock
+    3300050: looker
+    3300052: Manometre
+    3300054: Marche
+    3300056: ModuleA1
+    3300058: ModuleAID
+    3300060: ModuleB 1
+    3300062: ModuleC 1
+    3300064: Murs 1
+    3300066: Panel
+    3300068: pCylinder1
+    3300070: pCylinder1 1
+    3300072: pCylinder1 2
+    3300074: pCylinder1 3
+    3300076: pCylinder1 4
+    3300078: pCylinder2
+    3300080: pCylinder2 1
+    3300082: pCylinder2 2
+    3300084: pCylinder2 3
+    3300086: pCylinder2 4
+    3300088: pCylinder3
+    3300090: pCylinder3 1
+    3300092: pCylinder3 2
+    3300094: pCylinder3 3
+    3300096: pCylinder3 4
+    3300098: PetitEcran
+    3300100: Plafond
+    3300102: Plane.009
+    3300104: Plane.010
+    3300106: Plane.012
+    3300108: Plane.013
+    3300110: Plane.014
+    3300112: Plane.015
+    3300114: Plane.016
+    3300116: Plane.017
+    3300118: Plane.018
+    3300120: Plane.022
+    3300122: Plane.024
+    3300124: Plane.025
+    3300126: polySurface11
+    3300128: polySurface12
+    3300130: polySurface15
+    3300132: polySurface16
+    3300134: polySurface17
+    3300136: polySurface18
+    3300138: polySurface19
+    3300140: polySurface20
+    3300142: polySurface21
+    3300144: polySurface22
+    3300146: polySurface23
+    3300148: polySurface8
+    3300150: Potar
+    3300152: Potar1
+    3300154: Potar2
+    3300156: Potar3
+    3300158: Potar4
+    3300160: PoteauExit
+    3300162: rad
+    3300164: Rail_Porte
+    3300166: Rambarde
+    3300168: Sol_Salle
+    3300170: TableauFusible
+    3300172: Valve10
+    3300174: Valve11
+    3300176: Valve2
+    3300178: Valve3
+    3300180: Valve4
+    3300182: Valve5
+    3300184: Valve6
+    3300186: Valve7
+    3300188: Valve8
+    3300190: Valve9
+    3300192: VoletMetal
+    4300000: PoteauExit
+    4300002: AcceuilFuibleLumiere
+    4300004: Fournisseur
+    4300006: Clapet
+    4300008: GlobalLight1
+    4300010: GlobalLight2
+    4300012: GlobalLight3
+    4300014: GlobalLight4
+    4300016: GlobalLight5
+    4300018: GlobalLight6
+    4300020: TableauFusible
+    4300022: door
+    4300024: looker
+    4300026: rad
+    4300028: Acceuille
+    4300030: Lock
+    4300032: Murs
+    4300034: EcransEtats
+    4300036: Ecrans
+    4300038: polySurface11
+    4300040: polySurface12
+    4300042: polySurface15
+    4300044: polySurface16
+    4300046: polySurface8
+    4300048: polySurface17
+    4300050: Plafond
+    4300052: Sol_Salle
+    4300054: Bureau
+    4300056: Comp_Screen.003
+    4300058: Comp_Screen.000
+    4300060: Chair1
+    4300062: Chair
+    4300064: Valve2
+    4300066: Valve3
+    4300068: Valve4
+    4300070: Valve5
+    4300072: Valve6
+    4300074: Valve7
+    4300076: Valve8
+    4300078: Valve9
+    4300080: Valve10
+    4300082: Valve11
+    4300084: Panel
+    4300086: Manometre
+    4300088: PetitEcran
+    4300090: Potar
+    4300092: Interupteur
+    4300094: Potar1
+    4300096: Potar2
+    4300098: Potar3
+    4300100: Potar4
+    4300102: "A\xE9ration"
+    4300104: Hangar_Structure
+    4300106: polySurface18
+    4300108: polySurface19
+    4300110: polySurface20
+    4300112: polySurface21
+    4300114: polySurface22
+    4300116: polySurface23
+    4300118: Etage
+    4300120: Marche
+    4300122: Rambarde
+    4300124: Rail_Porte
+    4300126: Plane.013
+    4300128: Plane.014
+    4300130: Plane.010
+    4300132: Plane.015
+    4300134: Plane.009
+    4300136: Plane.012
+    4300138: Plane.018
+    4300140: Plane.025
+    4300142: Plane.017
+    4300144: Plane.024
+    4300146: Plane.016
+    4300148: Plane.022
+    4300150: Carcasse
+    4300152: VoletMetal
+    4300154: HangarFloor
+    4300156: pCylinder1
+    4300158: pCylinder2
+    4300160: pCylinder3
+    4300162: pCylinder1
+    4300164: pCylinder2
+    4300166: pCylinder3
+    4300168: pCylinder1
+    4300170: pCylinder2
+    4300172: pCylinder3
+    4300174: pCylinder1
+    4300176: pCylinder2
+    4300178: pCylinder3
+    4300180: pCylinder1
+    4300182: pCylinder2
+    4300184: pCylinder3
+    4300186: ModuleAID
+    4300188: ModuleA1
+    4300190: ModuleC
+    4300192: ModuleB
+    9500000: //RootNode
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

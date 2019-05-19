@@ -3456,6 +3456,7 @@ GameObject:
   m_Component:
   - component: {fileID: 715312359}
   - component: {fileID: 715312360}
+  - component: {fileID: 715312361}
   m_Layer: 0
   m_Name: '[VRSimulator_CameraRig]'
   m_TagString: Untagged
@@ -3532,6 +3533,22 @@ MonoBehaviour:
   startMenuAlias: 102
   touchModifier: 116
   hairTouchModifier: 104
+--- !u!114 &715312361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 715312358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2b24ecc4024664489f56cde018b3ed9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SCShader: {fileID: 0}
+  Camera2: {fileID: 0}
+  SwitchCameraToCamera2: 0
+  BlendFX: 0.5
 --- !u!1 &720599658
 GameObject:
   m_ObjectHideFlags: 0
