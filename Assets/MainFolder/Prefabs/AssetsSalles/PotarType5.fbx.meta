@@ -3,12 +3,14 @@ guid: c61de0e926467cb46a2323dc0adfea66
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
+    100000: Potar6
+    100002: //RootNode
+    400000: Potar6
+    400002: //RootNode
     2100000: lambert1
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Potar5
+    2300000: Potar6
+    3300000: Potar6
+    4300000: Potar6
   externalObjects: {}
   materials:
     importMaterials: 1

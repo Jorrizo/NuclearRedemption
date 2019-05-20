@@ -3,13 +3,20 @@ guid: e7a5e4e3339046641b90c9a2b122f970
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
+    100000: Potar5
+    100002: //RootNode
+    400000: Potar5
+    400002: //RootNode
     2100000: lambert1
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Potar6
-  externalObjects: {}
+    2300000: Potar5
+    3300000: Potar5
+    4300000: Potar5
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: ac04665900953d945bf3417cfbff6fb8, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

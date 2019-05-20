@@ -3,11 +3,13 @@ guid: a410f9a9c82f0b642b3999f9c642f318
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
+    100000: Manometre1
+    100002: //RootNode
+    400000: Manometre1
+    400002: //RootNode
     2100000: lambert1
-    2300000: //RootNode
-    3300000: //RootNode
+    2300000: Manometre1
+    3300000: Manometre1
     4300000: Manometre1
   externalObjects: {}
   materials:
