@@ -36,6 +36,6 @@ public class FaxSpawnManager : MonoBehaviour
 
     public void SpawnFax()
     {
-        Instantiate(SheetFax, gameObject.transform.position, Quaternion.identity);
+        Instantiate(SheetFax, gameObject.transform.position, Quaternion.Euler(0f, 90f, 90f));
     }
 }

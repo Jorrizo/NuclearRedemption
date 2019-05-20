@@ -20,8 +20,7 @@ public class FaxUIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // GetComponent<Rigidbody>().AddForce(Vector3.up * 10f, ForceMode.Impulse);
-        GetComponent<Rigidbody>().AddForce(transform.forward * 0.1f);
+        GetComponent<Rigidbody>().AddForce(Vector3.forward * 5f, ForceMode.Impulse);
 
         valLife.text = "Etat de la centrale : " + GameManager.instance.integriteGlobale.ToString();
         valState.text = "Vie de la centrale : " + GameManager.instance.type.ToString();
