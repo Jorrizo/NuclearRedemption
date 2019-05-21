@@ -22,8 +22,9 @@ public class UiManager : MonoBehaviour
     public bool isPlaying = false;
     public bool isPaused = false;
 
-    [Header("Index")]
+    [Header("Int")]
     public int index = 0;
+    public int stack = 0;
 
 
     private void Awake()
@@ -64,8 +65,12 @@ public class UiManager : MonoBehaviour
 
     public void Resume()
     {
-        playPause.text = "  Pause";
-        //isPaused = false;
+        isPaused = false;
+        Play();
+
+
+        /*playPause.text = "  Pause";
+        //isPaused = false;*/
     }
 
     public void Restart()
@@ -80,7 +85,7 @@ public class UiManager : MonoBehaviour
 
     public void Up()
     {
-        if(index > 0)
+        if(index > 0 && stack == 4)
         {
             index--;
         }
@@ -88,7 +93,7 @@ public class UiManager : MonoBehaviour
 
     public void Down()
     {
-        if(index < 2)
+        if(index < 2 && stack == 4)
         { 
             index++;
         }
@@ -96,32 +101,36 @@ public class UiManager : MonoBehaviour
 
     public void Selection()
     {
-        switch (index)
+        if (stack == 4)
         {
-            case 0:
-                if(isPlaying == false && isPaused == false)
-                {
-                    Play();
-                }
+            switch (index)
+            {
+                case 0:
+                    if(!isPlaying && !isPaused)
+                    {
+                        Play();
+                    }
 
-                if (isPlaying == true && isPaused == false)
-                {
-                    Pause();
-                }
+                    else if (isPlaying && !isPaused)
+                    {
+                        Pause();
+                    }
 
-                if (isPlaying == true && isPaused == true)
-                {
-                    Resume();
-                }
-                break;
+                    else if (isPlaying && isPaused)
+                    {
+                        Resume();
+                    }
+                    Debug.Log("selection ppr");
+                    break;
 
-            case 1:
-                Restart();
-                break;
+                case 1:
+                    Restart();
+                    break;
 
-            case 2:
-                Quit();
-                break;
+                case 2:
+                    Quit();
+                    break;
+            }
         }
     }
 
@@ -152,6 +161,14 @@ public class UiManager : MonoBehaviour
         else
         {
             Background03.enabled = false;
+        }
+    }
+
+    public void Stacking()
+    {
+        if (stack < 4)
+        {
+            stack++;
         }
     }
 }
