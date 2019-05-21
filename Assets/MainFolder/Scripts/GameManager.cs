@@ -14,6 +14,9 @@ public class GameManager : MonoBehaviour
         Intenable
     }
 
+    [Header("User Interface")]
+    public int indexUI = 0;
+
     [Header("Lights")]
     public Light integrityLight;
 

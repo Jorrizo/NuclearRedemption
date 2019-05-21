@@ -13,6 +13,7 @@ TagManager:
   - Radioactif
   - FxTemporaire
   - TeleportIgnore
+  - Controller
   layers:
   - Default
   - TransparentFX
