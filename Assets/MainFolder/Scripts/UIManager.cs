@@ -15,8 +15,9 @@ public class UIManager : MonoBehaviour
     public Image Background01;
     public Image Background02;
     public Image Background03;
-    bool confirm = true;
-    bool poz = false;
+    public bool confirm = false;
+    public bool poz = false;
+    public int Stack = 0;
 
 
 
@@ -42,7 +43,6 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         Selection();
-
     }
 
     void Selection()
@@ -51,23 +51,23 @@ public class UIManager : MonoBehaviour
         if (index == 0)
         {
             Background01.enabled = true;
-            
+            //playPause.text = "  Play";
 
             if (confirm == true)
             {
                 playPause.text = "  Pause";
                 poz = true;
+                Debug.Log("playing");
                 confirm = false;
 
             }
 
-            if (confirm == true && poz==true)
+            if (confirm == true && poz == true)
             {
                 playPause.text = "  Resume";
+                Debug.Log("resume");
                 poz = false;
                 confirm = false;
-
-
             }
         }
         else
@@ -78,6 +78,13 @@ public class UIManager : MonoBehaviour
         if (index == 1)
         {
             Background02.enabled = true;
+
+            if (confirm == true)
+            {
+                Restart();
+                confirm = false;
+            }
+
         }
         else
         {
@@ -87,6 +94,15 @@ public class UIManager : MonoBehaviour
         if (index == 2)
         {
             Background03.enabled = true;
+
+            if(confirm == true)
+            {
+                Quit();
+                Debug.Log("Quit");
+                confirm = false;
+            }
+
+
         }
         else
         {
@@ -106,7 +122,7 @@ public class UIManager : MonoBehaviour
 
     public void Up()
     {
-        if (index > 0)
+        if (index > 0 && Stack == 4)
         {
             index--;
         }
@@ -114,7 +130,7 @@ public class UIManager : MonoBehaviour
 
     public void Down()
     {
-        if (index < 2)
+        if (index < 2 && Stack == 4)
         {
             index++;
         }
@@ -122,7 +138,18 @@ public class UIManager : MonoBehaviour
 
     public void Valider()
     {
-        confirm = true;
-        //confirm = false;
+        if (Stack == 4)
+        {
+            confirm = true;
+            Debug.Log("ça confirme sec");
+        }
+    }
+
+    public void Stacking()
+    {
+        if (Stack < 4)
+        {
+            Stack++;
+        }
     }
 }
