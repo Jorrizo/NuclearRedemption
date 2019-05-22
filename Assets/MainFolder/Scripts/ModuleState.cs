@@ -79,7 +79,10 @@ public class ModuleState : MonoBehaviour
             etatsIndicators[i].SetActive(false);
             if (Etats[i] == true)
             {
-                etatsIndicators[i].SetActive(true);
+                if (!etatsIndicators[i].activeSelf) // si il n'est pas actif
+                {
+                    etatsIndicators[i].SetActive(true);
+                }
                 etatsIndicators[0].SetActive(false);
                 Etats[0] = false;
 
