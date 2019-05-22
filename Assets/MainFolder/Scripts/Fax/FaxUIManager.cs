@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class FaxUIManager : MonoBehaviour
 {
     public GameObject spawnPoint;
+    public bool HasPlayed;
 
 
     [Header("Texts")]
@@ -22,8 +23,8 @@ public class FaxUIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-        GetComponent<Rigidbody>().AddForce(gameObject.transform.up * 1f, ForceMode.Impulse);
+        HasPlayed = false;
+        //GetComponent<Rigidbody>().AddForce(gameObject.transform.up * 1f, ForceMode.Impulse);
 
         valLife.text = "Vie de la centrale : " + (int)GameManager.instance.integriteGlobale;
         valState.text = "Etat de la centrale : " + GameManager.instance.type.ToString();
@@ -36,6 +37,17 @@ public class FaxUIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (gameObject.GetComponent<Animator>())
+        {
+            if (HasPlayed)
+            {
+                DestroyTheAnimation();
+            }
+        }
+    }
+
+    public void DestroyTheAnimation()
+    {
+        Destroy(GetComponent<Animator>());
     }
 }
