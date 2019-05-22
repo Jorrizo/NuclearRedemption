@@ -46,8 +46,12 @@ public class LumiereManager : MonoBehaviour
         for (int i = 0; i < Sample.Length; i++)
         {
             Sample[i].enabled = true;
-            Sample2[i].enabled = false;
         }
+        for (int j = 0; j < Sample2.Length; j++)
+        {
+            Sample2[j].enabled = false;
+        }
+        
     }
 
     public void CheckLiaison()

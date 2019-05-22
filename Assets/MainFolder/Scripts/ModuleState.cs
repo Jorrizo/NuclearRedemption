@@ -8,6 +8,10 @@ public class ModuleState : MonoBehaviour
     public bool[] Etats = new bool[] { true, false, false, false } ;
 
     public GameObject[] etatsIndicators;
+    public GameObject[] LedsError;
+
+    public Material Stable;
+    public Material NotStable;
     
     /* mémo
      0 : Stable
@@ -89,4 +93,108 @@ public class ModuleState : MonoBehaviour
             }
         }
     }
+
+
+    int NbEvent() // Compte le nombre d'evenement instable depuis la liste de bool Etats[] 
+    {
+        int resultat = 0;
+        for (int i = 1; i < Etats.Length; i++)
+        {
+
+            if (Etats[i] == true)
+            {
+                resultat++;
+            }
+
+        }
+        return resultat;
+    }
+
+    public void ErrorInspector()
+    {
+        int compte = 0;
+        switch (NbEvent())
+        {
+            case 0: // aucune erreur
+                for (int i = 0; i < LedsError.Length; i++)
+                {
+                    LedsError[i].SetActive(false);
+                }
+                break;
+
+            case 1: // une erreur
+                for (int i = 0; i < LedsError.Length; i++)
+                {
+                    compte = NbEvent();
+                    if (compte > 0)
+                    {
+                        if (LedsError[i].activeSelf != true)
+                        {
+                            LedsError[i].SetActive(true);
+                            compte--;
+
+                        }
+                        else if (LedsError[i].activeSelf == true)
+                        {
+                            compte--;
+                        }
+                    }
+                        return;
+
+
+
+                }
+                break;
+
+            case 2: // deux erreur
+                for (int i = 0; i < LedsError.Length; i++)
+                {
+                    compte = NbEvent();
+                    if (compte > 0)
+                    {
+                        if (LedsError[i].activeSelf != true)
+                        {
+                            LedsError[i].SetActive(true);
+                            compte--;
+
+                        }
+                        else if (LedsError[i].activeSelf == true)
+                        {
+                            compte--;
+                        }
+                    }
+                        return;
+
+
+                }
+                break;
+
+            case 3: // trois erreur
+                for (int i = 0; i < LedsError.Length; i++)
+                {
+                    compte = NbEvent();
+                    if (compte > 0)
+                    {
+                        if (LedsError[i].activeSelf != true)
+                        {
+                            LedsError[i].SetActive(true);
+                            compte--;
+
+                        }
+                        else if (LedsError[i].activeSelf == true)
+                        {
+                            compte--;
+                        }
+                    }
+                        return;
+
+
+                }
+                break;
+
+            default:
+                break;
+        }
+    }
+
 }

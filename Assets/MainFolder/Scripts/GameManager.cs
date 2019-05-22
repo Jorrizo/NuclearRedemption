@@ -148,6 +148,7 @@ public class GameManager : MonoBehaviour
             for (int i = 0; i < modules.Length; i++)
             {
                 modules[i].CheckState();
+                modules[i].ErrorInspector();
             }
 
             if (type == GameStates.Paisible)
