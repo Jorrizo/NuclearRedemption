@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class FaxUIManager : MonoBehaviour
 {
+    public GameObject spawnPoint;
+
 
     [Header("Texts")]
     [Header("People")]
@@ -20,14 +22,15 @@ public class FaxUIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<Rigidbody>().AddForce(Vector3.forward * 5f, ForceMode.Impulse);
+        
+        GetComponent<Rigidbody>().AddForce(gameObject.transform.up * 1f, ForceMode.Impulse);
 
-        valLife.text = "Etat de la centrale : " + GameManager.instance.integriteGlobale.ToString();
-        valState.text = "Vie de la centrale : " + GameManager.instance.type.ToString();
+        valLife.text = "Vie de la centrale : " + (int)GameManager.instance.integriteGlobale;
+        valState.text = "Etat de la centrale : " + GameManager.instance.type.ToString();
 
         peopleToSave.text = "Population à sauver : " + GameManager.instance.PopulationToSave.ToString();
-        peopleIndoor.text = "Population restante : " + GameManager.instance.PopulationIndoor.ToString();
-        peopleSaved.text = "Population sauvée : " + GameManager.instance.PopulationOutdoor.ToString();
+        peopleIndoor.text = "Population restante : " + (int)GameManager.instance.PopulationIndoor;
+        peopleSaved.text = "Population sauvée : " + (int)GameManager.instance.PopulationOutdoor;
     }
 
     // Update is called once per frame

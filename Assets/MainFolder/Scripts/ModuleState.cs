@@ -6,6 +6,8 @@ public class ModuleState : MonoBehaviour
 {
 
     public bool[] Etats = new bool[] { true, false, false, false } ;
+
+    public GameObject[] etatsIndicators;
     
     /* mémo
      0 : Stable
@@ -17,22 +19,15 @@ public class ModuleState : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Etats[0] = true;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        Etats[0] = true;
 
-        for (int i = 1; i < Etats.Length; i++)
-        {
-            if(Etats[i] == true)
-            {
-                Etats[0] = false;
 
-            }
-        }
     }
 
 
@@ -69,5 +64,26 @@ public class ModuleState : MonoBehaviour
                     return v;
             }
         return v;
+    }
+
+
+    public void CheckState()
+    {
+        Etats[0] = true;
+        etatsIndicators[0].SetActive(true);
+
+
+        for (int i = 1; i < Etats.Length; i++)
+        {
+
+            etatsIndicators[i].SetActive(false);
+            if (Etats[i] == true)
+            {
+                etatsIndicators[i].SetActive(true);
+                etatsIndicators[0].SetActive(false);
+                Etats[0] = false;
+
+            }
+        }
     }
 }

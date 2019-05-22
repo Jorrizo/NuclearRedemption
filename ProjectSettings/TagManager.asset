@@ -3,17 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - "Lumi\xE8re"
-  - Surchauffe
-  - ExcludeTeleport
-  - Surcharge
-  - projectile
-  - SnapCylinder
-  - Radioactif
-  - FxTemporaire
-  - TeleportIgnore
-  - Controller
+  tags: []
   layers:
   - Default
   - TransparentFX

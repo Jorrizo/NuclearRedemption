@@ -145,6 +145,11 @@ public class GameManager : MonoBehaviour
             NextModuleEvent();
             PeopleFlow();
 
+            for (int i = 0; i < modules.Length; i++)
+            {
+                modules[i].CheckState();
+            }
+
             if (type == GameStates.Paisible)
             {
                 if (PaisibleCombo < 5f)

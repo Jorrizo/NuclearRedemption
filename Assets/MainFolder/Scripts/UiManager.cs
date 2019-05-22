@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+
 public class UiManager : MonoBehaviour
 {
     public static UiManager instance = null;
@@ -48,7 +49,9 @@ public class UiManager : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //SteamVR_LoadLevel.Begin(SceneManager.GetActiveScene().buildIndex.ToString());
     }
+    
 
     public void Quit()
     {
@@ -57,7 +60,7 @@ public class UiManager : MonoBehaviour
 
     public void Up()
     {
-        if(index > 0 && stack == 3)
+        if(index > 0 && stack == 4)
         {
             index--;
         }
@@ -65,7 +68,7 @@ public class UiManager : MonoBehaviour
 
     public void Down()
     {
-        if(index < 1 && stack == 3)
+        if(index < 1 && stack == 4)
         { 
             index++;
         }
@@ -111,7 +114,7 @@ public class UiManager : MonoBehaviour
 
     public void Stacking()
     {
-        if (stack < 3)
+        if (stack < 4)
         {
             stack++;
         }

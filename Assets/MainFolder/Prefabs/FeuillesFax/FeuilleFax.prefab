@@ -527,7 +527,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4862145160318534879}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.544, y: 0.94594836, z: -1.8824}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.0002633424, y: 0.31251815, z: 0.23164159}
   m_Children:
   - {fileID: 4862145161516232975}
@@ -604,6 +604,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41b680c442661b24b9560cf4abf94bf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 5652196229373899739, guid: a8d8bc31681778540980cd720bd61294,
+    type: 3}
   peopleToSave: {fileID: 4862145160031624613}
   peopleIndoor: {fileID: 4862145159914728341}
   peopleSaved: {fileID: 4862145160414436080}
