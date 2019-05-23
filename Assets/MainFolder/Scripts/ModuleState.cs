@@ -83,10 +83,10 @@ public class ModuleState : MonoBehaviour
             etatsIndicators[i].SetActive(false);
             if (Etats[i] == true)
             {
-                if (!etatsIndicators[i].activeSelf) // si il n'est pas actif
-                {
+                //if (!etatsIndicators[i].activeSelf) // si il n'est pas actif
+               // {
                     etatsIndicators[i].SetActive(true);
-                }
+               // }
                 etatsIndicators[0].SetActive(false);
                 Etats[0] = false;
 
@@ -123,9 +123,10 @@ public class ModuleState : MonoBehaviour
                 break;
 
             case 1: // une erreur
+                compte = NbEvent();
                 for (int i = 0; i < LedsError.Length; i++)
                 {
-                    compte = NbEvent();
+                    
                     if (compte > 0)
                     {
                         if (LedsError[i].activeSelf != true)
@@ -139,17 +140,21 @@ public class ModuleState : MonoBehaviour
                             compte--;
                         }
                     }
-                        return;
-
+                    else if (compte == 0)
+                    {
+                        LedsError[i].SetActive(false);
+                    }
 
 
                 }
                 break;
 
             case 2: // deux erreur
+                compte = NbEvent();
+
                 for (int i = 0; i < LedsError.Length; i++)
                 {
-                    compte = NbEvent();
+                    
                     if (compte > 0)
                     {
                         if (LedsError[i].activeSelf != true)
@@ -163,16 +168,20 @@ public class ModuleState : MonoBehaviour
                             compte--;
                         }
                     }
-                        return;
-
+                    else if (compte == 0)
+                    {
+                        LedsError[i].SetActive(false);
+                    }
 
                 }
                 break;
 
             case 3: // trois erreur
+                compte = NbEvent();
+
                 for (int i = 0; i < LedsError.Length; i++)
                 {
-                    compte = NbEvent();
+                    
                     if (compte > 0)
                     {
                         if (LedsError[i].activeSelf != true)
@@ -186,7 +195,10 @@ public class ModuleState : MonoBehaviour
                             compte--;
                         }
                     }
-                        return;
+                    else if (compte == 0)
+                    {
+                        LedsError[i].SetActive(false);
+                    }
 
 
                 }

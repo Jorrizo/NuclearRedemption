@@ -52,12 +52,12 @@ public class LiaisonManager : MonoBehaviour
             {
                 Debug.Log("!Stable && !Used");
 
-                if (CurrentFusible.CompareTag("Surchauffe") && (Starting.Etats[1] && !Ending.Etats[1])) //Si c'est le fusible Surchauffe et que la liaison Surchauffe est respectée
+                if (CurrentFusible.CompareTag("Surcharge") && (Starting.Etats[1] && !Ending.Etats[1])) //Si c'est le fusible Surchauffe et que la liaison Surchauffe est respectée
                 {
                     IsLiaisonValid = true;
                     Led.material.CopyPropertiesFromMaterial(Green);
                 }
-                else if (CurrentFusible.CompareTag("Surcharge") && (Starting.Etats[2] && !Ending.Etats[2])) //Si c'est le fusible Surcharge et que la liaison Surchauffe est respectée
+                else if (CurrentFusible.CompareTag("Surchauffe") && (Starting.Etats[2] && !Ending.Etats[2])) //Si c'est le fusible Surcharge et que la liaison Surchauffe est respectée
                 {
                     IsLiaisonValid = true;
                     Led.material.CopyPropertiesFromMaterial(Green);

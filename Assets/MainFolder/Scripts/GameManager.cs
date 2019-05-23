@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     public GameStates type = GameStates.Préparation;
     
     [Header("Coodowns")]
-    public float coolDownState = 10f;
+    public float coolDownState = 20f;
     float timeStampState;
 
     public float coolDownNextEvent = 10f;
