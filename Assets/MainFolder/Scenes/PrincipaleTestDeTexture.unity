@@ -7722,9 +7722,9 @@ MonoBehaviour:
   ArrowAB: {fileID: 1794419856}
   ArrowBC: {fileID: 392233704}
   ArrowCA: {fileID: 682873049}
-  aB: 0
-  bC: 0
-  cA: 0
+  aB: 1
+  bC: 1
+  cA: 1
 --- !u!114 &294719990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58930,10 +58930,6 @@ PrefabInstance:
       propertyPath: m_ApplyRootMotion
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4064262928238702, guid: afec65f27dcd2c74cba31fc61eea61e6, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 1708282929750094, guid: afec65f27dcd2c74cba31fc61eea61e6, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -58941,6 +58937,10 @@ PrefabInstance:
     - target: {fileID: 1812289512735356, guid: afec65f27dcd2c74cba31fc61eea61e6, type: 3}
       propertyPath: m_TagString
       value: Controller
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064262928238702, guid: afec65f27dcd2c74cba31fc61eea61e6, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afec65f27dcd2c74cba31fc61eea61e6, type: 3}
