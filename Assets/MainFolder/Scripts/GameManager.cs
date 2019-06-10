@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
         Trépidant,
         Intenable
     }
+    [Header("Watt")]
+    public float wattObjectif = 0f; // Objectif de production en Watt
+    public float wattProduction = 0f; // Production actuelle en Watt
 
     [Header("User Interface")]
     public int indexUI = 0;
@@ -27,7 +30,7 @@ public class GameManager : MonoBehaviour
     [Header("GameState")]
     public GameStates type = GameStates.Préparation;
     
-    [Header("Coodowns")]
+    [Header("Cooldowns")]
     public float coolDownState = 20f;
     float timeStampState;
 
@@ -37,13 +40,13 @@ public class GameManager : MonoBehaviour
     bool[] Default = new bool[] { false, false, false, false };
     private string informationsEvent = "nothing";
 
-    [Header("People")]
+    [Header("Techniciens")]
     public int PopulationMax = 200;
-    public int PopulationToSave = 200;
-    public float PopulationIndoor = 200;
-    public float PopulationOutdoor = 0;
-    public float PopulationFlow = 0;
-    public int EnchantillonToGamble = 20;
+    public int PopulationToSave = 200; // à supprimer (Pas sûr)
+    public float PopulationIndoor = 200; // techniciens dans la centrale
+    public float PopulationOutdoor = 0;    // à supprimer
+    public float PopulationFlow = 0;       // à supprimer
+    public int EnchantillonToGamble = 20; // à suprimer
     float[] Percentage;
     public int TempSavedPeople;
 
@@ -452,7 +455,7 @@ public class GameManager : MonoBehaviour
     }
 
 
-   void Integrity()
+   void Integrity() // lumière de l'intégrité de la centrale à modifier pour que ce soit selon l'état de la partie
     {
         FacteurPrimaire();
         facteurIntegrite = facteurPrimaire * facteurSecondaire;
@@ -479,7 +482,7 @@ public class GameManager : MonoBehaviour
     }
 
 
-    void FacteurPrimaire()
+    void FacteurPrimaire() // à modifier pour la production en watt
     {
         facteurPrimaire = 0f;
         for (int i = 0; i < modules.Length; i++)
@@ -489,7 +492,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void RouletteRusse(int echantillonToGamble, float [] SavePourcentage)
+    public void RouletteRusse(int echantillonToGamble, float [] SavePourcentage) // à supprimer 
     {
         for (int i = 0; i < echantillonToGamble; i++)
         {

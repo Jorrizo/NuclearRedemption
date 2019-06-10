@@ -9,6 +9,10 @@ public class ModuleState : MonoBehaviour
 
     public GameObject[] etatsIndicators;
     public GameObject[] LedsError;
+    public GameObject[] Techniciens;
+
+    [Header("Watts")]
+    float productionWattSecondes = 0f;
 
     public Material Stable;
     public Material NotStable;
