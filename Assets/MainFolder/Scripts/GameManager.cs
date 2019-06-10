@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
         Trépidant,
         Intenable
     }
+
+
     [Header("Watt")]
     public float wattObjectif = 0f; // Objectif de production en Watt
     public float wattProduction = 0f; // Production actuelle en Watt
@@ -26,8 +28,13 @@ public class GameManager : MonoBehaviour
     [Header("Modules")]
     public ModuleState[] modules;
     public bool[] currentModuleStable;
+    public bool[] currentModuleProductive;
+
+    [Header("Liaisons")]
+    public LiaisonManager[] Liaisons;
 
     [Header("GameState")]
+    public bool IsGameStarted = false;
     public GameStates type = GameStates.Préparation;
     
     [Header("Cooldowns")]
@@ -110,7 +117,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         type = GameStates.Préparation;
-        timeStampState = Time.time + coolDownState;
         FixEventProbabilities();
         FaxSpawnManager.instance.SpawnFax();
 
@@ -121,68 +127,77 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        WhichModulesIsStable();
-        Integrity();
-
-        if (Time.time >= timeStampState) // Si 30 secondes se sont écoulés
+        if (IsGameStarted) // Si la partie à commencé
         {
-            if (type == GameStates.Préparation) // Après l'état préparation suit forcement l'état Paisible
-            {
-                type = GameStates.Paisible;
-                timeStampNextEvent = Time.time + coolDownNextEvent;
-            }
-            else
-            {
-                SwitchStates();
-            }
-
-            FixEventProbabilities();
             timeStampState = Time.time + coolDownState;
-            FaxSpawnManager.instance.SpawnFax();
+            WhichModulesIsStable();
+            Integrity();
 
-        }
 
-        if(Time.time >= timeStampNextEvent && type != GameStates.Préparation)
-        {          
-          //  NextEvent();
-            NextModuleEvent();
-            PeopleFlow();
-
-            for (int i = 0; i < modules.Length; i++)
+            if (Time.time >= timeStampState) // Si 30 secondes se sont écoulés
             {
-                modules[i].CheckState();
-                modules[i].ErrorInspector();
-            }
-
-            if (type == GameStates.Paisible)
-            {
-                if (PaisibleCombo < 5f)
+                if (type == GameStates.Préparation) // Après l'état préparation suit forcement l'état Paisible
                 {
-                    PaisibleCombo += 0.25f;
-                    Debug.Log("Cooombo =" + PaisibleCombo);
-                    if (PaisibleCombo > 0.26f && PaisibleCombo < 6f)
-                    {
-                        if (PopulationFlow < 3)
-                        {
-                            PopulationFlow += PaisibleCombo;
-                        }
-                    }
-
+                    type = GameStates.Paisible;
+                    timeStampNextEvent = Time.time + coolDownNextEvent;
                 }
-            }
-            else
-            {
-                PaisibleCombo = 0f;
+                else
+                {
+                    SwitchStates();
+                }
+
+                FixEventProbabilities();
+                timeStampState = Time.time + coolDownState;
+                FaxSpawnManager.instance.SpawnFax();
+
             }
 
-            
+            if (Time.time >= timeStampNextEvent && type != GameStates.Préparation)
+            {
+                //  NextEvent();
+                NextModuleEvent();
+                PeopleFlow();
+
+                for (int i = 0; i < modules.Length; i++)
+                {
+                    modules[i].CheckState();
+                    modules[i].ErrorInspector();
+                }
+
+                if (type == GameStates.Paisible)
+                {
+                    if (PaisibleCombo < 5f)
+                    {
+                        PaisibleCombo += 0.25f;
+                        Debug.Log("Cooombo =" + PaisibleCombo);
+                        if (PaisibleCombo > 0.26f && PaisibleCombo < 6f)
+                        {
+                            if (PopulationFlow < 3)
+                            {
+                                PopulationFlow += PaisibleCombo;
+                            }
+                        }
+
+                    }
+                }
+                else
+                {
+                    PaisibleCombo = 0f;
+                }
+
+
 
                 timeStampNextEvent = Time.time + coolDownNextEvent;
-        }
+            }
 
-        
-        PopulationIndoor -= (Time.deltaTime * PopulationFlow);
-        PopulationOutdoor += (Time.deltaTime * PopulationFlow);
+
+            PopulationIndoor -= (Time.deltaTime * PopulationFlow);
+            PopulationOutdoor += (Time.deltaTime * PopulationFlow);
+        }
+        else
+        {
+            IsAllModuleAreProductive();
+        }
     }
 
     void FixEventProbabilities() // Ajuste les probabilitées d'évenements selon l'état de la partie
@@ -627,6 +642,64 @@ public class GameManager : MonoBehaviour
         }
     }
 
+   public void  IsAllModuleAreProductive() // pour le démarage de la partie
+   {
+        WhichModulesIsProductive();
+        switch (NbModulesProductif())
+        {
+            case 0:
+                Debug.Log("Aucun module productif");
+                break;
 
+            case 1:
+                Debug.Log("1 module productif");
+                break;
+
+            case 2:
+                Debug.Log("2 modules productif");
+                break;
+
+            case 3:
+                Debug.Log("3 modules productif");
+                if (Liaisons[0].Starting == modules[0] && Liaisons[1].Starting == modules[1] && Liaisons[2].Starting == modules[2]) // Liaisons bien initialisée
+                {
+                    IsGameStarted = true;
+                }
+
+                break;
+        }
+
+    }
+
+   void WhichModulesIsProductive() // Stoque dans la liste de bool currentModuleProductive[] les modules actuelement productif /!\ Doublon de fonction /!\
+    {
+        for (int i = 0; i < ModuleManager.instance.Modules.Length; i++)
+        {
+
+            if (ModuleManager.instance.Modules[i].isProductive)
+            {
+                currentModuleProductive[i] = true;
+            }
+            else
+            {
+                currentModuleProductive[i] = false;
+            }
+        }
+   }
+
+    int NbModulesProductif() // Compte le nombre de modules productifs depuis la liste de bool CurrentModuleProductive[] /!\ Doublon de fonction /!\
+    {
+        int resultat = 0;
+        for (int i = 0; i < currentModuleProductive.Length; i++)
+        {
+
+            if (currentModuleProductive[i])
+            {
+                resultat++;
+            }
+
+        }
+        return resultat;
+    }
 }
  

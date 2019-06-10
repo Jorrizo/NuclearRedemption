@@ -14,7 +14,7 @@ public class ModuleState : MonoBehaviour
     public GameObject[] Techniciens;
 
     [Header("Watts")]
-    float productionWattSecondes = 0f;
+    public float productionWattSecondes = 0f;
 
     public Material Stable;
     public Material NotStable;
@@ -55,7 +55,7 @@ public class ModuleState : MonoBehaviour
         return s;
     }
 
-    public float StateTreatment(int s) // valeure de destruction de la centrale selon le nombre d'etats sur le module
+    public float StateTreatment(int s) // valeur de destruction de la centrale selon le nombre d'etats sur le module
     {
         float v = 0;
             switch (s)

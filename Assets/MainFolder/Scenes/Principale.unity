@@ -476,8 +476,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 297d7016cf4b3cc44ada9aa7fef1c547, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Starting: {fileID: 162913256858333793}
-  Ending: {fileID: 665827655}
+  Starting: {fileID: 665827655}
+  Ending: {fileID: 162913256858333793}
   Led: {fileID: 1409282239}
   Red: {fileID: 2100000, guid: 9b024ee8e5d789748a2931459c0a546a, type: 2}
   Green: {fileID: 2100000, guid: 56fb94b452c10034bb39db75f949dbde, type: 2}
@@ -11927,8 +11927,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 297d7016cf4b3cc44ada9aa7fef1c547, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Starting: {fileID: 665827661}
-  Ending: {fileID: 162913256858333793}
+  Starting: {fileID: 162913256858333793}
+  Ending: {fileID: 665827661}
   Led: {fileID: 1409282233}
   Red: {fileID: 2100000, guid: 9b024ee8e5d789748a2931459c0a546a, type: 2}
   Green: {fileID: 2100000, guid: 56fb94b452c10034bb39db75f949dbde, type: 2}
@@ -14198,6 +14198,7 @@ MonoBehaviour:
   - {fileID: 2035827263}
   - {fileID: 1310713624}
   - {fileID: 885524095}
+  productionWattSecondes: 0
   Stable: {fileID: 2100000, guid: bc27396749f190a418cb129df73edb70, type: 2}
   NotStable: {fileID: 2100000, guid: 74ef14a1a38c7b04c9f11ada8c2ae527, type: 2}
 --- !u!1 &665827660
@@ -14246,6 +14247,7 @@ MonoBehaviour:
   - {fileID: 1258468423}
   - {fileID: 1721058895}
   - {fileID: 514343333}
+  productionWattSecondes: 0
   Stable: {fileID: 2100000, guid: bc27396749f190a418cb129df73edb70, type: 2}
   NotStable: {fileID: 2100000, guid: 74ef14a1a38c7b04c9f11ada8c2ae527, type: 2}
 --- !u!1 &665827676
@@ -14691,8 +14693,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 297d7016cf4b3cc44ada9aa7fef1c547, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Starting: {fileID: 665827655}
-  Ending: {fileID: 665827661}
+  Starting: {fileID: 665827661}
+  Ending: {fileID: 665827655}
   Led: {fileID: 1409282237}
   Red: {fileID: 2100000, guid: 9b024ee8e5d789748a2931459c0a546a, type: 2}
   Green: {fileID: 2100000, guid: 56fb94b452c10034bb39db75f949dbde, type: 2}
@@ -68237,6 +68239,12 @@ MonoBehaviour:
   - {fileID: 665827655}
   - {fileID: 162913256858333793}
   currentModuleStable: 010101
+  currentModuleProductive: 000000
+  Liaisons:
+  - {fileID: 683674595}
+  - {fileID: 43094262}
+  - {fileID: 383995570}
+  IsGameStarted: 0
   type: 0
   coolDownState: 10
   coolDownNextEvent: 5
@@ -75044,6 +75052,7 @@ MonoBehaviour:
   - {fileID: 778073677}
   - {fileID: 780279063}
   - {fileID: 1485672760}
+  productionWattSecondes: 0
   Stable: {fileID: 2100000, guid: bc27396749f190a418cb129df73edb70, type: 2}
   NotStable: {fileID: 2100000, guid: 74ef14a1a38c7b04c9f11ada8c2ae527, type: 2}
 --- !u!1 &162913256858333800

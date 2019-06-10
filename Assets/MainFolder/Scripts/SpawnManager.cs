@@ -68,8 +68,11 @@ public class SpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        InstantiateFuse();
-        SpawnRate();
+        if (GameManager.instance.IsGameStarted)
+        {
+            InstantiateFuse();
+            SpawnRate();
+        }
     }
 
     void InstantiateFuse()
