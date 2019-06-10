@@ -11,10 +11,11 @@ public class LiaisonManager : MonoBehaviour
     public Renderer Led;
     public Material Red;
     public Material Green;
+    public Material Activate;
 
     public GameObject CurrentFusible;
 
-
+    public ModuleState ProperModule;
     public bool IsLiaisonValid = false;
     
 
@@ -52,33 +53,43 @@ public class LiaisonManager : MonoBehaviour
             {
                 Debug.Log("!Stable && !Used");
 
-                if (CurrentFusible.CompareTag("Surcharge") && (Starting.Etats[1] && !Ending.Etats[1])) //Si c'est le fusible Surchauffe et que la liaison Surchauffe est respectée
+                if (CurrentFusible.CompareTag("On") && ProperModule.isProductive != true || CurrentFusible.CompareTag("Off") && ProperModule.isProductive != false)
                 {
-                    IsLiaisonValid = true;
-                    Led.material.CopyPropertiesFromMaterial(Green);
+                    gameObject.GetComponentInChildren<LiaisonManager>().Led.material.CopyPropertiesFromMaterial(gameObject.GetComponentInChildren<LiaisonManager>().Activate);
+                }
+                else if (CurrentFusible.CompareTag("Surcharge") && (Starting.Etats[1] && !Ending.Etats[1])) //Si c'est le fusible Surchauffe et que la liaison Surchauffe est respectée
+                {
+                        IsLiaisonValid = true;
+                        Led.material.CopyPropertiesFromMaterial(Green);
                 }
                 else if (CurrentFusible.CompareTag("Surchauffe") && (Starting.Etats[2] && !Ending.Etats[2])) //Si c'est le fusible Surcharge et que la liaison Surchauffe est respectée
                 {
-                    IsLiaisonValid = true;
-                    Led.material.CopyPropertiesFromMaterial(Green);
+                        IsLiaisonValid = true;
+                        Led.material.CopyPropertiesFromMaterial(Green);
                 }
                 else if (CurrentFusible.CompareTag("Radioactif") && (Starting.Etats[3] && !Ending.Etats[3])) //Si c'est le fusible Radiation et que la liaison Surchauffe est respectée
                 {
-                    IsLiaisonValid = true;
-                    Led.material.CopyPropertiesFromMaterial(Green);
+                        IsLiaisonValid = true;
+                        Led.material.CopyPropertiesFromMaterial(Green);
                 }
                 else // sécuritée
                 {
-                    IsLiaisonValid = false;
-                    Led.material.CopyPropertiesFromMaterial(Red);
-                }          
-            }
-
-            else  // Si le fusible est usée /!\ attention possible mauvais placement de ce code /!\
-            {
-                GetComponentInChildren<VRTK_SnapDropZone>().ForceUnsnap();
-                Led.material.CopyPropertiesFromMaterial(Red);
+                        IsLiaisonValid = false;
+                        Led.material.CopyPropertiesFromMaterial(Red);
+                }
             }
         }
+
+        else  // Si le fusible est usée /!\ attention possible mauvais placement de ce code /!\
+        {
+                GetComponentInChildren<VRTK_SnapDropZone>().ForceUnsnap();
+                Led.material.CopyPropertiesFromMaterial(Red);
+        }
+        
+    }
+
+    public void ResetCurrentFusible()
+    {
+        CurrentFusible = null;
     }
 }

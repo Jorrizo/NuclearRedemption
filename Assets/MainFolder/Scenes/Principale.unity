@@ -481,7 +481,9 @@ MonoBehaviour:
   Led: {fileID: 1409282239}
   Red: {fileID: 2100000, guid: 9b024ee8e5d789748a2931459c0a546a, type: 2}
   Green: {fileID: 2100000, guid: 56fb94b452c10034bb39db75f949dbde, type: 2}
+  Activate: {fileID: 2100000, guid: f5a0f95607e11b345a370ab02785519b, type: 2}
   CurrentFusible: {fileID: 0}
+  ProperModule: {fileID: 665827655}
   IsLiaisonValid: 0
 --- !u!1 &43603511
 GameObject:
@@ -11932,7 +11934,9 @@ MonoBehaviour:
   Led: {fileID: 1409282233}
   Red: {fileID: 2100000, guid: 9b024ee8e5d789748a2931459c0a546a, type: 2}
   Green: {fileID: 2100000, guid: 56fb94b452c10034bb39db75f949dbde, type: 2}
+  Activate: {fileID: 2100000, guid: f5a0f95607e11b345a370ab02785519b, type: 2}
   CurrentFusible: {fileID: 0}
+  ProperModule: {fileID: 162913256858333793}
   IsLiaisonValid: 0
 --- !u!1 &391436123
 GameObject:
@@ -12034,7 +12038,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u2192"
+  m_Text: "\u2190"
 --- !u!222 &392233705
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14638,7 +14642,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u2192"
+  m_Text: "\u2190"
 --- !u!222 &682873050
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14698,7 +14702,9 @@ MonoBehaviour:
   Led: {fileID: 1409282237}
   Red: {fileID: 2100000, guid: 9b024ee8e5d789748a2931459c0a546a, type: 2}
   Green: {fileID: 2100000, guid: 56fb94b452c10034bb39db75f949dbde, type: 2}
+  Activate: {fileID: 2100000, guid: f5a0f95607e11b345a370ab02785519b, type: 2}
   CurrentFusible: {fileID: 0}
+  ProperModule: {fileID: 665827661}
   IsLiaisonValid: 0
 --- !u!1 &683799780
 GameObject:
@@ -17430,6 +17436,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1249520993}
+        m_MethodName: IsProductive
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: VRTK.UnityEventHelper.VRTK_BaseControllable_UnityEvents+BaseControllablEvent,
       Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!1 &870392518
@@ -17781,7 +17798,29 @@ MonoBehaviour:
       Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnObjectUnsnappedFromDropZone:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 43094262}
+        m_MethodName: ResetCurrentFusible
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 43094262}
+        m_MethodName: CheckLiaison
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: VRTK.UnityEventHelper.VRTK_SnapDropZone_UnityEvents+SnapDropZoneEvent,
       Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!1 &890733804 stripped
@@ -18501,7 +18540,29 @@ MonoBehaviour:
       Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnObjectUnsnappedFromDropZone:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 683674595}
+        m_MethodName: ResetCurrentFusible
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 683674595}
+        m_MethodName: CheckLiaison
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: VRTK.UnityEventHelper.VRTK_SnapDropZone_UnityEvents+SnapDropZoneEvent,
       Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!1 &961862829
@@ -62142,7 +62203,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u2192"
+  m_Text: "\u2190"
 --- !u!222 &1794419857
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -68178,7 +68239,29 @@ MonoBehaviour:
       Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnObjectUnsnappedFromDropZone:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 383995570}
+        m_MethodName: ResetCurrentFusible
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 383995570}
+        m_MethodName: CheckLiaison
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: VRTK.UnityEventHelper.VRTK_SnapDropZone_UnityEvents+SnapDropZoneEvent,
       Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!4 &1921618613 stripped

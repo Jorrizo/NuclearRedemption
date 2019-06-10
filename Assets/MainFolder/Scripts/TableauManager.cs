@@ -18,6 +18,7 @@ public class TableauManager : MonoBehaviour
     {
 
     }
+
     public void TranfertEnergy() //appelé quand on appuit sur le bouton validation
     {
         for (int i = 0; i < Liaisons.Length; i++)
@@ -33,7 +34,7 @@ public class TableauManager : MonoBehaviour
                         Liaisons[i].IsLiaisonValid = false;
                         gameObject.GetComponentInChildren<LiaisonManager>().Led.material.CopyPropertiesFromMaterial(gameObject.GetComponentInChildren<LiaisonManager>().Red);
                         Liaisons[i].GetComponentInChildren<VRTK_SnapDropZone>().ForceUnsnap();
-                       
+
                     }
                     if (Liaisons[i].CurrentFusible.CompareTag("Surchauffe"))
                     {
@@ -42,7 +43,7 @@ public class TableauManager : MonoBehaviour
                         Liaisons[i].IsLiaisonValid = false;
                         gameObject.GetComponentInChildren<LiaisonManager>().Led.material.CopyPropertiesFromMaterial(gameObject.GetComponentInChildren<LiaisonManager>().Red);
                         Liaisons[i].GetComponentInChildren<VRTK_SnapDropZone>().ForceUnsnap();
-                        
+
                     }
                     if (Liaisons[i].CurrentFusible.CompareTag("Radioactif"))
                     {
@@ -51,10 +52,35 @@ public class TableauManager : MonoBehaviour
                         Liaisons[i].IsLiaisonValid = false;
                         gameObject.GetComponentInChildren<LiaisonManager>().Led.material.CopyPropertiesFromMaterial(gameObject.GetComponentInChildren<LiaisonManager>().Red);
                         Liaisons[i].GetComponentInChildren<VRTK_SnapDropZone>().ForceUnsnap();
-                        
+
                     }
                 }
             }
         }
+    }
+
+    public void IsProductive() // le module devient productif ou non
+    {
+        for (int i = 0; i < Liaisons.Length; i++)
+        {
+            if (Liaisons[i].CurrentFusible != null)
+            {
+                if (Liaisons[i].CurrentFusible.CompareTag("On") && Liaisons[i].ProperModule.isProductive != true)
+                {
+                    Liaisons[i].GetComponentInChildren<VRTK_SnapDropZone>().ForceUnsnap();
+                    gameObject.GetComponentInChildren<LiaisonManager>().Led.material.CopyPropertiesFromMaterial(gameObject.GetComponentInChildren<LiaisonManager>().Red);
+                    Liaisons[i].ProperModule.isProductive = true;
+                }
+                else if (Liaisons[i].CurrentFusible.CompareTag("Off") && Liaisons[i].ProperModule.isProductive == true)
+                {
+                    
+                    Liaisons[i].GetComponentInChildren<VRTK_SnapDropZone>().ForceUnsnap();
+                    gameObject.GetComponentInChildren<LiaisonManager>().Led.material.CopyPropertiesFromMaterial(gameObject.GetComponentInChildren<LiaisonManager>().Red);
+                    Liaisons[i].ProperModule.isProductive = false;
+                }
+            }
+        }
+
+
     }
 }
