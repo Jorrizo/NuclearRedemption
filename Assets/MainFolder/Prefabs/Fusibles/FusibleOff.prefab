@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 4283081370604307690}
   - component: {fileID: 3851138068403766442}
   m_Layer: 0
-  m_Name: "FusibleLumi\xE8re"
-  m_TagString: "Lumi\xE8re"
+  m_Name: FusibleOff
+  m_TagString: Off
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -186,7 +186,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e535c5db1b6257747b75f45bd70e0052, type: 2}
+  - {fileID: 2100000, guid: a0d9a8dee58fc41488109491f4eca262, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

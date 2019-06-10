@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class ModuleState : MonoBehaviour
 {
+    public bool isProductive = false; // Es-ce qu'il produit des watts ?
 
     public bool[] Etats = new bool[] { true, false, false, false } ;
 
     public GameObject[] etatsIndicators;
     public GameObject[] LedsError;
+
     public GameObject[] Techniciens;
 
     [Header("Watts")]
@@ -39,7 +41,7 @@ public class ModuleState : MonoBehaviour
     }
 
 
-    public int StatesCount()
+    public int StatesCount() // nombres d'états actifs
     {
         int s = 0;
 
@@ -53,7 +55,7 @@ public class ModuleState : MonoBehaviour
         return s;
     }
 
-    public float StateTreatment(int s)
+    public float StateTreatment(int s) // valeure de destruction de la centrale selon le nombre d'etats sur le module
     {
         float v = 0;
             switch (s)
@@ -75,7 +77,7 @@ public class ModuleState : MonoBehaviour
     }
 
 
-    public void CheckState()
+    public void CheckState() // activation des VFX 
     {
         Etats[0] = true;
         etatsIndicators[0].SetActive(true);
