@@ -17,7 +17,8 @@ public class GameManager : MonoBehaviour
 
     [Header("Watt")]
     public float wattObjectif = 0f; // Objectif de production en Watt
-    public float wattProduction = 0f; // Production actuelle en Watt
+    public float wattProductionSeconde = 0f; // Production actuelle en Watt
+    public int bonusPercentage = 0;
 
     [Header("User Interface")]
     public int indexUI = 0;
@@ -47,7 +48,10 @@ public class GameManager : MonoBehaviour
     bool[] Default = new bool[] { false, false, false, false };
     private string informationsEvent = "nothing";
 
+    bool llamcalled = false;
+
     [Header("Techniciens")]
+    public int extraTekos = 5;
     public int PopulationMax = 200;
     public int PopulationToSave = 200; // à supprimer (Pas sûr)
     public float PopulationIndoor = 200; // techniciens dans la centrale
@@ -129,7 +133,13 @@ public class GameManager : MonoBehaviour
     {
         if (IsGameStarted) // Si la partie à commencé
         {
-            timeStampState = Time.time + coolDownState;
+
+            if (!llamcalled)
+            {
+                timeStampState = Time.time + coolDownState;
+                llamcalled = true;
+            }
+
             WhichModulesIsStable();
             Integrity();
 
@@ -157,6 +167,8 @@ public class GameManager : MonoBehaviour
                 //  NextEvent();
                 NextModuleEvent();
                 PeopleFlow();
+                ProductionWatt();
+
 
                 for (int i = 0; i < modules.Length; i++)
                 {
@@ -406,7 +418,11 @@ public class GameManager : MonoBehaviour
                     {
                         if (Echantillon[i] && !modules[0].Etats[i])
                         {
-                            modules[0].Etats[i] = true;
+                            if (modules[1].isProductive)
+                            {
+                                modules[0].Etats[i] = true;
+                            }
+
                         }
 
                     }
@@ -418,7 +434,12 @@ public class GameManager : MonoBehaviour
                     {
                         if (Echantillon[i] && !modules[1].Etats[i])
                         {
-                            modules[1].Etats[i] = true;
+                            if (modules[1].isProductive)
+                            {
+                                modules[1].Etats[i] = true;
+
+                            }
+
                         }
 
                     }
@@ -430,7 +451,10 @@ public class GameManager : MonoBehaviour
                     {
                         if (Echantillon[i] && !modules[2].Etats[i])
                         {
-                            modules[2].Etats[i] = true;
+                            if (modules[2].isProductive)
+                            {
+                                modules[2].Etats[i] = true;
+                            }
                         }
 
                     }
@@ -700,6 +724,24 @@ public class GameManager : MonoBehaviour
 
         }
         return resultat;
+    }
+
+    public void ProductionWatt()
+    {
+        int tempBonusPercentage = 0;
+        float tempwattProductionSeconde = 0;
+        for (int i = 0; i < modules.Length; i++)
+        {
+            ModuleState myModule = modules[i];
+            if (myModule.isProductive)
+            {
+                tempBonusPercentage += myModule.AddAndReturnTekos(myModule.Tekos);
+                tempwattProductionSeconde += myModule.productionWattSecondes;
+            }
+
+        }
+        bonusPercentage = tempBonusPercentage;
+        wattProductionSeconde = tempwattProductionSeconde +((tempwattProductionSeconde*bonusPercentage)/100);
     }
 }
  

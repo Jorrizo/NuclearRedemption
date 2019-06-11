@@ -87,9 +87,4 @@ public class LiaisonManager : MonoBehaviour
         }
         
     }
-
-    public void ResetCurrentFusible()
-    {
-        CurrentFusible = null;
-    }
 }

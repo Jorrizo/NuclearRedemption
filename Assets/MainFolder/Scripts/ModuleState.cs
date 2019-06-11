@@ -14,11 +14,16 @@ public class ModuleState : MonoBehaviour
     public GameObject[] Techniciens;
 
     [Header("Watts")]
-    public float productionWattSecondes = 0f;
+    public float productionWattSecondes = 2f;
 
     public Material Stable;
     public Material NotStable;
-    
+
+    [Header("Techniciens")]
+    public GameObject[] Tekos;
+    public GameObject TekosPrefab;
+    public int intraTekos = 5;
+
     /* mémo
      0 : Stable
      1 : Surchauffe
@@ -30,6 +35,7 @@ public class ModuleState : MonoBehaviour
     void Start()
     {
         Etats[0] = true;
+        AddAndReturnTekos(Tekos);
 
     }
 
@@ -215,4 +221,36 @@ public class ModuleState : MonoBehaviour
         }
     }
 
+    public int AddAndReturnTekos(GameObject[] tekos)
+    {
+        int tempBonus = 0;
+        
+        for (int i = 0; i < tekos.Length; i++)
+        {
+            GameObject MyTekos = tekos[i];
+            if (tekos.Length <= 5) // Sécuritée
+            {
+                if(tekos[i] == null) // Add Tekos
+                {
+                    if (intraTekos > 0)
+                    {
+                        tekos[i] = Instantiate(TekosPrefab, gameObject.transform);
+                        // tekos[i].transform.parent = gameObject.transform;
+                        intraTekos--;
+                    }
+                    else if (GameManager.instance.extraTekos > 0)
+                    {
+                        tekos[i] = Instantiate(TekosPrefab, gameObject.transform);
+                        // tekos[i].transform.parent = gameObject.transform;
+                        GameManager.instance.extraTekos--;
+                    }
+                }
+                if (MyTekos != null)
+                {
+                    tempBonus += MyTekos.GetComponent<TekosManager>().bonusTekos;
+                }
+            }
+        }
+        return tempBonus;
+    }
 }

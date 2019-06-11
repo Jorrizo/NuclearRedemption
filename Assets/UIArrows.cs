@@ -20,7 +20,7 @@ public class UIArrows : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        CheckArrows();
     }
 
     // Update is called once per frame
@@ -69,29 +69,29 @@ public class UIArrows : MonoBehaviour
     {
         if (aB)
         {
-            ArrowAB.text = "←";
+            ArrowAB.text = "→";
         }
         else
         {
-            ArrowAB.text = "→";
+            ArrowAB.text = "←";
         }
 
         if (bC)
         {
-            ArrowBC.text = "←";
+            ArrowBC.text = "→";
         }
         else
         {
-            ArrowBC.text = "→";
+            ArrowBC.text = "←";
         }
 
         if (cA)
         {
-            ArrowCA.text = "←";
+            ArrowCA.text = "→";
         }
         else
         {
-            ArrowCA.text = "→";
+            ArrowCA.text = "←";
         }
     }
 }
