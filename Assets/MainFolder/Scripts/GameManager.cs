@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public float wattObjectif = 0f; // Objectif de production en Watt
     public float wattProductionSeconde = 0f; // Production actuelle en Watt
     public int bonusPercentage = 0;
+    public float wattProduit = 0f;
 
     [Header("User Interface")]
     public int indexUI = 0;
@@ -48,7 +49,7 @@ public class GameManager : MonoBehaviour
     bool[] Default = new bool[] { false, false, false, false };
     private string informationsEvent = "nothing";
 
-    bool llamcalled = false;
+    bool Iamcalled = false;
 
     [Header("Techniciens")]
     public int extraTekos = 5;
@@ -134,14 +135,15 @@ public class GameManager : MonoBehaviour
         if (IsGameStarted) // Si la partie à commencé
         {
 
-            if (!llamcalled)
+            if (!Iamcalled)
             {
-                timeStampState = Time.time + coolDownState;
-                llamcalled = true;
+                timeStampState = Time.time + coolDownState; // cooldown preparation
+                Iamcalled = true;
             }
 
             WhichModulesIsStable();
             Integrity();
+            ProdutionSeconde();
 
 
             if (Time.time >= timeStampState) // Si 30 secondes se sont écoulés
@@ -742,6 +744,11 @@ public class GameManager : MonoBehaviour
         }
         bonusPercentage = tempBonusPercentage;
         wattProductionSeconde = tempwattProductionSeconde +((tempwattProductionSeconde*bonusPercentage)/100);
+    }
+
+    public void ProdutionSeconde()
+    {
+        wattProduit += wattProductionSeconde * Time.deltaTime;
     }
 }
  
