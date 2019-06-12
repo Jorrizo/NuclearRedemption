@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 using UnityEditor;
 
 public class ModuleState : MonoBehaviour
@@ -22,6 +21,7 @@ public class ModuleState : MonoBehaviour
     [Header("Techniciens")]
     public GameObject[] Tekos;
     public GameObject TekosPrefab;
+    public Transform[] TekosPos;
     public int intraTekos = 5;
 
     [Header("Cooldowns")]
@@ -31,7 +31,7 @@ public class ModuleState : MonoBehaviour
     public bool IamCalled = false;
 
 
-    Predicate<GameObject> Pred;
+    //Predicate<GameObject> Pred;
     /* mémo
      0 : Stable
      1 : Surchauffe
@@ -244,23 +244,35 @@ public class ModuleState : MonoBehaviour
     {
         int tempBonus = 0;
         
-        for (int i = 0; i < tekos.Length; i++)
+        for (int w = 0; w < tekos.Length; w++)
         {
-            GameObject MyTekos = tekos[i];
+            GameObject MyTekos = tekos[w];
             if (tekos.Length <= 5) // Sécuritée
             {
-                if(tekos[i] == null) // Add Tekos
+                if(tekos[w] == null) // Add Tekos
                 {
                     if (intraTekos > 0)
                     {
-                        tekos[i] = Instantiate(TekosPrefab, gameObject.transform);
-                        // tekos[i].transform.parent = gameObject.transform;
+                        for (int f = 0; f < TekosPos.Length; f++)
+                        {
+                            if (!(Physics.CheckSphere(TekosPos[f].position, 0.5f)))
+                            {
+                                Tekos[w] = Instantiate(TekosPrefab, TekosPos[f].position, Quaternion.identity, gameObject.transform);
+                                break;
+                            }
+                        }
                         intraTekos--;
                     }
                     else if (GameManager.instance.extraTekos > 0)
                     {
-                        tekos[i] = Instantiate(TekosPrefab, gameObject.transform);
-                        // tekos[i].transform.parent = gameObject.transform;
+                        for (int f = 0; f < Tekos.Length; f++)
+                        {
+                            if (!(Physics.CheckSphere(TekosPos[f].position, 0.5f)))
+                            {
+                                Tekos[w] = Instantiate(TekosPrefab, TekosPos[f].position, Quaternion.identity, gameObject.transform);
+                                break;
+                            }
+                        }
                         GameManager.instance.extraTekos--;
                     }
                 }
@@ -301,6 +313,4 @@ public class ModuleState : MonoBehaviour
             }     
         }
     }
-
-    
 }
