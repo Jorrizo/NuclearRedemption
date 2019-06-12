@@ -53,17 +53,20 @@ public class GameManager : MonoBehaviour
 
     [Header("Techniciens")]
     public int extraTekos = 5;
-    public int PopulationMax = 200;
-    public int PopulationToSave = 200; // à supprimer (Pas sûr)
-    public float PopulationIndoor = 200; // techniciens dans la centrale
-    public float PopulationOutdoor = 0;    // à supprimer
-    public float PopulationFlow = 0;       // à supprimer
-    public int EnchantillonToGamble = 20; // à suprimer
-    float[] Percentage;
-    public int TempSavedPeople;
+    public int tekosMax;
+    public int tekosSaved;
+    public int tekosDead;
+    //public int PopulationMax = 200;
+    //public int PopulationToSave = 200; // à supprimer (Pas sûr)
+    //public float PopulationIndoor = 200; // techniciens dans la centrale
+    //public float PopulationOutdoor = 0;  // à supprimer
+    //public float PopulationFlow = 0; // à supprimer
+    //public int EnchantillonToGamble = 20; // à suprimer
+    //float[] Percentage;
+    //public int TempSavedPeople;
 
     [Header("Combo")]
-    public float PaisibleCombo;
+    //public float PaisibleCombo;
 
     [Header("Probabilities Arays")]
     public float[] ModulesProbabilities = new float[] { 0.33f, 0.33f, 0.33f };
@@ -125,12 +128,17 @@ public class GameManager : MonoBehaviour
         FixEventProbabilities();
         FaxSpawnManager.instance.SpawnFax();
 
-        TempSavedPeople = 0;
+        //TempSavedPeople = 0;
 
     }
 
     // Update is called once per frame
     void Update()
+    {
+        UpdatesFonctions();
+    }
+
+    public void UpdatesFonctions()
     {
         if (IsGameStarted) // Si la partie à commencé
         {
@@ -166,11 +174,9 @@ public class GameManager : MonoBehaviour
 
             if (Time.time >= timeStampNextEvent && type != GameStates.Préparation)
             {
-                //  NextEvent();
                 NextModuleEvent();
-                PeopleFlow();
+                //PeopleFlow();
                 ProductionWatt();
-
 
                 for (int i = 0; i < modules.Length; i++)
                 {
@@ -178,41 +184,40 @@ public class GameManager : MonoBehaviour
                     modules[i].ErrorInspector();
                 }
 
-                if (type == GameStates.Paisible)
-                {
-                    if (PaisibleCombo < 5f)
-                    {
-                        PaisibleCombo += 0.25f;
-                        Debug.Log("Cooombo =" + PaisibleCombo);
-                        if (PaisibleCombo > 0.26f && PaisibleCombo < 6f)
-                        {
-                            if (PopulationFlow < 3)
-                            {
-                                PopulationFlow += PaisibleCombo;
-                            }
-                        }
-
-                    }
-                }
-                else
-                {
-                    PaisibleCombo = 0f;
-                }
-
-
+                // PaisibleFlow();
 
                 timeStampNextEvent = Time.time + coolDownNextEvent;
             }
-
-
-            PopulationIndoor -= (Time.deltaTime * PopulationFlow);
-            PopulationOutdoor += (Time.deltaTime * PopulationFlow);
+            /*PopulationIndoor -= (Time.deltaTime * PopulationFlow);
+            PopulationOutdoor += (Time.deltaTime * PopulationFlow);*/
         }
         else
         {
             IsAllModuleAreProductive();
         }
     }
+
+   /* public void PaisibleFlow()
+    {
+        if (type == GameStates.Paisible)
+        {
+            if (PaisibleCombo < 5f)
+            {
+                PaisibleCombo += 0.25f;
+                if (PaisibleCombo > 0.26f && PaisibleCombo < 6f)
+                {
+                    if (PopulationFlow < 3)
+                    {
+                        PopulationFlow += PaisibleCombo;
+                    }
+                }
+            }
+        }
+        else
+        {
+            PaisibleCombo = 0f;
+        }
+    }*/
 
     void FixEventProbabilities() // Ajuste les probabilitées d'évenements selon l'état de la partie
     {
@@ -279,26 +284,25 @@ public class GameManager : MonoBehaviour
             case 0:
                 type = GameStates.Intenable;
                 facteurSecondaire = 4f;
-                EnchantillonToGamble = 20;
-                TempSavedPeople = 0;
-                AmountGamble(4f,5, Percentage = new float[] { 0.5f, 0.5f });
+                //EnchantillonToGamble = 20;
+                //TempSavedPeople = 0;
+                //AmountGamble(4f,5, Percentage = new float[] { 0.5f, 0.5f });
                 break;
 
             case 1:
                 type = GameStates.Trépidant;
                 facteurSecondaire = 2f;
-                EnchantillonToGamble = 20;
-                TempSavedPeople = 0;
-                AmountGamble(6f,3,Percentage = new float[] { 0.8f, 0.2f });
-                Debug.Log("Evenementtada");
+                //EnchantillonToGamble = 20;
+                //TempSavedPeople = 0;
+                //AmountGamble(6f,3,Percentage = new float[] { 0.8f, 0.2f });
                 break;
 
             case 2:
                 type = GameStates.Paisible;
                 facteurSecondaire = 1f;
-                EnchantillonToGamble = 20;
-                TempSavedPeople = 0;
-                AmountGamble(10f,1, Percentage = new float[] { 1f, 0f });
+                //EnchantillonToGamble = 20;
+                //TempSavedPeople = 0;
+                //AmountGamble(10f,1, Percentage = new float[] { 1f, 0f });
                 break;
         }
     }
@@ -377,11 +381,9 @@ public class GameManager : MonoBehaviour
                         informationsEvent = "Surcharge, surchauffe et radiation";
                         i = new bool[] { false, true, true, true };
                         return i;
-
                     default:
                         Debug.Log("Etat de module non listé (inconnu)");
-                        return i;
-                        
+                        return i;                     
                 }
                 
             case 2:
@@ -397,7 +399,6 @@ public class GameManager : MonoBehaviour
                     SpawnManager.instance.Temp = Time.time + SpawnManager.instance.FrenzyCoolDown;
                 }
                 return Default;
-
             default:
                 Debug.Log("Evenement non listé dans l'eventPicker");
                 return Default;
@@ -424,9 +425,7 @@ public class GameManager : MonoBehaviour
                             {
                                 modules[0].Etats[i] = true;
                             }
-
                         }
-
                     }
                     break;
                 case 1: // Module B
@@ -439,11 +438,8 @@ public class GameManager : MonoBehaviour
                             if (modules[1].isProductive)
                             {
                                 modules[1].Etats[i] = true;
-
                             }
-
                         }
-
                     }
                     break;
                 case 2: // Module C
@@ -458,16 +454,13 @@ public class GameManager : MonoBehaviour
                                 modules[2].Etats[i] = true;
                             }
                         }
-
                     }
                     break;
-
                 default:
                     Debug.Log("Module non listé dans l'eventPicker(inconnu)");
                     break;
             }
-        }
-        
+        }       
     }
 
 
@@ -475,7 +468,6 @@ public class GameManager : MonoBehaviour
 
     bool[] ControlModulesStates(bool[] Echantillon, bool[] ModuleX, bool[] ModuleY) // Ajuste l'Echantillon pour eviter que + de 2 modules aient le même état
     {
-
         if (Echantillon != null)
         {
             for (int i = 0; i < Echantillon.Length; i++)
@@ -485,10 +477,8 @@ public class GameManager : MonoBehaviour
                     if (ModuleX[i] && ModuleY[i])
                     {
                         Echantillon[i] = false;
-
                     }
                 }
-
             }
             return Echantillon;
         }
@@ -523,7 +513,7 @@ public class GameManager : MonoBehaviour
     }
 
 
-    void FacteurPrimaire() // à modifier pour la production en watt
+    void FacteurPrimaire()
     {
         facteurPrimaire = 0f;
         for (int i = 0; i < modules.Length; i++)
@@ -533,7 +523,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void RouletteRusse(int echantillonToGamble, float [] SavePourcentage) // à supprimer 
+   /* public void RouletteRusse(int echantillonToGamble, float [] SavePourcentage) // à supprimer 
     {
         for (int i = 0; i < echantillonToGamble; i++)
         {
@@ -666,7 +656,7 @@ public class GameManager : MonoBehaviour
             default:
                 break;
         }
-    }
+    }*/
 
    public void  IsAllModuleAreProductive() // pour le démarage de la partie
    {
@@ -697,7 +687,7 @@ public class GameManager : MonoBehaviour
 
     }
 
-   void WhichModulesIsProductive() // Stoque dans la liste de bool currentModuleProductive[] les modules actuelement productif /!\ Doublon de fonction /!\
+   void WhichModulesIsProductive() // Stocke dans la liste de bool currentModuleProductive[] les modules actuelement productif /!\ Doublon de fonction /!\
     {
         for (int i = 0; i < ModuleManager.instance.Modules.Length; i++)
         {
