@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using UnityEditor;
 
 public class ModuleState : MonoBehaviour
 {
@@ -10,8 +12,6 @@ public class ModuleState : MonoBehaviour
 
     public GameObject[] etatsIndicators;
     public GameObject[] LedsError;
-
-    public GameObject[] Techniciens;
 
     [Header("Watts")]
     public float productionWattSecondes = 2f;
@@ -24,6 +24,14 @@ public class ModuleState : MonoBehaviour
     public GameObject TekosPrefab;
     public int intraTekos = 5;
 
+    [Header("Cooldowns")]
+    public float coolDownkill = 10f;
+    public float timeStampState = 5000f;
+
+    public bool IamCalled = false;
+
+
+    Predicate<GameObject> Pred;
     /* mémo
      0 : Stable
      1 : Surchauffe
@@ -42,8 +50,19 @@ public class ModuleState : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!IamCalled & !Etats[0])
+        {
+            CoolDownTekos(StatesCount());
+            IamCalled = true;
+        }
+        //ArrayUtility.RemoveAt(ref Tekos, (int)(Array.FindLastIndex(Tekos, TekosPrefab)));
+        if (Time.time >= timeStampState) // Si 6 secondes se sont écoulés
+        {
+            KillTekos();
+        }
+        
 
-
+      
     }
 
 
@@ -253,4 +272,35 @@ public class ModuleState : MonoBehaviour
         }
         return tempBonus;
     }
+
+    public void CoolDownTekos(int nbState)
+    {      
+        int tempState = nbState;
+        if (tempState == 0)
+        {
+            timeStampState = 500f;
+        }
+        else if (tempState > 0)
+        {          
+            timeStampState = Time.time + coolDownkill;
+        }
+    }
+
+    public void KillTekos()
+    {
+        //ArrayUtility.RemoveAt(ref Tekos, (Array.FindLastIndex( Tekos, Pred)));
+        for (int i = 0; i < Tekos.Length; i++)
+        {
+            if (Tekos[i] != null)
+            {
+                Debug.Log("il y a qqlshoz");
+                Destroy(Tekos[i]);
+                Tekos[i] = null;
+                timeStampState = 5000f;
+                break;
+            }     
+        }
+    }
+
+    
 }

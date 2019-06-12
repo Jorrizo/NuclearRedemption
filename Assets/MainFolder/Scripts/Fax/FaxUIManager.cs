@@ -29,9 +29,9 @@ public class FaxUIManager : MonoBehaviour
         valLife.text = "Vie de la centrale : " + (int)GameManager.instance.integriteGlobale;
         valState.text = "Etat de la centrale : " + GameManager.instance.type.ToString();
 
-        peopleToSave.text = "Population à sauver : " + GameManager.instance.PopulationToSave.ToString();
-        peopleIndoor.text = "Population restante : " + (int)GameManager.instance.PopulationIndoor;
-        peopleSaved.text = "Population sauvée : " + (int)GameManager.instance.PopulationOutdoor;
+       // peopleToSave.text = "Population à sauver : " + GameManager.instance.PopulationToSave.ToString();
+       // peopleIndoor.text = "Population restante : " + (int)GameManager.instance.PopulationIndoor;
+      //  peopleSaved.text = "Population sauvée : " + (int)GameManager.instance.PopulationOutdoor;
     }
 
     // Update is called once per frame

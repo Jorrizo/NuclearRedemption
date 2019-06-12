@@ -50,6 +50,9 @@ public class GameManager : MonoBehaviour
     private string informationsEvent = "nothing";
 
     bool Iamcalled = false;
+    bool Iamcalled2 = false;
+    bool Iamcalled3 = false;
+    bool Iamcalled4 = false;
 
     [Header("Techniciens")]
     public int extraTekos = 5;
@@ -411,25 +414,29 @@ public class GameManager : MonoBehaviour
 
         if (Echantillon != Default) // eviter les evenements qui ne concerne pas les modules.
         {
+
             switch ((int)EventPicker(ModulesProbabilities))
             {
 
                 case 0: // Module A
                     Debug.Log(informationsEvent + " pour le Module A");
+                    modules[0].IamCalled = false;
                     ControlModulesStates(Echantillon, modules[1].Etats, modules[2].Etats);
                     for (int i = 0; i < Echantillon.Length; i++)  // Parcourt le tableau et ecrase avec le tableau Echantillon
                     {
                         if (Echantillon[i] && !modules[0].Etats[i])
                         {
-                            if (modules[1].isProductive)
+                            if (modules[0].isProductive)
                             {
                                 modules[0].Etats[i] = true;
                             }
                         }
                     }
+
                     break;
                 case 1: // Module B
                     Debug.Log(informationsEvent + " pour le Module B");
+                    modules[1].IamCalled = false;
                     ControlModulesStates(Echantillon, modules[0].Etats, modules[2].Etats);
                     for (int i = 0; i < Echantillon.Length; i++)
                     {
@@ -437,13 +444,17 @@ public class GameManager : MonoBehaviour
                         {
                             if (modules[1].isProductive)
                             {
+                                
                                 modules[1].Etats[i] = true;
                             }
                         }
+
                     }
+
                     break;
                 case 2: // Module C
                     Debug.Log(informationsEvent + " pour le Module C");
+                    modules[2].IamCalled = false;
                     ControlModulesStates(Echantillon, modules[0].Etats, modules[1].Etats);
                     for (int i = 0; i < Echantillon.Length; i++)
                     {
@@ -451,10 +462,12 @@ public class GameManager : MonoBehaviour
                         {
                             if (modules[2].isProductive)
                             {
+                                
                                 modules[2].Etats[i] = true;
                             }
                         }
                     }
+
                     break;
                 default:
                     Debug.Log("Module non listé dans l'eventPicker(inconnu)");

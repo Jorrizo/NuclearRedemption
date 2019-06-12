@@ -14295,12 +14295,6 @@ MonoBehaviour:
   - {fileID: 158259829}
   - {fileID: 2065776728}
   - {fileID: 1824730678}
-  Techniciens:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   productionWattSecondes: 2
   Stable: {fileID: 2100000, guid: bc27396749f190a418cb129df73edb70, type: 2}
   NotStable: {fileID: 2100000, guid: 74ef14a1a38c7b04c9f11ada8c2ae527, type: 2}
@@ -14313,6 +14307,9 @@ MonoBehaviour:
   TekosPrefab: {fileID: 7586325483914051887, guid: 180a1b5399577cb4ca6bb760f0286b7a,
     type: 3}
   intraTekos: 5
+  coolDownkill: 6
+  timeStampState: 5000
+  IamCalled: 0
 --- !u!1 &665827660
 GameObject:
   m_ObjectHideFlags: 0
@@ -14353,12 +14350,6 @@ MonoBehaviour:
   - {fileID: 236806159}
   - {fileID: 675704795}
   - {fileID: 1389751728}
-  Techniciens:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   productionWattSecondes: 2
   Stable: {fileID: 2100000, guid: bc27396749f190a418cb129df73edb70, type: 2}
   NotStable: {fileID: 2100000, guid: 74ef14a1a38c7b04c9f11ada8c2ae527, type: 2}
@@ -14371,6 +14362,9 @@ MonoBehaviour:
   TekosPrefab: {fileID: 7586325483914051887, guid: 180a1b5399577cb4ca6bb760f0286b7a,
     type: 3}
   intraTekos: 5
+  coolDownkill: 6
+  timeStampState: 5000
+  IamCalled: 0
 --- !u!1 &665827676
 GameObject:
   m_ObjectHideFlags: 0
@@ -68508,14 +68502,9 @@ MonoBehaviour:
   coolDownState: 10
   coolDownNextEvent: 5
   extraTekos: 5
-  PopulationMax: 200
-  PopulationToSave: 200
-  PopulationIndoor: 200
-  PopulationOutdoor: 0
-  PopulationFlow: 0
-  EnchantillonToGamble: 20
-  TempSavedPeople: 0
-  PaisibleCombo: 0
+  tekosMax: 0
+  tekosSaved: 0
+  tekosDead: 0
   ModulesProbabilities:
   - 0.33
   - 0.33
@@ -75276,12 +75265,6 @@ MonoBehaviour:
   - {fileID: 923980357}
   - {fileID: 586914728}
   - {fileID: 877794406}
-  Techniciens:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   productionWattSecondes: 2
   Stable: {fileID: 2100000, guid: bc27396749f190a418cb129df73edb70, type: 2}
   NotStable: {fileID: 2100000, guid: 74ef14a1a38c7b04c9f11ada8c2ae527, type: 2}
@@ -75294,6 +75277,9 @@ MonoBehaviour:
   TekosPrefab: {fileID: 7586325483914051887, guid: 180a1b5399577cb4ca6bb760f0286b7a,
     type: 3}
   intraTekos: 5
+  coolDownkill: 6
+  timeStampState: 5000
+  IamCalled: 0
 --- !u!1 &162913256858333800
 GameObject:
   m_ObjectHideFlags: 0

@@ -33,6 +33,9 @@ public class TableauManager : MonoBehaviour
                         Liaisons[i].CurrentFusible.GetComponent<FusibleManager>().isUsed = true;
                         Liaisons[i].IsLiaisonValid = false;
                         gameObject.GetComponentInChildren<LiaisonManager>().Led.material.CopyPropertiesFromMaterial(gameObject.GetComponentInChildren<LiaisonManager>().Red);
+                        Liaisons[i].Starting.IamCalled = false;
+                        Liaisons[i].Starting.timeStampState = 5000;
+                        Liaisons[i].Starting.CheckState();
                         Liaisons[i].GetComponentInChildren<VRTK_SnapDropZone>().ForceUnsnap();
 
                     }
@@ -42,6 +45,9 @@ public class TableauManager : MonoBehaviour
                         Liaisons[i].CurrentFusible.GetComponent<FusibleManager>().isUsed = true;
                         Liaisons[i].IsLiaisonValid = false;
                         gameObject.GetComponentInChildren<LiaisonManager>().Led.material.CopyPropertiesFromMaterial(gameObject.GetComponentInChildren<LiaisonManager>().Red);
+                        Liaisons[i].Starting.IamCalled = false;
+                        Liaisons[i].Starting.timeStampState = 5000;
+                        Liaisons[i].Starting.CheckState();
                         Liaisons[i].GetComponentInChildren<VRTK_SnapDropZone>().ForceUnsnap();
 
                     }
@@ -51,6 +57,9 @@ public class TableauManager : MonoBehaviour
                         Liaisons[i].CurrentFusible.GetComponent<FusibleManager>().isUsed = true;
                         Liaisons[i].IsLiaisonValid = false;
                         gameObject.GetComponentInChildren<LiaisonManager>().Led.material.CopyPropertiesFromMaterial(gameObject.GetComponentInChildren<LiaisonManager>().Red);
+                        Liaisons[i].Starting.IamCalled = false;
+                        Liaisons[i].Starting.timeStampState = 5000;
+                        Liaisons[i].Starting.CheckState();
                         Liaisons[i].GetComponentInChildren<VRTK_SnapDropZone>().ForceUnsnap();
 
                     }
