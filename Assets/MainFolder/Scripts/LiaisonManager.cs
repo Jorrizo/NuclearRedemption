@@ -78,12 +78,18 @@ public class LiaisonManager : MonoBehaviour
                         Led.material.CopyPropertiesFromMaterial(Red);
                 }
             }
+            else  // Si le fusible est usée 
+            {
+                GetComponentInChildren<VRTK_SnapDropZone>().ForceUnsnap();
+                Led.material.CopyPropertiesFromMaterial(Red);
+                Debug.Log("retour rouge");
+            }
         }
-
-        else  // Si le fusible est usée /!\ attention possible mauvais placement de ce code /!\
+        else  
         {
                 GetComponentInChildren<VRTK_SnapDropZone>().ForceUnsnap();
                 Led.material.CopyPropertiesFromMaterial(Red);
+                Debug.Log("retour rouge");
         }
         
     }
