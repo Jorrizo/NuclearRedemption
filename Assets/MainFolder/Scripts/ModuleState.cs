@@ -22,6 +22,7 @@ public class ModuleState : MonoBehaviour
     public GameObject[] Tekos;
     public GameObject TekosPrefab;
     public Transform[] TekosPos;
+    public Transform TekosLook;
     public int intraTekos = 5;
 
     [Header("Cooldowns")]
@@ -255,9 +256,10 @@ public class ModuleState : MonoBehaviour
                     {
                         for (int f = 0; f < TekosPos.Length; f++)
                         {
-                            if (!(Physics.CheckSphere(TekosPos[f].position, 0.5f)))
+                            if (!(Physics.CheckSphere(TekosPos[f].position, 0.2f)))
                             {
                                 Tekos[w] = Instantiate(TekosPrefab, TekosPos[f].position, Quaternion.identity, gameObject.transform);
+                                Tekos[w].transform.LookAt(TekosLook);
                                 break;
                             }
                         }
@@ -267,9 +269,10 @@ public class ModuleState : MonoBehaviour
                     {
                         for (int f = 0; f < Tekos.Length; f++)
                         {
-                            if (!(Physics.CheckSphere(TekosPos[f].position, 0.5f)))
+                            if (!(Physics.CheckSphere(TekosPos[f].position, 0.2f)))
                             {
                                 Tekos[w] = Instantiate(TekosPrefab, TekosPos[f].position, Quaternion.identity, gameObject.transform);
+                                Tekos[w].transform.LookAt(TekosLook);
                                 break;
                             }
                         }
