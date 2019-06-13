@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using VRTK;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,6 +14,11 @@ public class GameManager : MonoBehaviour
         Trépidant,
         Intenable
     }
+
+    [Header("Objectifs")]
+    public float Objectif1 = 2000f;
+    public float Objectif2 = 4000f;
+    public float Objectif3 = 6000f;
 
 
     [Header("Watt")]
@@ -50,9 +56,6 @@ public class GameManager : MonoBehaviour
     private string informationsEvent = "nothing";
 
     bool Iamcalled = false;
-    bool Iamcalled2 = false;
-    bool Iamcalled3 = false;
-    bool Iamcalled4 = false;
 
     [Header("Techniciens")]
     public int extraTekos = 5;
@@ -127,6 +130,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        VarResetStart();
+        
         type = GameStates.Préparation;
         FixEventProbabilities();
         FaxSpawnManager.instance.SpawnFax();
@@ -145,7 +150,7 @@ public class GameManager : MonoBehaviour
     {
         if (IsGameStarted) // Si la partie à commencé
         {
-
+            
             if (!Iamcalled)
             {
                 timeStampState = Time.time + coolDownState; // cooldown preparation
@@ -159,6 +164,9 @@ public class GameManager : MonoBehaviour
 
             if (Time.time >= timeStampState) // Si 30 secondes se sont écoulés
             {
+                VarStockageBeforePlaying();
+                Endgame();
+
                 if (type == GameStates.Préparation) // Après l'état préparation suit forcement l'état Paisible
                 {
                     type = GameStates.Paisible;
@@ -753,5 +761,93 @@ public class GameManager : MonoBehaviour
     {
         wattProduit += wattProductionSeconde * Time.deltaTime;
     }
+
+    public void Endgame()
+    {
+        if (integriteGlobale <= 0)
+        {
+            if (wattProduit != wattObjectif)
+            {
+                Defeat();
+            }
+            else
+            {
+                Win();
+            }
+        }       
+    }
+
+    public void AfterLever() // appeler après l'animation de la porte
+    {
+        if (wattProduit == wattObjectif)
+        {
+            Win();
+        }
+        else
+        {
+            Defeat();
+        }
+    }
+
+    public void Defeat ()
+    {
+        VarStockageBeforeEnd();
+        SceneManager.LoadScene(2);
+    }
+
+    public void Win()
+    {
+        VarStockageBeforeEnd();
+        SceneManager.LoadScene(3);
+    }
+
+    private void VarStockageBeforePlaying()
+    {
+        PlayerPrefs.SetInt("extraTekos", extraTekos);
+        PlayerPrefs.SetInt("tekosMax",tekosMax);
+                
+        PlayerPrefs.SetFloat("wattObjectif", wattObjectif);
+    }
+    private void VarStockageBeforeEnd()
+    {
+        PlayerPrefs.SetInt("tekosSaved", tekosSaved);
+        PlayerPrefs.SetInt("tekosDead", tekosDead);
+
+        PlayerPrefs.SetFloat("wattProduit", wattProduit);
+
+        PlayerPrefs.SetFloat("integriteGlobale", integriteGlobale);
+    }
+
+    private void VarResetStart()
+    {   //Reset
+        PlayerPrefs.SetInt("tekosSaved", 0);
+        PlayerPrefs.SetInt("tekosDead", 0);
+
+        PlayerPrefs.SetFloat("wattObjectif", 0f);
+
+        PlayerPrefs.SetFloat("integriteGlobale", 0f);
+
+        //AsignValue
+        if (!PlayerPrefs.HasKey("AddvalueObjectif"))
+        {
+          PlayerPrefs.SetFloat("AddvalueObjectif", 0f);
+        }
+        if (!PlayerPrefs.HasKey("AddExtraTekos"))
+        {
+            PlayerPrefs.SetFloat("AddExtraTekos", 0f);
+        }
+
+
+        //EraseValue
+        Objectif1 += PlayerPrefs.GetFloat("AddvalueObjectif");
+        Objectif2 += PlayerPrefs.GetFloat("AddvalueObjectif");
+        Objectif3 += PlayerPrefs.GetFloat("AddvalueObjectif");
+
+        extraTekos += PlayerPrefs.GetInt("AddExtraTekos");
+        tekosMax += PlayerPrefs.GetInt("AddExtraTekos"); //Attention
+    }
+
+
+
 }
  

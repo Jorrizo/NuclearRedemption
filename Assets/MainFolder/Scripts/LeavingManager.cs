@@ -8,8 +8,11 @@ public class LeavingManager : MonoBehaviour
 
     public float timeLeft = 3.0f;
     public bool LeavingPossible = false;
-    public bool BoutonReached = false;
-    public int Stack = 0;
+    public bool doorArmed = false;
+    public bool iAmCalled = false;
+    public GameObject LedArm;
+    public Material red;
+    public Material green;
 
 
     void Start()
@@ -20,30 +23,19 @@ public class LeavingManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (BoutonReached == true && Stack == 2)
-        {
-            TimerOpenning();
-        }
+
     }
 
-    public void TimerOpenning()
-    {
-        if (timeLeft >= 0)
-        { 
-            timeLeft -= Time.deltaTime;
-            if (timeLeft< 0)
-            {
-                LeavingPossible = true;
-            }
-        }
-    }
 
-    public void Bouton()
+
+    public void ArmedLeaving()
     {
-        BoutonReached = true;
-        if(Stack < 2)
+        if (iAmCalled == false && GameManager.instance.IsGameStarted)
         {
-            Stack++;
+            doorArmed = true;
+            //LedArm.GetComponent<Renderer>().copy
+            iAmCalled = true;
         }
+        
     }
 }
