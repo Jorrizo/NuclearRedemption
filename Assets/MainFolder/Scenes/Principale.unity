@@ -16675,14 +16675,14 @@ MonoBehaviour:
   distancePickupLeft: 323
   distancePickupRight: 324
   distancePickupModifier: 306
-  moveForward: 119
-  moveLeft: 97
+  moveForward: 122
+  moveLeft: 113
   moveBackward: 115
   moveRight: 100
   sprint: 304
   triggerAlias: 324
   gripAlias: 323
-  touchpadAlias: 113
+  touchpadAlias: 97
   buttonOneAlias: 101
   buttonTwoAlias: 114
   startMenuAlias: 102
