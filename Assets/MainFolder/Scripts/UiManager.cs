@@ -5,9 +5,9 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 
-public class UiManager : MonoBehaviour
+public class UiManagerGameOver : MonoBehaviour
 {
-    public static UiManager instance = null;
+    public static UiManagerGameOver instance = null;
 
     [Header("Text")]
     public Text tryAgain;
