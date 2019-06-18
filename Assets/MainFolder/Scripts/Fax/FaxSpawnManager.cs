@@ -9,6 +9,7 @@ public class FaxSpawnManager : MonoBehaviour
 
 
     public GameObject SheetFax;
+    public GameObject SheetContrat;
 
     private void Awake()
     {
@@ -37,5 +38,10 @@ public class FaxSpawnManager : MonoBehaviour
     public void SpawnFax()
     {
         Instantiate(SheetFax, gameObject.transform.position, Quaternion.Euler(0f, 0f, 90f));
+    }
+
+    public void SpawnContrat()
+    {
+        Instantiate(SheetContrat, gameObject.transform.position, Quaternion.Euler(0f, 0f, 90f));
     }
 }
