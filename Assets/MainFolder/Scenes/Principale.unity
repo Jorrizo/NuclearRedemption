@@ -52642,7 +52642,7 @@ MonoBehaviour:
   validCollisionColor: {r: 0, g: 1, b: 0, a: 1}
   invalidCollisionColor: {r: 1, g: 0, b: 0, a: 1}
   tracerVisibility: 0
-  cursorVisibility: 0
+  cursorVisibility: 2
   maximumLength: 100
   scaleFactor: 0.002
   cursorScaleMultiplier: 25
