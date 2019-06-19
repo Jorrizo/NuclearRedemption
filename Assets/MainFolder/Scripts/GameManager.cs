@@ -114,6 +114,10 @@ public class GameManager : MonoBehaviour
     public float facteurSecondaire = 1f;
     public float facteurIntegrite = 0f;
 
+    [Header("UI")]
+    public GameObject UIHorsGame;
+    public GameObject UIInGame;
+
     private void Awake()
     {
         if(instance == null)
@@ -144,6 +148,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         UpdatesFonctions();
+        CheckUI();
     }
 
     public void UpdatesFonctions()
@@ -847,6 +852,19 @@ public class GameManager : MonoBehaviour
         tekosMax += PlayerPrefs.GetInt("AddExtraTekos"); //Attention
     }
 
+    public void CheckUI()
+    {
+        if (IsGameStarted)
+        {
+            UIHorsGame.SetActive(false);
+            UIInGame.SetActive(true);
+        }
+        else
+        {
+            UIHorsGame.SetActive(true);
+            UIInGame.SetActive(false);
+        }
+    }
 
 
 }
