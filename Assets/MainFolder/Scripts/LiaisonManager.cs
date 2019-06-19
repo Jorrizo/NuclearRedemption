@@ -53,11 +53,7 @@ public class LiaisonManager : MonoBehaviour
             {
                 Debug.Log("!Stable && !Used");
 
-                if (CurrentFusible.CompareTag("On") && ProperModule.isProductive != true || CurrentFusible.CompareTag("Off") && ProperModule.isProductive != false)
-                {
-                    gameObject.GetComponentInChildren<LiaisonManager>().Led.material.CopyPropertiesFromMaterial(gameObject.GetComponentInChildren<LiaisonManager>().Activate);
-                }
-                else if (CurrentFusible.CompareTag("Surcharge") && (Starting.Etats[1] && !Ending.Etats[1])) //Si c'est le fusible Surchauffe et que la liaison Surchauffe est respectée
+                if (CurrentFusible.CompareTag("Surcharge") && (Starting.Etats[1] && !Ending.Etats[1])) //Si c'est le fusible Surchauffe et que la liaison Surchauffe est respectée
                 {
                         IsLiaisonValid = true;
                         Led.material.CopyPropertiesFromMaterial(Green);

@@ -39,6 +39,8 @@ public class UiManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        index = 0;
+        stack = 0;
         indexContrat = 0;
         Print();
     }

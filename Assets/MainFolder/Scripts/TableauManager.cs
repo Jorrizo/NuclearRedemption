@@ -7,6 +7,7 @@ public class TableauManager : MonoBehaviour
 {
 
     public LiaisonManager[] Liaisons;
+    public ProductiveManager[] ProductiveSnap;
     // Start is called before the first frame update
     void Start()
     {
@@ -70,23 +71,26 @@ public class TableauManager : MonoBehaviour
 
     public void IsProductive() // le module devient productif ou non
     {
-        for (int i = 0; i < Liaisons.Length; i++)
+        for (int i = 0; i < ProductiveSnap.Length; i++)
         {
-            if (Liaisons[i].CurrentFusible != null)
+            if (ProductiveSnap[i].currentFusible != null)
             {
-                if (Liaisons[i].CurrentFusible.CompareTag("On") && Liaisons[i].ProperModule.isProductive != true)
+                if (ProductiveSnap[i].currentFusible.CompareTag("On"))
                 {
-                    Liaisons[i].GetComponentInChildren<VRTK_SnapDropZone>().ForceUnsnap();
-                    gameObject.GetComponentInChildren<LiaisonManager>().Led.material.CopyPropertiesFromMaterial(gameObject.GetComponentInChildren<LiaisonManager>().Red);
-                    Liaisons[i].ProperModule.isProductive = true;
+                    if (!Liaisons[i].ProperModule.isProductive)
+                    {
+                        Liaisons[i].ProperModule.isProductive = true;
+                    }
                 }
-                else if (Liaisons[i].CurrentFusible.CompareTag("Off") && Liaisons[i].ProperModule.isProductive == true)
+                else
                 {
-                    
-                    Liaisons[i].GetComponentInChildren<VRTK_SnapDropZone>().ForceUnsnap();
-                    gameObject.GetComponentInChildren<LiaisonManager>().Led.material.CopyPropertiesFromMaterial(gameObject.GetComponentInChildren<LiaisonManager>().Red);
+                    ProductiveSnap[i].GetComponent<VRTK_SnapDropZone>().ForceUnsnap();
                     Liaisons[i].ProperModule.isProductive = false;
                 }
+            }
+            else
+            {
+                Liaisons[i].ProperModule.isProductive = false;
             }
         }
 
