@@ -63,7 +63,7 @@ public class UiManager : MonoBehaviour
 
     public void Up()
     {
-        if(index > 0 && stack == 4)
+        if(index > 0 && stack == 4 && !GameManager.instance.IsGameStarted)
         {
             index--;
         }
@@ -71,7 +71,7 @@ public class UiManager : MonoBehaviour
 
     public void Down()
     {
-        if(index < 2 && stack == 4)
+        if(index < 2 && stack == 4 && !GameManager.instance.IsGameStarted)
         { 
             index++;
         }
@@ -79,7 +79,7 @@ public class UiManager : MonoBehaviour
 
     public void Selection()
     {
-        if (stack == 4)
+        if (stack == 4 && !GameManager.instance.IsGameStarted)
         {
             switch (index)
             {
