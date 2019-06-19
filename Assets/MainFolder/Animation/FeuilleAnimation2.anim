@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: FeuilleAnimation
+  m_Name: FeuilleAnimation2
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -165,10 +165,10 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: HasPlayedAnim
+    attribute: HasPlayed
     path: 
     classID: 114
-    script: {fileID: 11500000, guid: 41b680c442661b24b9560cf4abf94bf2, type: 3}
+    script: {fileID: 11500000, guid: 26b46661003a68b4ba677f68fbeee0fd, type: 3}
   m_PPtrCurves: []
   m_SampleRate: 60
   m_WrapMode: 0
@@ -207,8 +207,8 @@ AnimationClip:
       isPPtrCurve: 0
     - serializedVersion: 2
       path: 0
-      attribute: 2288618217
-      script: {fileID: 11500000, guid: 41b680c442661b24b9560cf4abf94bf2, type: 3}
+      attribute: 2552345731
+      script: {fileID: 11500000, guid: 26b46661003a68b4ba677f68fbeee0fd, type: 3}
       typeID: 114
       customType: 0
       isPPtrCurve: 0
@@ -500,10 +500,10 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: HasPlayedAnim
+    attribute: HasPlayed
     path: 
     classID: 114
-    script: {fileID: 11500000, guid: 41b680c442661b24b9560cf4abf94bf2, type: 3}
+    script: {fileID: 11500000, guid: 26b46661003a68b4ba677f68fbeee0fd, type: 3}
   m_EulerEditorCurves:
   - curve:
       serializedVersion: 2

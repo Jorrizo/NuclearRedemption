@@ -19,7 +19,7 @@ public class ContratFax : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameObject.GetComponent<Animator>())
+        if (gameObject.GetComponent<Animator>() != null)
         {
             if (HasPlayed)
             {

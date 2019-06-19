@@ -39,8 +39,8 @@ public class UiManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Print();
         indexContrat = 0;
+        Print();
     }
 
     // Update is called once per frame
@@ -167,7 +167,7 @@ public class UiManager : MonoBehaviour
 
     public void PrintPlus()
     {
-        if(index == 0 && stack == 4)
+        if(index == 0)
         {
             if (indexContrat <= 2)
             {

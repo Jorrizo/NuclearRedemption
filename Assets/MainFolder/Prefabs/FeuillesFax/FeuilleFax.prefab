@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 4862145159914728342}
   - component: {fileID: 4862145159914728341}
   m_Layer: 5
-  m_Name: ValPplIndoor
+  m_Name: ValWattObj
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -209,7 +209,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4862145160768160679}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -336,7 +336,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Population :'
+  m_Text: 'Production :'
 --- !u!1 &4862145160031624539
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,7 +349,7 @@ GameObject:
   - component: {fileID: 4862145160031624614}
   - component: {fileID: 4862145160031624613}
   m_Layer: 5
-  m_Name: ValPplToSave
+  m_Name: ValWattProd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -367,7 +367,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4862145160768160679}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -494,7 +494,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Etat Actuel
+  m_Text: Rapport
 --- !u!1 &4862145160318534879
 GameObject:
   m_ObjectHideFlags: 0
@@ -607,10 +607,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 5652196229373899739, guid: a8d8bc31681778540980cd720bd61294,
     type: 3}
-  HasPlayed: 0
-  peopleToSave: {fileID: 4862145160031624613}
-  peopleIndoor: {fileID: 4862145159914728341}
-  peopleSaved: {fileID: 4862145160414436080}
+  HasPlayedAnim: 0
+  txtWattObj: {fileID: 4862145159914728341}
+  txtWattProd: {fileID: 4862145160031624613}
+  txtWattSec: {fileID: 4862145160414436080}
   valState: {fileID: 4862145160375250943}
   valLife: {fileID: 4862145160635844197}
 --- !u!54 &641860165741378519
@@ -802,7 +802,7 @@ GameObject:
   - component: {fileID: 4862145160414436081}
   - component: {fileID: 4862145160414436080}
   m_Layer: 5
-  m_Name: ValPplSaved
+  m_Name: ValWattSec
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -961,7 +961,7 @@ GameObject:
   - component: {fileID: 4862145160768160673}
   - component: {fileID: 4862145160768160672}
   m_Layer: 5
-  m_Name: LayoutPpl
+  m_Name: LayoutObj
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -978,8 +978,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0.00015058866}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4862145160031624612}
   - {fileID: 4862145159914728340}
+  - {fileID: 4862145160031624612}
   - {fileID: 4862145160414436087}
   m_Father: {fileID: 4862145161516232975}
   m_RootOrder: 1
