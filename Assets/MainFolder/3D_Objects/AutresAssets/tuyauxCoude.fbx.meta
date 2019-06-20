@@ -13,7 +13,12 @@ ModelImporter:
     4300000: Pipes_Corner
     7400000: Take 001
     9500000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Steel
+    second: {fileID: 2100000, guid: 0f012803ffe4d444da5594fe54839f2a, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

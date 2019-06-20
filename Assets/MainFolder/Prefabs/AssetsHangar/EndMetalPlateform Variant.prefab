@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 17216d3114afd4746918ea9c45733b0c, type: 3}
       propertyPath: m_Name
-      value: EndMetalPlateform
+      value: EndMetalPlateform Variant
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 17216d3114afd4746918ea9c45733b0c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -58,6 +58,6 @@ PrefabInstance:
     - target: {fileID: 2300000, guid: 17216d3114afd4746918ea9c45733b0c, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 7ad874a62a6997a4e85c0ad061f3ca87, type: 2}
+      objectReference: {fileID: 2100000, guid: 4bb12e2031b9add4ab7d29bb4095eadd, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17216d3114afd4746918ea9c45733b0c, type: 3}
