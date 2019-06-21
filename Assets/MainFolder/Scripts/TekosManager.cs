@@ -11,7 +11,6 @@ public class TekosManager : MonoBehaviour
     void Start()
     {
         random = Random.Range(1, 4);
-
         SetAnimation();
     }
 
