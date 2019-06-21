@@ -12461,6 +12461,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlteformMetal (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.04
+      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
       propertyPath: m_LocalPosition.x
       value: 35.38
@@ -12504,14 +12512,6 @@ PrefabInstance:
     - target: {fileID: 400004, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.45
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.04
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
@@ -16603,6 +16603,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlteformMetal (48)
       objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.04
+      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
       propertyPath: m_LocalPosition.x
       value: 31.991
@@ -16646,14 +16654,6 @@ PrefabInstance:
     - target: {fileID: 400004, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.45
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.04
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
@@ -17036,6 +17036,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlteformMetal (43)
       objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.04
+      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
       propertyPath: m_LocalPosition.x
       value: 35.38
@@ -17079,14 +17087,6 @@ PrefabInstance:
     - target: {fileID: 400004, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.45
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.04
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
@@ -17346,6 +17346,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlteformMetal (52)
       objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.04
+      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
       propertyPath: m_LocalPosition.x
       value: 26.9
@@ -17389,14 +17397,6 @@ PrefabInstance:
     - target: {fileID: 400004, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.45
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.04
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
@@ -17738,6 +17738,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlteformMetal (53)
       objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.04
+      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
       propertyPath: m_LocalPosition.x
       value: 25.21
@@ -17781,14 +17789,6 @@ PrefabInstance:
     - target: {fileID: 400004, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.45
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.04
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
@@ -20240,7 +20240,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  TekosPrefab: {fileID: 3741809171261151398, guid: f039630c1e69e1743b942a334670c6f6,
+  TekosPrefab: {fileID: 1295656797256439695, guid: 9a0f48017b8dec54397ce737eed9ed0d,
     type: 3}
   TekosPos:
   - {fileID: 960561769}
@@ -20302,7 +20302,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  TekosPrefab: {fileID: 3741809171261151398, guid: f039630c1e69e1743b942a334670c6f6,
+  TekosPrefab: {fileID: 1295656797256439695, guid: 9a0f48017b8dec54397ce737eed9ed0d,
     type: 3}
   TekosPos:
   - {fileID: 894789061}
@@ -27308,6 +27308,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlteformMetal (47)
       objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.04
+      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
       propertyPath: m_LocalPosition.x
       value: 33.681
@@ -27351,14 +27359,6 @@ PrefabInstance:
     - target: {fileID: 400004, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.45
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.04
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
@@ -30118,6 +30118,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlteformMetal (49)
       objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.04
+      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
       propertyPath: m_LocalPosition.x
       value: 30.291998
@@ -30161,14 +30169,6 @@ PrefabInstance:
     - target: {fileID: 400004, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.45
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.04
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
@@ -59499,6 +59499,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlteformMetal (51)
       objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.04
+      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
       propertyPath: m_LocalPosition.x
       value: 23.511
@@ -59542,14 +59550,6 @@ PrefabInstance:
     - target: {fileID: 400004, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.45
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.04
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
@@ -61425,6 +61425,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlteformMetal (46)
       objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.04
+      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
       propertyPath: m_LocalPosition.x
       value: 30.276
@@ -61468,14 +61476,6 @@ PrefabInstance:
     - target: {fileID: 400004, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.45
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.04
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
@@ -61929,6 +61929,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlteformMetal (44)
       objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.04
+      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
       propertyPath: m_LocalPosition.x
       value: 33.696
@@ -61972,14 +61980,6 @@ PrefabInstance:
     - target: {fileID: 400004, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.45
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.04
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
@@ -80516,6 +80516,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlteformMetal (45)
       objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.04
+      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
       propertyPath: m_LocalPosition.x
       value: 31.960001
@@ -80559,14 +80567,6 @@ PrefabInstance:
     - target: {fileID: 400004, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.45
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.04
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
@@ -82422,6 +82422,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlteformMetal (50)
       objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.04
+      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
       propertyPath: m_LocalPosition.x
       value: 28.599
@@ -82465,14 +82473,6 @@ PrefabInstance:
     - target: {fileID: 400004, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.45
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.04
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
@@ -87722,6 +87722,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlteformMetal (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.04
+      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
       propertyPath: m_LocalPosition.x
       value: 35.38
@@ -87765,14 +87773,6 @@ PrefabInstance:
     - target: {fileID: 400004, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.45
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.04
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2931e0a3fc71fc94d8cea489e08f57da, type: 3}
@@ -97277,7 +97277,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  TekosPrefab: {fileID: 3741809171261151398, guid: f039630c1e69e1743b942a334670c6f6,
+  TekosPrefab: {fileID: 1295656797256439695, guid: 9a0f48017b8dec54397ce737eed9ed0d,
     type: 3}
   TekosPos:
   - {fileID: 562956820}
