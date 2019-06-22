@@ -522,15 +522,15 @@ public class GameManager : MonoBehaviour
         {
             switch (integriteGlobale)
             {
-                case float n when (n < 1000 && n > 950):
-                    integrityLight.color = new Color(0,0,255);
+                case float n when (n < 1000 && n > 1000 - ((1000 * 50) / 100)):
+                    integrityLight.color = new Color(0,0,0);
                     break;
 
-                case float n when (n < 950 && n > 930):
+                case float n when (n < 1000 - ((1000 * 50) / 100) && n > 1000 - ((1000 * 50) / 100)):
                     integrityLight.color = new Color(255, 165, 0);
                     break;
 
-                case float n when (n < 930):
+                case float n when (n < 1000 - ((1000 * 75) / 100)):
                     integrityLight.color = new Color(255, 0, 0);
                     break;
             }
