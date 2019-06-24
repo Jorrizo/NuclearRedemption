@@ -3457,6 +3457,12 @@ MonoBehaviour:
   prodObjVal: {fileID: 642425252}
   prodProdVal: {fileID: 357163786}
   markProd: {fileID: 313340444}
+  Tech: 0
+  Health: 0
+  Prod: 0
+  sTech: 
+  sHealth: 
+  sProd: 
 --- !u!1 &681920738
 GameObject:
   m_ObjectHideFlags: 0
@@ -4520,7 +4526,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9433962, g: 0, b: 0, a: 0.5019608}
+  m_Color: {r: 0.9433962, g: 0, b: 0, a: 0.27058825}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
