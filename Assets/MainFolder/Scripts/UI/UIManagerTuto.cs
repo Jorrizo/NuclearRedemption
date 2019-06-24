@@ -95,18 +95,12 @@ public class UIManagerTuto : MonoBehaviour
         if (index == 0)
         {
             Background01.enabled = true;
-        }
-        else
-        {
             Background02.enabled = false;
         }
 
         if (index == 1)
         {
             Background02.enabled = true;
-        }
-        else
-        {
             Background01.enabled = false;
         }
     }

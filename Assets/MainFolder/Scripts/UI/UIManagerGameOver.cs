@@ -84,13 +84,14 @@ public class UIManagerGameOver : MonoBehaviour
     {
         Health = ((100 * (int)GameManager.instance.integriteGlobale) / 1000);
 
+        if ((int)GameManager.instance.extraTekos != 0)
+        {
+            Tech = ((100 * (int)GameManager.instance.tekosSaved) / (int)GameManager.instance.extraTekos);
+        }
+
         if ((int)GameManager.instance.extraTekos == 0)
         {
             sTech = "D";
-        }
-        else
-        {
-            Tech = ((100 * (int)GameManager.instance.tekosSaved) / (int)GameManager.instance.extraTekos);
         }
 
         Prod = ((100 * (int)GameManager.instance.wattProduit) / (int)GameManager.instance.wattObjectif);
@@ -124,7 +125,7 @@ public class UIManagerGameOver : MonoBehaviour
         {
             sTech = "C";
         }
-        else if (Tech > 0 && Tech < 25)
+        else if (Tech >= 0 && Tech < 25)
         {
             sTech = "D";
         }

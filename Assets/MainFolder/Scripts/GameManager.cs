@@ -20,7 +20,6 @@ public class GameManager : MonoBehaviour
     public float Objectif2 = 4000f;
     public float Objectif3 = 6000f;
 
-
     [Header("Watt")]
     public float wattObjectif = 0f; // Objectif de production en Watt
     public float wattProductionSeconde = 0f; // Production actuelle en Watt
@@ -82,7 +81,6 @@ public class GameManager : MonoBehaviour
    2: Module B
    3: Module C
     */
-
 
     public float[] EventsProbabilities = new float[] { 0.0f, 0.0f, 0.0f, 0.0f };
 
@@ -266,7 +264,6 @@ public class GameManager : MonoBehaviour
     {
             for (int i = 0; i<ModuleManager.instance.Modules.Length; i++)
             {
-
                 if (ModuleManager.instance.Modules[i].Etats[0])
                 {
                     currentModuleStable[i] = true;
@@ -445,8 +442,8 @@ public class GameManager : MonoBehaviour
                             }
                         }
                     }
-
                     break;
+
                 case 1: // Module B
                     Debug.Log(informationsEvent + " pour le Module B");
                     modules[1].IamCalled = false;
@@ -463,8 +460,8 @@ public class GameManager : MonoBehaviour
                         }
 
                     }
-
                     break;
+
                 case 2: // Module C
                     Debug.Log(informationsEvent + " pour le Module C");
                     modules[2].IamCalled = false;
@@ -480,17 +477,14 @@ public class GameManager : MonoBehaviour
                             }
                         }
                     }
-
                     break;
+
                 default:
                     Debug.Log("Module non listé dans l'eventPicker(inconnu)");
                     break;
             }
         }       
     }
-
-
-
 
     bool[] ControlModulesStates(bool[] Echantillon, bool[] ModuleX, bool[] ModuleY) // Ajuste l'Echantillon pour eviter que + de 2 modules aient le même état
     {
