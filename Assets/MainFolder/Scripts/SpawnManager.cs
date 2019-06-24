@@ -68,35 +68,72 @@ public class SpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.instance.IsGameStarted)
+        if (FindObjectOfType(typeof(GameManager)) != null)
         {
-            InstantiateFuse();
-            SpawnRate();
+            if (GameManager.instance.IsGameStarted)
+            {
+                InstantiateFuse();
+                SpawnRate();
+            }
         }
+        else
+        {
+            if (TutorielManager.instance.IsGameStarted)
+            {
+                InstantiateFuse();
+                SpawnRate();
+            }
+        }
+        
     }
 
     void InstantiateFuse()
     {
         if (temp < Time.time && type != SpawnStates.FuseJam)
         {
-            switch (GameManager.instance.EventPicker(FusibleSpawnProbabilities))
+            if (FindObjectOfType(typeof(GameManager)) != null)
             {
-                case 0:
-                    Instantiate(PreFabFusibles[0], gameObject.GetComponent<Transform>());
-                    break;
+                switch (GameManager.instance.EventPicker(FusibleSpawnProbabilities))
+                {
+                    case 0:
+                        Instantiate(PreFabFusibles[0], gameObject.GetComponent<Transform>());
+                        break;
 
-                case 1:
-                    Instantiate(PreFabFusibles[1], gameObject.GetComponent<Transform>());
-                    break;
+                    case 1:
+                        Instantiate(PreFabFusibles[1], gameObject.GetComponent<Transform>());
+                        break;
 
-                case 2:
-                    Instantiate(PreFabFusibles[2], gameObject.GetComponent<Transform>());
-                    break;
+                    case 2:
+                        Instantiate(PreFabFusibles[2], gameObject.GetComponent<Transform>());
+                        break;
 
-                case 3:
-                    Instantiate(PreFabFusibles[3], gameObject.GetComponent<Transform>());
-                    break;
+                    case 3:
+                        Instantiate(PreFabFusibles[3], gameObject.GetComponent<Transform>());
+                        break;
+                }
             }
+            else
+            {
+                switch (TutorielManager.instance.EventPicker(FusibleSpawnProbabilities))
+                {
+                    case 0:
+                        Instantiate(PreFabFusibles[0], gameObject.GetComponent<Transform>());
+                        break;
+
+                    case 1:
+                        Instantiate(PreFabFusibles[1], gameObject.GetComponent<Transform>());
+                        break;
+
+                    case 2:
+                        Instantiate(PreFabFusibles[2], gameObject.GetComponent<Transform>());
+                        break;
+
+                    case 3:
+                        Instantiate(PreFabFusibles[3], gameObject.GetComponent<Transform>());
+                        break;
+                }
+            }
+            
             temp = Time.time + coolDown;
         }
     }

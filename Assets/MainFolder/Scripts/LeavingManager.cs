@@ -30,12 +30,25 @@ public class LeavingManager : MonoBehaviour
 
     public void ArmedLeaving()
     {
-        if (iAmCalled == false && GameManager.instance.IsGameStarted)
+        if (FindObjectOfType(typeof(GameManager)) != null)
         {
-            doorArmed = true;
-            //LedArm.GetComponent<Renderer>().copy
-            iAmCalled = true;
+            if (iAmCalled == false && GameManager.instance.IsGameStarted)
+            {
+                doorArmed = true;
+                //LedArm.GetComponent<Renderer>().copy
+                iAmCalled = true;
+            }
         }
+        else
+        {
+            if (iAmCalled == false && TutorielManager.instance.IsGameStarted)
+            {
+                doorArmed = true;
+                //LedArm.GetComponent<Renderer>().copy
+                iAmCalled = true;
+            }
+        }
+        
         
     }
 }

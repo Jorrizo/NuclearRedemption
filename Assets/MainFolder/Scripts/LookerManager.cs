@@ -26,6 +26,14 @@ public class LookerManager : MonoBehaviour
 
     public void ExitMirror()
     {
-        GameManager.instance.AfterLever();
+        if (FindObjectOfType(typeof(GameManager)) != null)
+        {
+            GameManager.instance.AfterLever();
+        }
+        else
+        {
+            TutorielManager.instance.AfterLever();
+        }
+        
     }
 }

@@ -251,42 +251,85 @@ public class ModuleState : MonoBehaviour
         for (int w = 0; w < tekos.Length; w++)
         {
             GameObject MyTekos = tekos[w];
-            if (tekos.Length <= 5) // Sécuritée
+            if (FindObjectOfType(typeof(GameManager)) != null)
             {
-                if(tekos[w] == null) // Add Tekos
+                if (tekos.Length <= 5) // Sécuritée
                 {
-                    if (intraTekos > 0)
+                    if (tekos[w] == null) // Add Tekos
                     {
-                        for (int f = 0; f < TekosPos.Length; f++)
+                        if (intraTekos > 0)
                         {
-                            if (!(Physics.CheckSphere(TekosPos[f].position, 0.2f)))
+                            for (int f = 0; f < TekosPos.Length; f++)
                             {
-                                Tekos[w] = Instantiate(TekosPrefab, TekosPos[f].position, Quaternion.identity, gameObject.transform);
-                                Tekos[w].transform.LookAt(TekosLook);
-                                break;
+                                if (!(Physics.CheckSphere(TekosPos[f].position, 0.2f)))
+                                {
+                                    Tekos[w] = Instantiate(TekosPrefab, TekosPos[f].position, Quaternion.identity, gameObject.transform);
+                                    Tekos[w].transform.LookAt(TekosLook);
+                                    break;
+                                }
                             }
+                            intraTekos--;
                         }
-                        intraTekos--;
+                        else if (GameManager.instance.extraTekos > 0)
+                        {
+                            for (int f = 0; f < Tekos.Length; f++)
+                            {
+                                if (!(Physics.CheckSphere(TekosPos[f].position, 0.2f)))
+                                {
+                                    Tekos[w] = Instantiate(TekosPrefab, TekosPos[f].position, Quaternion.identity, gameObject.transform);
+                                    Tekos[w].transform.LookAt(TekosLook);
+                                    break;
+                                }
+                            }
+                            GameManager.instance.extraTekos--;
+                        }
                     }
-                    else if (GameManager.instance.extraTekos > 0)
+                    if (MyTekos != null)
                     {
-                        for (int f = 0; f < Tekos.Length; f++)
-                        {
-                            if (!(Physics.CheckSphere(TekosPos[f].position, 0.2f)))
-                            {
-                                Tekos[w] = Instantiate(TekosPrefab, TekosPos[f].position, Quaternion.identity, gameObject.transform);
-                                Tekos[w].transform.LookAt(TekosLook);
-                                break;
-                            }
-                        }
-                        GameManager.instance.extraTekos--;
+                        tempBonus += MyTekos.GetComponent<TekosManager>().bonusTekos;
                     }
-                }
-                if (MyTekos != null)
-                {
-                    tempBonus += MyTekos.GetComponent<TekosManager>().bonusTekos;
                 }
             }
+            else
+            {
+                if (tekos.Length <= 5) // Sécuritée
+                {
+                    if (tekos[w] == null) // Add Tekos
+                    {
+                        if (intraTekos > 0)
+                        {
+                            for (int f = 0; f < TekosPos.Length; f++)
+                            {
+                                if (!(Physics.CheckSphere(TekosPos[f].position, 0.2f)))
+                                {
+                                    Tekos[w] = Instantiate(TekosPrefab, TekosPos[f].position, Quaternion.identity, gameObject.transform);
+                                    Tekos[w].transform.LookAt(TekosLook);
+                                    break;
+                                }
+                            }
+                            intraTekos--;
+                        }
+                        else if (TutorielManager.instance.extraTekos > 0)
+                        {
+                            for (int f = 0; f < Tekos.Length; f++)
+                            {
+                                if (!(Physics.CheckSphere(TekosPos[f].position, 0.2f)))
+                                {
+                                    Tekos[w] = Instantiate(TekosPrefab, TekosPos[f].position, Quaternion.identity, gameObject.transform);
+                                    Tekos[w].transform.LookAt(TekosLook);
+                                    break;
+                                }
+                            }
+                            TutorielManager.instance.extraTekos--;
+                        }
+                    }
+                    if (MyTekos != null)
+                    {
+                        tempBonus += MyTekos.GetComponent<TekosManager>().bonusTekos;
+                    }
+                }
+            }
+            
         }
         return tempBonus;
     }

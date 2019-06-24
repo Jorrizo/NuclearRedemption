@@ -5,7 +5,8 @@ using VRTK;
 
 public class TableauManager : MonoBehaviour
 {
-
+    public ModuleState ModuleA;
+    public ModuleState ModuleB;
     public LiaisonManager[] Liaisons;
     public ProductiveManager[] ProductiveSnap;
     // Start is called before the first frame update
@@ -71,29 +72,92 @@ public class TableauManager : MonoBehaviour
 
     public void IsProductive() // le module devient productif ou non
     {
-        for (int i = 0; i < ProductiveSnap.Length; i++)
+        if (Liaisons.Length == ProductiveSnap.Length)
         {
-            if (ProductiveSnap[i].currentFusible != null)
+            for (int i = 0; i < ProductiveSnap.Length; i++)
             {
-                if (ProductiveSnap[i].currentFusible.CompareTag("On"))
+                if (ProductiveSnap[i].currentFusible != null)
                 {
-                    if (!Liaisons[i].ProperModule.isProductive)
+                    if (ProductiveSnap[i].currentFusible.CompareTag("On"))
                     {
-                        Liaisons[i].ProperModule.isProductive = true;
+                        if (!Liaisons[i].ProperModule.isProductive)
+                        {
+                            Liaisons[i].ProperModule.isProductive = true;
+                        }
+                    }
+                    else
+                    {
+                        ProductiveSnap[i].GetComponent<VRTK_SnapDropZone>().ForceUnsnap();
+                        Liaisons[i].ProperModule.isProductive = false;
                     }
                 }
                 else
                 {
-                    ProductiveSnap[i].GetComponent<VRTK_SnapDropZone>().ForceUnsnap();
+
                     Liaisons[i].ProperModule.isProductive = false;
                 }
             }
-            else
+        }
+        else if (Liaisons.Length != ProductiveSnap.Length)
+        {
+            Debug.Log("Tutorielmode");
+            for (int i = 0; i < ProductiveSnap.Length; i++)
             {
-                Liaisons[i].ProperModule.isProductive = false;
+                switch (i)
+                {
+                    case 1:
+                        if (ProductiveSnap[1].currentFusible != null)
+                        {
+                            if (ProductiveSnap[1].currentFusible.CompareTag("On"))
+                            {
+                                if (!ModuleA.isProductive)
+                                {
+                                    ModuleA.isProductive = true;
+                                }
+                            }
+                            else
+                            {
+                                ProductiveSnap[1].GetComponent<VRTK_SnapDropZone>().ForceUnsnap();
+                                ModuleA.isProductive = false;
+                            }
+                        }
+                        else
+                        {
+                            if (ProductiveSnap[1].currentFusible == null)
+                            {
+                                ModuleA.isProductive = false; // module A 
+                            }
+                        }
+                            break;
+
+                    case 2:
+                        if (ProductiveSnap[2].currentFusible != null)
+                        {
+                            Debug.Log("NotNull");
+                            if (ProductiveSnap[2].currentFusible.CompareTag("On"))
+                            {
+                                Debug.Log("CompareTag Ok");
+                                if (!ModuleB.isProductive)
+                                {
+                                    ModuleB.isProductive = true;
+                                }
+                            }
+                            else
+                            {
+                                ProductiveSnap[2].GetComponent<VRTK_SnapDropZone>().ForceUnsnap();
+                                ModuleB.isProductive = false;
+                            }
+                        }
+                        else
+                        {
+                            if (ProductiveSnap[2].currentFusible == null)
+                            {
+                                ModuleB.isProductive = false; // module A 
+                            }
+                        }
+                        break;
+                }
             }
         }
-
-
     }
 }

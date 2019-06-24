@@ -25,13 +25,25 @@ public class FaxUIManager : MonoBehaviour
     {
         HasPlayedAnim = false;
         //GetComponent<Rigidbody>().AddForce(gameObject.transform.up * 1f, ForceMode.Impulse);
+        if (FindObjectOfType(typeof(GameManager)) != null)
+        {
+            valLife.text = "Vie de la centrale : " + (int)GameManager.instance.integriteGlobale;
+            valState.text = "Etat de la centrale : " + GameManager.instance.type.ToString();
 
-        valLife.text = "Vie de la centrale : " + (int)GameManager.instance.integriteGlobale;
-        valState.text = "Etat de la centrale : " + GameManager.instance.type.ToString();
+            txtWattObj.text = "Objectif de production : " + GameManager.instance.wattObjectif.ToString();
+            txtWattProd.text = "Watt produit : " + (int)GameManager.instance.wattProduit + "W";
+            txtWattSec.text = "Production par secondes : " + (int)GameManager.instance.wattProductionSeconde + " W/s";
+        }
+        else
+        {
+            valLife.text = "Vie de la centrale : " + (int)TutorielManager.instance.integriteGlobale;
+            valState.text = "Etat de la centrale : " + TutorielManager.instance.type.ToString();
 
-        txtWattObj.text = "Objectif de production : " + GameManager.instance.wattObjectif.ToString();
-        txtWattProd.text = "Watt produit : " + (int)GameManager.instance.wattProduit + "W";
-        txtWattSec.text = "Production par secondes : " + (int)GameManager.instance.wattProductionSeconde +" W/s";
+            txtWattObj.text = "Objectif de production : " + TutorielManager.instance.wattObjectif.ToString();
+            txtWattProd.text = "Watt produit : " + (int)TutorielManager.instance.wattProduit + "W";
+            txtWattSec.text = "Production par secondes : " + (int)TutorielManager.instance.wattProductionSeconde + " W/s";
+        }
+        
     }
 
     // Update is called once per frame

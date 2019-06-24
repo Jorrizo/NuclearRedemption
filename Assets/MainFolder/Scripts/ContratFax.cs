@@ -13,7 +13,14 @@ public class ContratFax : MonoBehaviour
     void Start()
     {
         HasPlayed = false;
-        objectif.text = GameManager.instance.wattObjectif.ToString() + " Watt";
+        if (FindObjectOfType(typeof(GameManager)) != null)
+        {
+            objectif.text = GameManager.instance.wattObjectif.ToString() + " Watt";
+        }
+        else
+        {
+            objectif.text = TutorielManager.instance.wattObjectif.ToString() + " Watt";
+        }
     }
 
     // Update is called once per frame
