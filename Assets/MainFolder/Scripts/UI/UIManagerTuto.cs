@@ -36,7 +36,7 @@ public class UIManagerTuto : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        GreenHighlight();
     }
 
     // Update is called once per frame
@@ -59,7 +59,7 @@ public class UIManagerTuto : MonoBehaviour
 
     public void Up()
     {
-        if (index > 0 && stack == 4 && GameManager.instance.IsGameStarted)
+        if (index > 0 && stack == 4)
         {
             index--;
         }
@@ -67,7 +67,7 @@ public class UIManagerTuto : MonoBehaviour
 
     public void Down()
     {
-        if (index < 1 && stack == 4 && GameManager.instance.IsGameStarted)
+        if (index < 1 && stack == 4)
         {
             index++;
         }
@@ -75,7 +75,7 @@ public class UIManagerTuto : MonoBehaviour
 
     public void Selection()
     {
-        if (stack == 4 && GameManager.instance.IsGameStarted)
+        if (stack == 4)
         {
             switch (index)
             {
@@ -103,11 +103,11 @@ public class UIManagerTuto : MonoBehaviour
 
         if (index == 1)
         {
-            Background01.enabled = true;
+            Background02.enabled = true;
         }
         else
         {
-            Background02.enabled = false;
+            Background01.enabled = false;
         }
     }
 
