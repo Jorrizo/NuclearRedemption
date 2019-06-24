@@ -63,6 +63,11 @@ public class UiManager : MonoBehaviour
         Application.Quit();
     }
 
+    public void Play()
+    {
+        SceneManager.LoadScene(1);
+    }
+
     public void Up()
     {
         if(index > 0 && stack == 4 && !GameManager.instance.IsGameStarted)

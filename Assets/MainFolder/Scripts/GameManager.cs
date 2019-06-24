@@ -854,18 +854,19 @@ public class GameManager : MonoBehaviour
 
     public void CheckUI()
     {
-        if (IsGameStarted)
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Principale"))
         {
-            UIHorsGame.SetActive(false);
-            UIInGame.SetActive(true);
-        }
-        else
-        {
-            UIHorsGame.SetActive(true);
-            UIInGame.SetActive(false);
+            if (IsGameStarted)
+            {
+                UIHorsGame.SetActive(false);
+                UIInGame.SetActive(true);
+            }
+            else
+            {
+                UIHorsGame.SetActive(true);
+                UIInGame.SetActive(false);
+            }
         }
     }
-
-
 }
  
