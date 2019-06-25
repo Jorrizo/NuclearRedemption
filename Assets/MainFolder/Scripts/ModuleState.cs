@@ -12,6 +12,9 @@ public class ModuleState : MonoBehaviour
     public GameObject[] etatsIndicators;
     public GameObject[] LedsError;
 
+    [Header("Sounds")]
+    public AudioClip[] Sound;
+
     [Header("Watts")]
     public float productionWattSecondes = 2f;
 
@@ -118,7 +121,13 @@ public class ModuleState : MonoBehaviour
                if (!etatsIndicators[i].activeSelf) // si il n'est pas actif
                {
                     etatsIndicators[i].SetActive(true);
-               }
+                    AudioSource audio = GetComponent<AudioSource>();
+                    if (audio.clip == Sound[i] && audio.isPlaying)
+                    {
+                        audio.clip = Sound[i];
+                        audio.Play();
+                    }
+                }
                 etatsIndicators[0].SetActive(false);
                 Etats[0] = false;
             }
