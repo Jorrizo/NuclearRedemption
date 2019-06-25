@@ -12,6 +12,7 @@ TagManager:
   - SnapCylinder
   - On
   - Off
+  - Ground
   layers:
   - Default
   - TransparentFX
