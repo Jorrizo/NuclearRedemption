@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 
 public class UIManagerTuto : MonoBehaviour
@@ -20,6 +21,9 @@ public class UIManagerTuto : MonoBehaviour
     [Header("Int")]
     public int index = 0;
     public int stack = 0;
+
+    [Header("Sound")]
+    public AudioClip click;
 
     private void Awake()
     {
@@ -111,5 +115,10 @@ public class UIManagerTuto : MonoBehaviour
         {
             stack++;
         }
+    }
+
+    public void SoundClick()
+    {
+        GetComponent<AudioSource>().PlayOneShot(click);
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using VRTK; //Accès à la catégorie VTRK
+using UnityEngine.Audio;
 
 public class LiaisonManager : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class LiaisonManager : MonoBehaviour
     public Material Red;
     public Material Green;
     public Material Activate;
+
+    public AudioClip Snap;
 
     public GameObject CurrentFusible;
 
@@ -88,5 +91,13 @@ public class LiaisonManager : MonoBehaviour
                 Debug.Log("retour rouge");
         }
         
+    }
+    
+    public void SnappingSound()
+    {
+        if (!CurrentFusible.GetComponent<FusibleManager>().isUsed)
+        {
+            GetComponent<AudioSource>().PlayOneShot(Snap);
+        }
     }
 }

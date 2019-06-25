@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using VRTK;
+using UnityEngine.Audio;
 
 public class TableauManager : MonoBehaviour
 {
+    public AudioClip snap;
+    public AudioClip unSnap;
+
     public ModuleState ModuleA;
     public ModuleState ModuleB;
     public LiaisonManager[] Liaisons;
@@ -39,7 +43,7 @@ public class TableauManager : MonoBehaviour
                         Liaisons[i].Starting.timeStampState = 5000;
                         Liaisons[i].Starting.CheckState();
                         Liaisons[i].GetComponentInChildren<VRTK_SnapDropZone>().ForceUnsnap();
-
+                        GetComponent<AudioSource>().PlayOneShot(unSnap);
                     }
                     if (Liaisons[i].CurrentFusible.CompareTag("Surchauffe"))
                     {
@@ -51,7 +55,7 @@ public class TableauManager : MonoBehaviour
                         Liaisons[i].Starting.timeStampState = 5000;
                         Liaisons[i].Starting.CheckState();
                         Liaisons[i].GetComponentInChildren<VRTK_SnapDropZone>().ForceUnsnap();
-
+                        GetComponent<AudioSource>().PlayOneShot(unSnap);
                     }
                     if (Liaisons[i].CurrentFusible.CompareTag("Radioactif"))
                     {
@@ -63,7 +67,7 @@ public class TableauManager : MonoBehaviour
                         Liaisons[i].Starting.timeStampState = 5000;
                         Liaisons[i].Starting.CheckState();
                         Liaisons[i].GetComponentInChildren<VRTK_SnapDropZone>().ForceUnsnap();
-
+                        GetComponent<AudioSource>().PlayOneShot(unSnap);
                     }
                 }
             }
@@ -159,5 +163,15 @@ public class TableauManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void SoundSnap()
+    {
+        GetComponent<AudioSource>().PlayOneShot(snap);
+    }
+
+    public void SoundUnSnap()
+    {
+        GetComponent<AudioSource>().PlayOneShot(unSnap);
     }
 }
