@@ -13,6 +13,7 @@ public class TableauManager : MonoBehaviour
     public ModuleState ModuleB;
     public LiaisonManager[] Liaisons;
     public ProductiveManager[] ProductiveSnap;
+    public GameObject[] ProductiveLeds;
     // Start is called before the first frame update
     void Start()
     {
@@ -87,18 +88,20 @@ public class TableauManager : MonoBehaviour
                         if (!Liaisons[i].ProperModule.isProductive)
                         {
                             Liaisons[i].ProperModule.isProductive = true;
+                            ProductiveLeds[i].SetActive(false);
                         }
                     }
                     else
                     {
                         ProductiveSnap[i].GetComponent<VRTK_SnapDropZone>().ForceUnsnap();
                         Liaisons[i].ProperModule.isProductive = false;
+                        ProductiveLeds[i].SetActive(true);
                     }
                 }
                 else
                 {
-
                     Liaisons[i].ProperModule.isProductive = false;
+                    ProductiveLeds[i].SetActive(true);
                 }
             }
         }
@@ -117,12 +120,15 @@ public class TableauManager : MonoBehaviour
                                 if (!ModuleA.isProductive)
                                 {
                                     ModuleA.isProductive = true;
+                                    ProductiveLeds[1].SetActive(false);
                                 }
                             }
                             else
                             {
                                 ProductiveSnap[1].GetComponent<VRTK_SnapDropZone>().ForceUnsnap();
                                 ModuleA.isProductive = false;
+                                ProductiveLeds[1].SetActive(true);
+
                             }
                         }
                         else
@@ -130,6 +136,7 @@ public class TableauManager : MonoBehaviour
                             if (ProductiveSnap[1].currentFusible == null)
                             {
                                 ModuleA.isProductive = false; // module A 
+                                ProductiveLeds[1].SetActive(true);
                             }
                         }
                             break;
@@ -144,12 +151,14 @@ public class TableauManager : MonoBehaviour
                                 if (!ModuleB.isProductive)
                                 {
                                     ModuleB.isProductive = true;
+                                    ProductiveLeds[2].SetActive(false);
                                 }
                             }
                             else
                             {
                                 ProductiveSnap[2].GetComponent<VRTK_SnapDropZone>().ForceUnsnap();
                                 ModuleB.isProductive = false;
+                                ProductiveLeds[2].SetActive(true);
                             }
                         }
                         else
@@ -157,6 +166,7 @@ public class TableauManager : MonoBehaviour
                             if (ProductiveSnap[2].currentFusible == null)
                             {
                                 ModuleB.isProductive = false; // module A 
+                                ProductiveLeds[2].SetActive(true);
                             }
                         }
                         break;

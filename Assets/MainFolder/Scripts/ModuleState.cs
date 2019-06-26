@@ -11,6 +11,8 @@ public class ModuleState : MonoBehaviour
 
     public GameObject[] etatsIndicators;
     public GameObject[] LedsError;
+    
+    public GameObject[] LedsTekos;
 
     [Header("Sounds")]
     public AudioClip[] Sound;
@@ -48,7 +50,7 @@ public class ModuleState : MonoBehaviour
     {
         Etats[0] = true;
         AddAndReturnTekos(Tekos);
-
+        LedTekos();
     }
 
     // Update is called once per frame
@@ -56,7 +58,7 @@ public class ModuleState : MonoBehaviour
     {
         if (!IamCalled & !Etats[0])
         {
-            CoolDownTekos(StatesCount());
+            CoolDownTekos();
             IamCalled = true;
         }
         //ArrayUtility.RemoveAt(ref Tekos, (int)(Array.FindLastIndex(Tekos, TekosPrefab)));
@@ -121,12 +123,8 @@ public class ModuleState : MonoBehaviour
                if (!etatsIndicators[i].activeSelf) // si il n'est pas actif
                {
                     etatsIndicators[i].SetActive(true);
-                    AudioSource audio = GetComponent<AudioSource>();
-                    if (audio.clip == Sound[i] && audio.isPlaying)
-                    {
-                        audio.clip = Sound[i];
-                        audio.Play();
-                    }
+                  
+
                 }
                 etatsIndicators[0].SetActive(false);
                 Etats[0] = false;
@@ -274,6 +272,7 @@ public class ModuleState : MonoBehaviour
                                 {
                                     Tekos[w] = Instantiate(TekosPrefab, TekosPos[f].position, Quaternion.identity, gameObject.transform);
                                     Tekos[w].transform.LookAt(TekosLook);
+                                    LedTekos();
                                     break;
                                 }
                             }
@@ -287,6 +286,7 @@ public class ModuleState : MonoBehaviour
                                 {
                                     Tekos[w] = Instantiate(TekosPrefab, TekosPos[f].position, Quaternion.identity, gameObject.transform);
                                     Tekos[w].transform.LookAt(TekosLook);
+                                    LedTekos();
                                     break;
                                 }
                             }
@@ -313,6 +313,7 @@ public class ModuleState : MonoBehaviour
                                 {
                                     Tekos[w] = Instantiate(TekosPrefab, TekosPos[f].position, Quaternion.identity, gameObject.transform);
                                     Tekos[w].transform.LookAt(TekosLook);
+                                    LedTekos();
                                     break;
                                 }
                             }
@@ -326,6 +327,7 @@ public class ModuleState : MonoBehaviour
                                 {
                                     Tekos[w] = Instantiate(TekosPrefab, TekosPos[f].position, Quaternion.identity, gameObject.transform);
                                     Tekos[w].transform.LookAt(TekosLook);
+                                    LedTekos();
                                     break;
                                 }
                             }
@@ -343,9 +345,9 @@ public class ModuleState : MonoBehaviour
         return tempBonus;
     }
 
-    public void CoolDownTekos(int nbState)
+    public void CoolDownTekos()
     {      
-        int tempState = nbState;
+        int tempState = NbEvent();
         if (tempState == 0)
         {
             timeStampState = 500f;
@@ -355,6 +357,41 @@ public class ModuleState : MonoBehaviour
             timeStampState = Time.time + coolDownkill;
         }
     }
+
+    int NbTekos() // Compte le nombre d'evenement instable depuis la liste de bool Etats[] 
+    {
+        int resultatTekos = 0;
+        for (int i = 0; i < Tekos.Length; i++)
+        {
+
+            if (Tekos[i] == null)
+            {
+                resultatTekos++;
+            }
+
+        }
+        Debug.Log("NbTekos = " + resultatTekos);
+        return resultatTekos;
+    }
+
+    public void LedTekos()
+    {
+        int tempTekos = NbTekos();
+
+        LedsTekos[0].SetActive(true);
+        LedsTekos[1].SetActive(true);
+        LedsTekos[2].SetActive(true);
+        LedsTekos[3].SetActive(true);
+        LedsTekos[4].SetActive(true);
+
+        for (int i = 4; i >= tempTekos; i--)
+        {
+            LedsTekos[i].SetActive(false);
+            Debug.Log("LEd to true");
+        }
+
+    }
+
 
     public void KillTekos()
     {
@@ -367,6 +404,7 @@ public class ModuleState : MonoBehaviour
                 Destroy(Tekos[i]);
                 Tekos[i] = null;
                 timeStampState = 5000f;
+                LedTekos();
                 break;
             }     
         }
